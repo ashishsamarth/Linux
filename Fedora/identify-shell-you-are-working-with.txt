@@ -1,0 +1,4 @@
+(base) [devops@fedora shell-scripts]$ echo $SHELL
+/bin/bash
+
+(base) [devops@fedora shell-scripts]$
