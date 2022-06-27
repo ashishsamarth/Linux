@@ -1,0 +1,30 @@
+(base) [devops@fedora ~]$ sudo dnf search nginx
+
+Last metadata expiration check: 0:28:19 ago on Mon 27 Jun 2022 12:23:21 PM CDT.
+======================================================================================================== Name Exactly Matched: nginx =========================================================================================================
+nginx.x86_64 : A high performance web server and reverse proxy server
+======================================================================================================= Name & Summary Matched: nginx ========================================================================================================
+collectd-nginx.x86_64 : Nginx plugin for collectd
+mogstored-backend-nginx.noarch : Nginx back-end for mogstored
+munin-nginx.noarch : NGINX support for Munin resource monitoring
+nextcloud-nginx.noarch : Nginx integration for NextCloud
+nginx-all-modules.noarch : A meta package that installs all available Nginx modules
+nginx-filesystem.noarch : The basic directory layout for the Nginx server
+nginx-mimetypes.noarch : MIME type mappings for nginx
+nginx-mod-devel.i686 : Nginx module development files
+nginx-mod-devel.x86_64 : Nginx module development files
+nginx-mod-http-image-filter.x86_64 : Nginx HTTP image filter module
+nginx-mod-http-perl.x86_64 : Nginx HTTP perl module
+nginx-mod-http-xslt-filter.x86_64 : Nginx XSLT module
+nginx-mod-mail.x86_64 : Nginx mail modules
+nginx-mod-naxsi.x86_64 : nginx web application firewall module
+nginx-mod-stream.x86_64 : Nginx stream modules
+nginx-mod-vts.x86_64 : Nginx virtual host traffic status module
+pagure-web-nginx.noarch : Nginx configuration for Pagure
+pcp-pmda-nginx.x86_64 : Performance Co-Pilot (PCP) metrics for the Nginx Webserver
+python3-certbot-nginx.noarch : The nginx plugin for certbot
+sympa-nginx.x86_64 : Sympa with nginx
+zoneminder-nginx.x86_64 : ZoneMinder configuration for Nginx web server
+=========================================================================================================== Summary Matched: nginx ===========================================================================================================
+golang-github-valyala-goloris-devel.noarch : Slowloris for NGINX DoS
+goloris.x86_64 : Slowloris for NGINX DoS
