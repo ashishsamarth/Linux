@@ -1,0 +1,4 @@
+(base) [devops@fedora ~]$ rpm -qa | grep -i ^curl
+curl-7.71.1-11.fc33.x86_64
+
+(base) [devops@fedora ~]$
