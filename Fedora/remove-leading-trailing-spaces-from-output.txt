@@ -1,0 +1,5 @@
+(base) [devops@fedora shell-functions]$ hostnamectl| grep -i hostname
+   Static hostname: fedora
+ 
+(base) [devops@fedora shell-functions]$ hostnamectl| grep -i hostname|xargs
+Static hostname: fedora
