@@ -1,0 +1,4 @@
+(base) [devops@fedora ~]$ df -h /tmp
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           3.9G   21M  3.8G   1% /tmp
+(base) [devops@fedora ~]$

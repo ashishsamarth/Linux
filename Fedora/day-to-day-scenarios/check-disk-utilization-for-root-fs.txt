@@ -1,0 +1,4 @@
+(base) [devops@fedora ~]$ df -h /
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/sda2       465G   36G  430G   8% /
+(base) [devops@fedora ~]$ 
