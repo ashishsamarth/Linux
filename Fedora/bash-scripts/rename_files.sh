@@ -7,8 +7,9 @@ read -p "Enter the character to be replaced with :- " tgt_chr
 # However I have used basename $BASH_SOURCE specifically to idenfity the filename of the executed bash script
 # So, am running an ls in the current directory and only leaving the currently executed script from ls output
 # Hence the output will have all the files except the currently executed script
+# grep -F looks for the source character in the filenames as "Fixed Strings"
 
-for rec in `ls|grep -v $(basename $BASH_SOURCE)`
+for rec in `ls|grep -v $(basename $BASH_SOURCE)|grep -F $src_chr`
 # For all the files in the above piped command, perform the following
 do
 	# Assign the iterated filename to a variable
