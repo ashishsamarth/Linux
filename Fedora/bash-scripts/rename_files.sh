@@ -1,12 +1,12 @@
 #! /bin/bash
 
-# basename get rids of the path associated with the file name
-# However I have useed basename $BASH_SOURCE specifically to idenfity the filename of the executed bash script
-# So, am running an ls in the current directory and only leaving the currently executed script from ls output
-# Hence the output will have all the files except the currently executed script
-
 read -p "Enter the character to be replaced :- " src_chr
 read -p "Enter the character to be replaced with :- " tgt_chr
+
+# basename get rids of the path associated with the file name
+# However I have used basename $BASH_SOURCE specifically to idenfity the filename of the executed bash script
+# So, am running an ls in the current directory and only leaving the currently executed script from ls output
+# Hence the output will have all the files except the currently executed script
 
 for rec in `ls|grep -v $(basename $BASH_SOURCE)`
 # For all the files in the above piped command, perform the following
