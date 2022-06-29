@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Declare name of the funtion
+# Declare name of the function
 generate_random_password()
 {
 	# Always make sure read is present
