@@ -1,0 +1,12 @@
+ubuntu@ds201-node1:~$ ~/node1/bin/nodetool status
+Datacenter: Cassandra
+=====================
+Status=Up/Down
+|/ State=Normal/Leaving/Joining/Moving
+--  Address    Load       Tokens       Owns    Host ID                               Rack
+UN  127.0.0.1  218.51 KiB  1            ?       43a5423f-fa05-4fdf-9912-bc83d545c3ee  rack1
+UN  127.0.0.2  157.46 KiB  1            ?       7f94db5b-52b7-428f-a1a7-1b5e16401a29  rack1
+UN  127.0.0.3  241.62 KiB  1            ?       322ba050-bb58-4734-99d5-66b0318b96c7  rack1
+
+Note: Non-system keyspaces don't have the same replication settings, effective ownership information is meaningless
+ubuntu@ds201-node1:~$ 
