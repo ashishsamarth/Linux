@@ -1,0 +1,1 @@
+ubuntu@ds201-node1:~$ ~/node1/bin/dse cassandra
