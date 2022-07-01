@@ -1,0 +1,5 @@
+# If the cluster has multiple nodes
+ubuntu@ds201-node1:~$ ~/node1/bin/dse cassandra-stop -p $process_id
+
+# If the cluster has only one node
+ubuntu@ds201-node1:~$ ~/node1/bin/dse cassandra-stop
