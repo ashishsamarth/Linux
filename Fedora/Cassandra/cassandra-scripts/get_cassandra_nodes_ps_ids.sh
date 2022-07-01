@@ -20,6 +20,7 @@ get_cassandra_ps_id_by_node_num()
 # Calling the function
 # Execution of the scripts calls the function with the command line argument
 # 1> /dev/null :- Suppresses the output from std_out
+# Provide the node number (numerical 1,2,3) as the positional argument
 
 ret_code=$(get_cassandra_ps_id_by_node_num $1) 1> /dev/null
 
