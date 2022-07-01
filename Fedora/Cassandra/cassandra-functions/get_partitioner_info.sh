@@ -15,4 +15,5 @@ get_configured_partitioner()
 }
 
 # Calling the function
+# Provide the node number (numerical 1,2,3) as the positional argument
 get_configured_partitioner $1
