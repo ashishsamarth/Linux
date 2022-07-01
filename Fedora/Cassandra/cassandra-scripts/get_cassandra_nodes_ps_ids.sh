@@ -3,7 +3,7 @@
 # Declare function name
 get_cassandra_ps_id_by_node_num()
 {
-	# Positional Arguement of node number is assiged to variable
+	# Positional Argument of node number is assiged to variable
 	node_num=$1
 	# Always make sure read is present
 	# read allows to run and return the output of the command to the variable
