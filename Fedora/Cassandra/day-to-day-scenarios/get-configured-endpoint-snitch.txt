@@ -1,0 +1,2 @@
+ubuntu@ds201-node1:~/cassandra-scripts$ grep -i ^endpoint_snitch ~/node1/resources/cassandra/conf/cassandra.yaml | rev | cut -d '.' -f1 | rev
+DseSimpleSnitch
