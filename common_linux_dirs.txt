@@ -16,3 +16,4 @@
 /sys	:- system directory, where system hardware information files are stored
 /tmp	:- temporary directory, where temporary work files can be created and destroyed
 /usr	:- user binary directory, where the bulk of GNU user-level utilities and data files are stored
+/var	:- variable directory, for files that change frequently, such as log files
