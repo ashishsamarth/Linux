@@ -10,3 +10,4 @@
 /opt	:- optional directory, often used to store third-party software packages and data files
 /proc	:- process directory, where current hardware and process information is stored
 /root	:- root home directory
+/sbin	:- system binary directory, where many GNU admin-level utilities are stored
