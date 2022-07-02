@@ -1,1 +1,2 @@
 /	:- root of the virtual directory, where normally, no files are placed
+/bin	:- binary directory, where many GNU user-level utilities are stored
