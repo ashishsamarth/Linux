@@ -2,3 +2,4 @@
 /bin	:- binary directory, where many GNU user-level utilities are stored
 /boot	:- boot directory, where boot files are stored
 /dev	:- device directory, where Linux creates device nodes
+/etc	:- system configuration files directory
