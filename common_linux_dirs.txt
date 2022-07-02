@@ -4,3 +4,4 @@
 /dev	:- device directory, where Linux creates device nodes
 /etc	:- system configuration files directory
 /home	:- home directory, where Linux creates user directories
+/lib	:- library directory, where system and application library files are stored
