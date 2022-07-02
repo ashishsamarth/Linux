@@ -9,3 +9,4 @@
 /mnt	:- mount directory, another common place for mount points used for removable media
 /opt	:- optional directory, often used to store third-party software packages and data files
 /proc	:- process directory, where current hardware and process information is stored
+/root	:- root home directory
