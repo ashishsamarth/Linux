@@ -7,3 +7,4 @@
 /lib	:- library directory, where system and application library files are stored
 /media	:- media directory, a common place for mount points used for removable media
 /mnt	:- mount directory, another common place for mount points used for removable media
+/opt	:- optional directory, often used to store third-party software packages and data files
