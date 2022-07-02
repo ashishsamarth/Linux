@@ -12,3 +12,4 @@
 /root	:- root home directory
 /sbin	:- system binary directory, where many GNU admin-level utilities are stored
 /run	:- run directory, where runtime data is held during system operation
+/srv	:- service directory, where local services store their files
