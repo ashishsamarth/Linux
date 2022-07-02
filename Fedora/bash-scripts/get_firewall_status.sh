@@ -12,6 +12,8 @@ get_firewall_status()
 	# read allows to run and return the output of the command to the variable
 	# xargs removes the leading and trailing spaces if any in the output
 	firewall_status=read systemctl status firewalld| head -3|tail -1|xargs|cut -d ';' -f1|cut -d ' ' -f3
+	# Another method to get the firewall status
+	# firewall_status=read firewall-cmd --state
 	
 	# return value of the function is the status "running or dead" of the firewall
 	return $firewall_status
