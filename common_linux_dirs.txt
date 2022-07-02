@@ -14,3 +14,4 @@
 /run	:- run directory, where runtime data is held during system operation
 /srv	:- service directory, where local services store their files
 /sys	:- system directory, where system hardware information files are stored
+/tmp	:- temporary directory, where temporary work files can be created and destroyed
