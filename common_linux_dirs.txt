@@ -6,3 +6,4 @@
 /home	:- home directory, where Linux creates user directories
 /lib	:- library directory, where system and application library files are stored
 /media	:- media directory, a common place for mount points used for removable media
+/mnt	:- mount directory, another common place for mount points used for removable media
