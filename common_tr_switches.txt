@@ -1,0 +1,1 @@
+To replace / translate ',' to '-’   :-  cat filename|tr ',' '-d'
