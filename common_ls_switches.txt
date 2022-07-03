@@ -13,3 +13,4 @@ To display file UID and GID :-  ls -n
 To list files with visual identification    :-  ls --color=auto ; ls –F
 To list and sort file by extension name :-  ls –X
 To list and sort file by size   :-  ls –S
+To list file by size    :-  ls -s
