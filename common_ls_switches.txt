@@ -1,2 +1,3 @@
 To list only links  :-  ls -lrt|grep "^l"
 To list only directories    :-  ls -lrt|grep "^d"
+To list only files  :-  ls -lrt|grep "^-"
