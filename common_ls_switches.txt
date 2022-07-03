@@ -1,0 +1,1 @@
+To list only links  :-  ls -lrt|grep "^l"
