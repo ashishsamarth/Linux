@@ -1,8 +1,6 @@
 (base) [devops@fedora ~]$ echo $SHELL
 /bin/bash
-
 (base) [devops@fedora ~]$
-
 (base) [devops@fedora ~]$ echo $0
 bash
 (base) [devops@fedora ~]$ 
