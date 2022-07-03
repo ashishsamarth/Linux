@@ -2,3 +2,4 @@ To list only links  :-  ls -lrt|grep "^l"
 To list only directories    :-  ls -lrt|grep "^d"
 To list only files  :-  ls -lrt|grep "^-"
 To list the last EDITED / MODIFIED file :-  ls -lt
+To list the last EDITED / MODIFIED file in reverse order    :-  ls -ltr
