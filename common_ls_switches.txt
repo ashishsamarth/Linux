@@ -8,3 +8,4 @@ To list the directory info without showing its contents and without entering the
 To list hidden files in current directory   :-  ls -la
 To list hidden files in current directory and Parent Directory  :-  ls -lA
 To list files recursively   :-  ls -lR
+To list file inode number   :-  ls -i
