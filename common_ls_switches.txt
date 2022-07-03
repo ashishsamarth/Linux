@@ -7,3 +7,4 @@ To list the file in human readable size :-  ls -lh
 To list the directory info without showing its contents and without entering the directory  :-  ls -ldh Directory_Name
 To list hidden files in current directory   :-  ls -la
 To list hidden files in current directory and Parent Directory  :-  ls -lA
+To list files recursively   :-  ls -lR
