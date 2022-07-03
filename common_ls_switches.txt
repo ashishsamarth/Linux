@@ -4,3 +4,4 @@ To list only files  :-  ls -lrt|grep "^-"
 To list the last EDITED / MODIFIED file :-  ls -lt
 To list the last EDITED / MODIFIED file in reverse order    :-  ls -ltr
 To list the file in human readable size :-  ls -lh
+To list the directory info without showing its contents and without entering the directory  :-  ls -ldh Directory_Name
