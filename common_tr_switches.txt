@@ -1,1 +1,2 @@
 To replace / translate ',' to '-’   :-  cat filename|tr ',' '-d'
+To replace / translate ',' to new line  :-  cat filename|tr ',' '\n'
