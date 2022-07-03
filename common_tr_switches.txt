@@ -7,3 +7,4 @@ To replace / translate ',' with back slash  :-  cat filename|tr ',' '\\'
 To replace / translate ',' with form feed (^L - Character)  :-  cat filename|tr ',' '\f'
 To get the last entry of the delimited text :-  cat filename|tr ',' '\r'
 To remove spaces between the lines  :-  cat filename|tr -d " "
+To handle uneven space between the words or numbers in a file   :-  cat filename|tr -s " "
