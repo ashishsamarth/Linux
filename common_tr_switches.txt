@@ -1,3 +1,4 @@
 To replace / translate ',' to '-’   :-  cat filename|tr ',' '-d'
 To replace / translate ',' to new line  :-  cat filename|tr ',' '\n'
 To replace / translate ',' to horizontal tabbed line    :-  cat filename|tr ',' '\t'
+To replace / translate ',' to vertical tabbed line  :-  cat filename|tr ',' '\v'
