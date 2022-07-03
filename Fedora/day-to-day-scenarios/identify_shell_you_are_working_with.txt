@@ -1,4 +1,17 @@
-(base) [devops@fedora shell-scripts]$ echo $SHELL
+(base) [devops@fedora ~]$ echo $SHELL
 /bin/bash
 
-(base) [devops@fedora shell-scripts]$
+(base) [devops@fedora ~]$
+
+(base) [devops@fedora ~]$ echo $0
+bash
+(base) [devops@fedora ~]$ 
+(base) [devops@fedora ~]$ 
+(base) [devops@fedora ~]$ ps -ef|grep $$ | head -1 | awk '{print $8}'
+bash
+(base) [devops@fedora ~]$ 
+(base) [devops@fedora ~]$ 
+(base) [devops@fedora ~]$ ps -ef|grep $$ | sed q | awk '{print $8}'
+bash
+(base) [devops@fedora ~]$ 
+(base) [devops@fedora ~]$
