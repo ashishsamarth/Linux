@@ -6,3 +6,4 @@ To add an escape character                                              :-  echo
 To display the content of the file in reverse (Last line to first line) :-  tac filename
 To number 'Non-Blank' lines                                             :-  cat -b filename
 To add "$" at the end of each line                                      :-  cat -e filename
+To number all lines in the file                                         :-  cat -n filename
