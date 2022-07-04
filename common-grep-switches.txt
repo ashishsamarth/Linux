@@ -9,3 +9,4 @@ To grep the pattern in a file for only specific lines (top 10 lines)            
 To grep the pattern and suppress any error messages                                 :-  grep -s "PATTERN" filename
 To grep the pattern and print file name with the pattern match                      :-  grep -H "PATTERN" filename
 To grep the pattern and suppress the file name from output with the pattern match   :-  grep -h "PATTERN" filename
+To grep the pattern and print the line number with pattern match                    :-  grep -n "PATTERN" filename
