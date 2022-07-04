@@ -1,5 +1,6 @@
-To add a new line           :-  echo "\n"
-To add horizontal tab       :-  echo "\t"
-To add vertical tab         :-  echo "\v"
-To add literal backslash    :-  echo "\\"
-To add an escape character  :-  echo -e "content \n content"
+To add a new line                                                       :-  echo "\n"
+To add horizontal tab                                                   :-  echo "\t"
+To add vertical tab                                                     :-  echo "\v"
+To add literal backslash                                                :-  echo "\\"
+To add an escape character                                              :-  echo -e "content \n content"
+To display the content of the file in reverse (Last line to first line) :-  tac filename
