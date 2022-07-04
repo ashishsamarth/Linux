@@ -1,2 +1,4 @@
 To add a new line       :-  echo "\n"
 To add horizontal tab   :-  echo "\t"
+To add vertical tab     :-  echo "\v"
+
