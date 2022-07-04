@@ -3,3 +3,4 @@ To grep with case ignored                                   :-  grep -i "pattern
 To grep pattern and provide count                           :-  grep -c 'pattern" filename
 To grep pattern and removing unwanted content from result   :-  grep -i "pattern" filename | grep -v "pattern"
 To grep non-matching lines                                  :-  grep -v "PATTERN" filename
+To print the filenames containing the pattern               :-  grep -l "PATTERN" filename
