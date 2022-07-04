@@ -12,3 +12,4 @@ To grep the pattern and suppress the file name from output with the pattern matc
 To grep the pattern and print the line number with pattern match                                    :-  grep -n "PATTERN" filename
 To grep the pattern and print lines after pattern match (5 lines after pattern, so total 6 lines)   :-  grep -A 5 "PATTERN" filename
 To grep the pattern and print lines before pattern match (5 lines before pattern, so total 6 lines) :-  grep -B 5 "PATTERN" filename
+To grep the pattern and print lines before & after the pattern match (Total 11 Lines)               :-  grep -C 5 "PATTERN" filename
