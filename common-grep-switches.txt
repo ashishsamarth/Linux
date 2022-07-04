@@ -1,0 +1,5 @@
+To grep with case ignored                                   :-  grep -i "pattern" filename
+                                                            :-  grep -y "PATTERN" filename
+To grep pattern and provide count                           :-  grep -c 'pattern" filename
+To grep pattern and removing unwanted content from result   :-  grep -i "pattern" filename | grep -v "pattern"
+To grep non-matching lines                                  :-  grep -v "PATTERN" filename
