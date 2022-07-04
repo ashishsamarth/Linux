@@ -1,16 +1,16 @@
-To list only links  :-  ls -lrt|grep "^l"
-To list only directories    :-  ls -lrt|grep "^d"
-To list only files  :-  ls -lrt|grep "^-"
-To list the last EDITED / MODIFIED file :-  ls -lt
-To list the last EDITED / MODIFIED file in reverse order    :-  ls -ltr
-To list the file in human readable size :-  ls -lh
+To list only links                                                                          :-  ls -lrt|grep "^l"
+To list only directories                                                                    :-  ls -lrt|grep "^d"
+To list only files                                                                          :-  ls -lrt|grep "^-"
+To list the last EDITED / MODIFIED file                                                     :-  ls -lt
+To list the last EDITED / MODIFIED file in reverse order                                    :-  ls -ltr
+To list the file in human readable size                                                     :-  ls -lh
 To list the directory info without showing its contents and without entering the directory  :-  ls -ldh Directory_Name
-To list hidden files in current directory   :-  ls -la
-To list hidden files in current directory and Parent Directory  :-  ls -lA
-To list files recursively   :-  ls -lR
-To list file inode number   :-  ls -i
-To display file UID and GID :-  ls -n
-To list files with visual identification    :-  ls --color=auto ; ls –F
-To list and sort file by extension name :-  ls –X
-To list and sort file by size   :-  ls –S
-To list file by size    :-  ls -s
+To list hidden files in current directory                                                   :-  ls -la
+To list hidden files in current directory and Parent Directory                              :-  ls -lA
+To list files recursively                                                                   :-  ls -lR
+To list file inode number                                                                   :-  ls -i
+To display file UID and GID                                                                 :-  ls -n
+To list files with visual identification                                                    :-  ls --color=auto ; ls –F
+To list and sort file by extension name                                                     :-  ls –X
+To list and sort file by size                                                               :-  ls –S
+To list file by size                                                                        :-  ls -s
