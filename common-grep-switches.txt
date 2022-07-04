@@ -7,4 +7,5 @@ To print the filenames containing the pattern                           :-  grep
 To print the filenames not containing the pattern                       :-  grep -vl "PATTERN" filename
 To grep the pattern in a file for only specific lines (top 10 lines)    :-  grep -m 10 "PATTERN" filename
 To grep the pattern and suppress any error messages                     :-  grep -s "PATTERN" filename
+To grep the pattern and print file name with the pattern match          :-  grep -H "PATTERN" filename
 
