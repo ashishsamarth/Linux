@@ -4,3 +4,4 @@ To grep pattern and provide count                           :-  grep -c 'pattern
 To grep pattern and removing unwanted content from result   :-  grep -i "pattern" filename | grep -v "pattern"
 To grep non-matching lines                                  :-  grep -v "PATTERN" filename
 To print the filenames containing the pattern               :-  grep -l "PATTERN" filename
+To print the filenames not containing the pattern           :-  grep -vl "PATTERN" filename
