@@ -4,3 +4,4 @@ To add vertical tab                                                     :-  echo
 To add literal backslash                                                :-  echo "\\"
 To add an escape character                                              :-  echo -e "content \n content"
 To display the content of the file in reverse (Last line to first line) :-  tac filename
+To number 'Non-Blank' lines                                             :-  cat -b filename
