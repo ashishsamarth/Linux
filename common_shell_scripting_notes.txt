@@ -1,6 +1,6 @@
 To store all the arguments as a single string (Basically Parameters were passed)    :-  $@
 To store all the arguments in a list of string                                      :-  $*
-To store the number of arguments (How many parameters were passed)                 :-  $#
+To store the number of arguments (How many parameters were passed)                  :-  $#
 To store the exit status of last successful command (if ‘0’ – success)              :-  $?
 To get filename of the current script                                               :-  $0
 To get process number of last background command                                    :-  $!
