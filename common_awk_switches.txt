@@ -29,3 +29,4 @@ Pre-Increment Operator                                                          
 Pre-Decrement Operator                                                                                          :-  awk 'BEGIN { a=10; b=--a; print "Value of a =" a "\n" "value of b =" b}'
 Post-Increment Operator                                                                                         :-  awk 'BEGIN { a=10; b=a++; print "Value of a =" a "\n" "value of b =" b}'
 Post-Decrement Operator                                                                                         :-  awk 'BEGIN { a=10; b=a--; print "Value of a =" a "\n" "value of b =" b}'
+Assignment Operator                                                                                             :-  awk 'BEGIN { name = "Jerry"; print "My name is", name }'
