@@ -1,37 +1,39 @@
-To check awk version                                                                        :-  awk --version
-To print tabbed output of specific columns                                                  :-  awk '{print $3 "\t" $4}' filename 
-{also, any delimeter can be inserted if required, by this method}                                               
-
-To Print number of lines in a file                                                          :-  awk 'END { print NR }' filename
+To check awk version                                                                    :-  awk --version
+To print tabbed output of specific columns                                              :-  awk '{print $3 "\t" $4}' filename 
+{also, any delimeter can be inserted if required, by this method}                                              
+To Print number of lines in a file                                                      :-  awk 'END { print NR }' filename
 {advantage over wc –l is that – this command does not print the filename}    
-To search for a pattern in the column and print the entire row for the searched pattern     :-  awk '/pattern/ {print $0}' marks.txt
-To read the awk command from a file and execute it                                          :-  awk -f read.awk marks.txt
-To Print Count of lines containing the pattern                                              :-  awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' marks.txt
-To assign a variable before its execution and print it                                      :-  awk -v name=jerry 'BEGIN {print name}'
-To print the number of arguments passed to the command line (special AWK Variable - ARGC)   :-  awk 'BEGIN {print "Arguments=" ARGC}' one two three
-To print the current user (special variable ENVIRON & USER)                                 :-  awk 'BEGIN {print ENVIRON["USER"]}'
-To print the value of a previously assigned variable                                        :-  echo abc | awk -v val=$value '{print val}'
-To print the current filename (special variable FILENAME)                                   :-  awk 'END {print FILENAME}' marks.txt
-                                                                                            :-  awk '{print FILENAME}' marks.txt|uniq
-                                                                                                Note:- If END is not used, it will print the filename same # of times, 
-                                                                                                equal to the # of rows in it
-To emulate custom delimeter like in cut, special variable FS (field separator)              :-  awk 'BEGIN {FS = ")"} ; {print $2}' marks.txt                                                                                                                 
-To print number of fields in current record (special variable NF)                           :-  awk 'NR==1 {print NF}' filename
-To print the line # of the current record (Special Variable NR) (emulates grep -n)          :-  awk '/pattern/ {print NR}' filename
-To print the filename where the pattern appears (emulates grep -l)                          :-  awk '/pattern/ {print FILENAME}' *
-To print the filename and the line # where record appears(emulate grep -nl)                 :-  awk '/pattern/ {print FILENAME, FNR;}' *
-To use a different record separator for output (Special variable ORS) (tab in this case)    :-  echo “This is how it works” | awk ‘BEGIN{RS=” ”}{print $0}’
-To print values from a file having fixed length or to emulate cut -c                        :-  awk 'BEGIN {FS=":";FIELDWIDTHS = "3 5 7 3"} {print $3}' marks2.txt 
+To search for a pattern in the column and print the entire row for searched pattern     :-  awk '/pattern/ {print $0}' marks.txt
+To read the awk command from a file and execute it                                      :-  awk -f read.awk marks.txt
+To Print Count of lines containing the pattern                                          :-  awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' marks.txt
+To assign a variable before its execution and print it                                  :-  awk -v name=jerry 'BEGIN {print name}'
+To print the number of arguments passed to the command line                             :-  awk 'BEGIN {print "Arguments=" ARGC}' one two three
+(special AWK Variable - ARGC)
+
+To print the current user (special variable ENVIRON & USER)                             :-  awk 'BEGIN {print ENVIRON["USER"]}'
+To print the value of a previously assigned variable                                    :-  echo abc | awk -v val=$value '{print val}'
+To print the current filename (special variable FILENAME)                               :-  awk 'END {print FILENAME}' marks.txt
+                                                                                        :-  awk '{print FILENAME}' marks.txt|uniq
+                                                                                            Note:- If END is not used, it will print the filename same # of times, 
+                                                                                            equal to the # of rows in it
+To emulate custom delimeter like in cut, special variable FS (field separator)          :-  awk 'BEGIN {FS = ")"} ; {print $2}' marks.txt                                                                                                                 
+To print number of fields in current record (special variable NF)                       :-  awk 'NR==1 {print NF}' filename
+To print the line # of the current record (Special Variable NR) (emulates grep -n)      :-  awk '/pattern/ {print NR}' filename
+To print the filename where the pattern appears (emulates grep -l)                      :-  awk '/pattern/ {print FILENAME}' *
+To print the filename and the line # where record appears(emulate grep -nl)             :-  awk '/pattern/ {print FILENAME, FNR;}' *
+To use a different record separator for output (Special variable ORS)                   :-  echo “This is how it works” | awk ‘BEGIN{RS=” ”}{print $0}’
+(tab in this case)
+To print values from a file having fixed length or to emulate cut -c                    :-  awk 'BEGIN {FS=":";FIELDWIDTHS = "3 5 7 3"} {print $3}' marks2.txt 
 (special variable FIELDWIDTH)  
 
-To search and print a pattern with case ignored (emulate grep -i)                           :-  awk 'BEGIN {IGNORECASE=1}; /pattern/' marks.txt
-Arithmetic Operators                                                                        :-  awk 'BEGIN { a = 50; b = 20; print "(a + b) = " (a + b) }'
-                                                                                                awk 'BEGIN { a = 50; b = 20; print "(a - b) = " (a - b) }'
-                                                                                                awk 'BEGIN { a = 50; b = 20; print "(a * b) = " (a * b) }'
-                                                                                                awk 'BEGIN { a = 50; b = 20; print "(a / b) = " (a / b) }'
-                                                                                                awk 'BEGIN { a = 50; b = 20; print "(a % b) = " (a % b) }'
-Pre-Increment Operator                                                                      :-  awk 'BEGIN { a=10; b=++a; print "Value of a =" a "\n" "value of b =" b}'
-Pre-Decrement Operator                                                                      :-  awk 'BEGIN { a=10; b=--a; print "Value of a =" a "\n" "value of b =" b}'
-Post-Increment Operator                                                                     :-  awk 'BEGIN { a=10; b=a++; print "Value of a =" a "\n" "value of b =" b}'
-Post-Decrement Operator                                                                     :-  awk 'BEGIN { a=10; b=a--; print "Value of a =" a "\n" "value of b =" b}'
-Assignment Operator                                                                         :-  awk 'BEGIN { name = "Jerry"; print "My name is", name }'
+To search and print a pattern with case ignored (emulate grep -i)                       :-  awk 'BEGIN {IGNORECASE=1}; /pattern/' marks.txt
+Arithmetic Operators                                                                    :-  awk 'BEGIN { a = 50; b = 20; print "(a + b) = " (a + b) }'
+                                                                                            awk 'BEGIN { a = 50; b = 20; print "(a - b) = " (a - b) }'
+                                                                                            awk 'BEGIN { a = 50; b = 20; print "(a * b) = " (a * b) }'
+                                                                                            awk 'BEGIN { a = 50; b = 20; print "(a / b) = " (a / b) }'
+                                                                                            awk 'BEGIN { a = 50; b = 20; print "(a % b) = " (a % b) }'
+Pre-Increment Operator                                                                  :-  awk 'BEGIN { a=10; b=++a; print "Value of a =" a "\n" "value of b =" b}'
+Pre-Decrement Operator                                                                  :-  awk 'BEGIN { a=10; b=--a; print "Value of a =" a "\n" "value of b =" b}'
+Post-Increment Operator                                                                 :-  awk 'BEGIN { a=10; b=a++; print "Value of a =" a "\n" "value of b =" b}'
+Post-Decrement Operator                                                                 :-  awk 'BEGIN { a=10; b=a--; print "Value of a =" a "\n" "value of b =" b}'
+Assignment Operator                                                                     :-  awk 'BEGIN { name = "Jerry"; print "My name is", name }'
