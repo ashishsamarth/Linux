@@ -10,7 +10,7 @@ start_listener()
 	# Get the name of the configured listener
 	listener_name=`grep -iA6 LISTENER $TNS_ADMIN/listener.ora | grep -v '#' | xargs | cut -d '=' -f1 | xargs` 1> /dev/null
 	
-	# If the logged in user is = oracle and listener file is not empty
+	# If the logged in user is = oracle and listener name is not empty
 	if [[ $trigger_owner == 'oracle' ]] && [[ -n $listener_name ]]
 	then
 		# Get the current status of the listener
