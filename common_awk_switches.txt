@@ -5,4 +5,5 @@ To search for a pattern in the column and print the entire row for the searched 
 To read the awk command from a file and execute it                                                              :-  awk -f read.awk marks.txt
 To Print Count of lines containing the pattern                                                                  :-  awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' marks.txt
 To assign a variable before its execution and print it                                                          :-  awk -v name=jerry 'BEGIN {print name}'
+To print the number of arguments passed to the command line (special AWK Variable - ARGC)                       :-  awk 'BEGIN {print "Arguments=" ARGC}' one two three
 
