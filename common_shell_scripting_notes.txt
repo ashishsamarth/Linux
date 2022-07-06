@@ -4,3 +4,26 @@ To store the number of arguments (How many parameters were passed)              
 To store the exit status of last successful command (if ‘0’ – success)              :-  $?
 To get filename of the current script                                               :-  $0
 To get process number of last background command                                    :-  $!
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Condition                                                                               Meaning
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+=                                                                                   :-  equal   
+!=                                                                                  :-  not equal
+-eq                                                                                 :-  equal
+-gt                                                                                 :-  greater than   
+-ge                                                                                 :-  greater than or equal
+-lt                                                                                 :-  less than
+-le                                                                                 :-  less than or equal
+!                                                                                   :-  not
+-a                                                                                  :-  and
+-o                                                                                  :-  or
+-r file                                                                             :-  True if file exists and readable
+-w file                                                                             :-  True if file exists and writable
+-x file                                                                             :-  True if file exists and executable
+-s file                                                                             :-  True if file exists and size > 0
+-d file                                                                             :-  True if file exists and its a dictionary
+-f file                                                                             :-  True if file exists and is an ordinary file
+-z string                                                                           :-  True if length of string is 0
+-n string                                                                           :-  True if length of string is > 0
+-t field                                                                            :-  True if the file descriptor is a terminal
