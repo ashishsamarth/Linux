@@ -12,4 +12,4 @@ To print the current filename (special variable FILENAME)                       
                                                                                                                 :-  awk '{print FILENAME}' marks.txt|uniq
                                                                                                                     Note:- If END is not used, it will print the filename same # of times, 
                                                                                                                     equal to the # of rows in it
-                                                                                                                    
+To emulate custom delimeter like in cut, special variable FS (field separator)                                  :-  awk 'BEGIN {FS = ")"} ; {print $2}' marks.txt                                                                                                                 
