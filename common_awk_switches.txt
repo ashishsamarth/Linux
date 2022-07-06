@@ -8,4 +8,8 @@ To assign a variable before its execution and print it                          
 To print the number of arguments passed to the command line (special AWK Variable - ARGC)                       :-  awk 'BEGIN {print "Arguments=" ARGC}' one two three
 To print the current user (special variable ENVIRON & USER)                                                     :-  awk 'BEGIN {print ENVIRON["USER"]}'
 To print the value of a previously assigned variable                                                            :-  echo abc | awk -v val=$value '{print val}'
-
+To print the current filename (special variable FILENAME)                                                       :-  awk 'END {print FILENAME}' marks.txt
+                                                                                                                :-  awk '{print FILENAME}' marks.txt|uniq
+                                                                                                                    Note:- If END is not used, it will print the filename same # of times, 
+                                                                                                                    equal to the # of rows in it
+                                                                                                                    
