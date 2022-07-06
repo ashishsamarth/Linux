@@ -4,4 +4,5 @@ To Print number of lines in a file {advantage over wc –l is that – this comm
 To search for a pattern in the column and print the entire row for the searched pattern                         :-  awk '/pattern/ {print $0}' marks.txt
 To read the awk command from a file and execute it                                                              :-  awk -f read.awk marks.txt
 To Print Count of lines containing the pattern                                                                  :-  awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' marks.txt
+To assign a variable before its execution and print it                                                          :-  awk -v name=jerry 'BEGIN {print name}'
 
