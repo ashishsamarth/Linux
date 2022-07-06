@@ -13,3 +13,4 @@ To print the current filename (special variable FILENAME)                       
                                                                                                                     Note:- If END is not used, it will print the filename same # of times, 
                                                                                                                     equal to the # of rows in it
 To emulate custom delimeter like in cut, special variable FS (field separator)                                  :-  awk 'BEGIN {FS = ")"} ; {print $2}' marks.txt                                                                                                                 
+To print number of fields in current record (special variable NF)                                               :-  awk 'NR==1 {print NF}' filename
