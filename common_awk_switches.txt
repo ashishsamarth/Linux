@@ -16,3 +16,4 @@ To emulate custom delimeter like in cut, special variable FS (field separator)  
 To print number of fields in current record (special variable NF)                                               :-  awk 'NR==1 {print NF}' filename
 To print the line # of the current record (Special Variable NR) (emulates grep -n)                              :-  awk '/pattern/ {print NR}' filename
 To print the filename where the pattern appears (emulates grep -l)                                              :-  awk '/pattern/ {print FILENAME}' *
+To print the filename and the line # where record appears(emulate grep -nl)                                     :-  awk '/pattern/ {print FILENAME, FNR;}' *
