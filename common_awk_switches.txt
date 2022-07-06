@@ -19,3 +19,4 @@ To print the filename where the pattern appears (emulates grep -l)              
 To print the filename and the line # where record appears(emulate grep -nl)                                     :-  awk '/pattern/ {print FILENAME, FNR;}' *
 To use a different record separator for output (Special variable ORS) (tab in this case)                        :-  echo “This is how it works” | awk ‘BEGIN{RS=” ”}{print $0}’
 To print values from a file having fixed length or to emulate cut -c (special variable FIELDWIDTH)              :-  awk 'BEGIN {FS=":";FIELDWIDTHS = "3 5 7 3"} {print $3}' marks2.txt
+To search and print a pattern with case ignored (emulate grep -i)                                               :-  awk 'BEGIN {IGNORECASE=1}; /pattern/' marks.txt
