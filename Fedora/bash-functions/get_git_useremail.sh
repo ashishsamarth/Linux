@@ -7,11 +7,11 @@ get_git_useremail()
 	# Validate
 	# If git is installed
 	# and gitconfig file exists
-	if [ -n $(rpm -q git) ] && [ -f ~/.gitconfig ]
+	if [[ -n $(rpm -q git) ]] && [[ -f ~/.gitconfig ]]
 		# Fetch the user email from git configuration file
 		then uemail=read grep -iF "email" ~/.gitconfig | xargs | cut -d '=' -f2 | xargs
 		# If the user email is not empty
-		if [ -n $uemail ]
+		if [[ -n $uemail ]]
 		then
 			# Return value of this function is :- Git User Email
 			return $uemail
