@@ -39,21 +39,21 @@ total_num_of_nodes=$(get_total_node_count)
 online_node_count=$(get_online_node_count)
 offline_node_count=$(get_offline_node_count)
 
-if [ -n $total_num_of_nodes ]
+if [[ -n $total_num_of_nodes ]]
 then
         echo "Total Number of nodes in the cluster :- $total_num_of_nodes"
 else
         echo "Cassandra is Not running"
 fi
 
-if [ -n $online_node_count ]
+if [[ -n $online_node_count ]]
 then
         echo "Number of online nodes :- $online_node_count"
 else
         echo "Cassandra is Not running"
 fi
 
-if [ -n $offline_node_count ]
+if [[ -n $offline_node_count ]]
 then
         echo "Number of offline nodes :- $offline_node_count"
 else
