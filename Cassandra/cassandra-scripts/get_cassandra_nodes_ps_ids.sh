@@ -25,7 +25,7 @@ get_cassandra_ps_id_by_node_num()
 ret_code=$(get_cassandra_ps_id_by_node_num $1) 1> /dev/null
 
 # If ret_code is empty then no process id is echoed to std-out
-if [ -z $ret_code ]
+if [[ -z $ret_code ]]
 then
 	echo "No Process Id found for the given node :- node$1"
 else
