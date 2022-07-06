@@ -4,7 +4,7 @@
 # And git configuration file exists in the user home
 # Output of $(rpm -q git) provides the version number if git is installed
 
-if [ -n $(rpm -q git) ] && [ -f ~/.gitconfig ]
+if [[ -n $(rpm -q git) ]] && [[ -f ~/.gitconfig ]]
 then
 	# Fetch the name from the git configuration file into variable
 	# And suppress the output from stdout
@@ -15,12 +15,12 @@ then
 	uemail=`grep -iF "email" ~/.gitconfig | xargs | cut -d '=' -f2 | xargs`
 	
 	# If the username variable value is not empty
-	if [ -n $uname ]
+	if [[ -n $uname ]]
 		# Then echo the username that is configured
 		then echo "Git-Configuration: Configured username is $uname"
 	 	
 		# If the email variable value is not empty
-		if [ -n $uemail ]
+		if [[ -n $uemail ]]
 			# Then echo the user meila that is configured
 			then echo "Git-Configuration: Configured email is $uemail"
 		else
