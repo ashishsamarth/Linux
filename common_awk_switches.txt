@@ -27,4 +27,4 @@ Arithmetic Operators                                                            
                                                                                                                     awk 'BEGIN { a = 50; b = 20; print "(a % b) = " (a % b) }'
 Pre-Increment Operator                                                                                          :-  awk 'BEGIN { a=10; b=++a; print "Value of a =" a "\n" "value of b =" b}'
 Pre-Decrement Operator                                                                                          :-  awk 'BEGIN { a=10; b=--a; print "Value of a =" a "\n" "value of b =" b}'
-
+Post-Increment Operator                                                                                         :-  awk 'BEGIN { a=10; b=a++; print "Value of a =" a "\n" "value of b =" b}'
