@@ -1,0 +1,4 @@
+To check awk version                                                                                            :-  awk --version
+To print tabbed output of specific columns {also, any delimeter can be inserted if required, by this method}    :-  awk '{print $3 "\t" $4}' filename
+To Print number of lines in a file {advantage over wc –l is that – this command does not print the filename}    :-  awk 'END { print NR }' filename
+To search for a pattern in the column and print the entire row for the searched pattern                         :-  awk '/pattern/ {print $0}' marks.txt
