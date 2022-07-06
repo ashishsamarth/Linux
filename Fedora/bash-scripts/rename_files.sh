@@ -16,7 +16,7 @@ do
 	filename=`basename $rec`
 
 	# If the file is a regular file
-	if [ -f $filename ]
+	if [[ -f $filename ]]
 		# Then rename the file and replace src_char with tgt_char in the name
 		then mv -- $filename ${filename//$src_chr/$tgt_chr}
 	fi
