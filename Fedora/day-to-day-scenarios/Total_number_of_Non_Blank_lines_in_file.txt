@@ -1,0 +1,5 @@
+(base) [devops@fedora scripts]$ 
+(base) [devops@fedora scripts]$ cat -b rename_files.sh | awk 'END { print "Total Number of Non-Blank lines in this file is:- ", $1}'
+Total Number of Non-Blank lines in this file is:-  23
+(base) [devops@fedora scripts]$ 
+(base) [devops@fedora scripts]$ 
