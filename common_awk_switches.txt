@@ -49,6 +49,13 @@ To print only last 2 lines of the file (emulate tail -2)                        
 T0 print last line of the file (emulate tail -1)                                :-  awk 'END { print }' filename
                                                                                     awk '{ rec=$0 } END{ print rec }' filename
                                                                                     awk 'END{ print $0}' filename
+To print the line immediately before a line that matches "/regex/"              :-  awk '/pattern/ { print x }; { x=$0 }' filename
+(but not the line that matches itself)
+
+To print the line immediately after a line that matches "/regex/"               :-  awk '/regex/ { getline; print }' filename
+(but not the line that matches itself)
+To print lines matching ‘AAA’ or ‘BBB’ or ‘CCC’                                 :-  awk '/AAA|BBB|CCC/' filename
+To print lines matching ‘AAA’ and ‘BBB’ and ‘CCC’                               :-  awk '/AAA.*BBB.*CCC/' filename
 
 
 
