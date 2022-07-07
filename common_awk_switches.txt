@@ -60,6 +60,7 @@ To print only the lines having more than 65 characters                          
                                                                                     awk 'length($0) > 18' marks.txt
 To print section of file from pattern to end of file                            :-  awk '/regex/,0'  filename
 To print lines from lines 8 to 12 from the file                                 :-  awk 'NR==8,NR==12' filename
+To print line # 52 from the file                                                :-  awk 'NR==52 { print; exit }' filename
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
