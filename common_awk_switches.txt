@@ -1,96 +1,96 @@
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: PRINTING
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-To check awk version                                                            		    :- awk --version
-To print the current user (special variable ENVIRON & USER)                    			    :- awk 'BEGIN {print ENVIRON["USER"]}'
-To print tabbed output of specific columns                                      		    :- awk '{print $3 "\t" $4}' filename
-To Print number of lines in a file                                              		    :- awk 'END { print NR }' filename
-To print number of fields in current record 			    :(special variable NF)          :- awk 'NR==1 {print NF}' filename
-To Print only the 4th column from ls                                            		    :- ls -l|awk '{print $5}'|sort -nr
-To print lines from lines 8 to 12 from the file                                 		    :- awk 'NR==8,NR==12' filename
-To print line # 52 from the file                                                		    :- awk 'NR==52 { print; exit }' filename
-To print only 1st line of the file				            :(emulate head -1)              :- awk 'NR > 1 { exit }; 1' filename
-To print only last 2 lines of the file 				        :(emulate tail -2)              :- awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
+To check awk version                                                            		:- awk --version
+To print the current user (special variable ENVIRON & USER)                    			:- awk 'BEGIN {print ENVIRON["USER"]}'
+To print tabbed output of specific columns                                      		:- awk '{print $3 "\t" $4}' filename
+To Print number of lines in a file                                              		:- awk 'END { print NR }' filename
+To print number of fields in current record 			:(special variable NF)          :- awk 'NR==1 {print NF}' filename
+To Print only the 4th column from ls                                            		:- ls -l|awk '{print $5}'|sort -nr
+To print lines from lines 8 to 12 from the file                                 		:- awk 'NR==8,NR==12' filename
+To print line # 52 from the file                                                		:- awk 'NR==52 { print; exit }' filename
+To print only 1st line of the file				:(emulate head -1)              :- awk 'NR > 1 { exit }; 1' filename
+To print only last 2 lines of the file 				:(emulate tail -2)              :- awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
 	
-To print only starting 10 lines					            :(emulate head -10)             :- awk 'NR < 11' filename
+To print only starting 10 lines					:(emulate head -10)             :- awk 'NR < 11' filename
                                                                                 		:  awk '1; NR == 10 { exit }' filename
                                                                                 
-To print last line of the file 					            :(emulate tail -1)              :- awk 'END { print }' filename
-                                                                                		    :  awk '{ rec=$0 } END{ print rec }' filename
-                                                                                		    :  awk 'END{ print $0}' filename
+To print last line of the file 					:(emulate tail -1)              :- awk 'END { print }' filename
+                                                                                		:  awk '{ rec=$0 } END{ print rec }' filename
+                                                                                		:  awk 'END{ print $0}' filename
 
-To print the current filename 					            :(special variable FILENAME)	:- awk 'END {print FILENAME}' filename
-To Print the first two fields in reverse order on each line                     		    :- awk '{ print $2, $1 }' filename
-To re-arrange printing of columns in the file                                   		    :- cat filename | awk '{print $2 " " print $1}'
-To Print the fields in reverse order on every line                              		    :- awk '{ for (i=NF; i>0; i--) printf("%s ", $i); printf ("\n") }' filename
-To print the number of fields in each line, followed by the line                		    :- awk '{ print NF ":" $0 } ' filename
-To print last field of each line                                                		    :- awk '{ print $NF }' filename
-To Reverse order of lines 					                        :(emulate "tac")		:- awk '{ a[i++] = $0 } END { for (j=i-1; j>=0;) print a[j--] }' filename
-To Join a line ending with a backslash with the next line                       		    :- awk '/\\$/ { sub(/\\$/,""); getline t; print $0 t; next }; 1' filename
-To number lines for all files together                                          		    :- awk '{ print NR "\t" $0 }' filename
-To number only non-blank lines                                                  		    :- awk 'NF { $0=++a " :" $0 }; { print }' filename
-To print the sum of fields in every line                                        		    :- awk '{ s = 0; for (i = 1; i <= NF; i++) s = s+$i; print s }' filename
-To print the sum of fields in all lines                                         		    :- awk '{ for (i = 1; i <= NF; i++) s = s+$i }; END { print s+0 }' filename
-To emulate custom delimiter like in cut, special variable FS (field separator)  		    :- awk 'BEGIN {FS = ")"} ; {print $2}' filename
-To Swap first field with second on every line                                   		    :- awk '{ temp = $1; $1 = $2; $2 = temp; print }' filename
+To print the current filename 					:(special variable FILENAME)	:- awk 'END {print FILENAME}' filename
+To Print the first two fields in reverse order on each line                     		:- awk '{ print $2, $1 }' filename
+To re-arrange printing of columns in the file                                   		:- cat filename | awk '{print $2 " " print $1}'
+To Print the fields in reverse order on every line                              		:- awk '{ for (i=NF; i>0; i--) printf("%s ", $i); printf ("\n") }' filename
+To print the number of fields in each line, followed by the line                		:- awk '{ print NF ":" $0 } ' filename
+To print last field of each line                                                		:- awk '{ print $NF }' filename
+To Reverse order of lines 					:(emulate "tac")		:- awk '{ a[i++] = $0 } END { for (j=i-1; j>=0;) print a[j--] }' filename
+To Join a line ending with a backslash with the next line                       		:- awk '/\\$/ { sub(/\\$/,""); getline t; print $0 t; next }; 1' filename
+To number lines for all files together                                          		:- awk '{ print NR "\t" $0 }' filename
+To number only non-blank lines                                                  		:- awk 'NF { $0=++a " :" $0 }; { print }' filename
+To print the sum of fields in every line                                        		:- awk '{ s = 0; for (i = 1; i <= NF; i++) s = s+$i; print s }' filename
+To print the sum of fields in all lines                                         		:- awk '{ for (i = 1; i <= NF; i++) s = s+$i }; END { print s+0 }' filename
+To emulate custom delimiter like in cut, special variable FS (field separator)  		:- awk 'BEGIN {FS = ")"} ; {print $2}' filename
+To Swap first field with second on every line                                   		:- awk '{ temp = $1; $1 = $2; $2 = temp; print }' filename
                                                                                     
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: SEARCH & PRINT
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-To search and print a pattern with case ignored (emulate grep -i)               		    :- awk 'BEGIN {IGNORECASE=1}; /pattern/' filename
-To Print all lines where 5th field is equal to "abc123"                         		    :- awk '$5 == "abc123"' filename
-To print section of file from pattern to end of file                            		    :- awk '/pattern/,0'  filename
-To Print Count of lines containing the pattern                                  		    :- awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' filename
-To print the line # of the current record (Special Variable NR)                 		    :- awk '/pattern/ {print NR}' filename
-To print the filename where the pattern appears                                 		    :- awk '/pattern/ {print FILENAME}' *
-To print the filename and the line # where record appears                       		    :- awk '/pattern/ {print FILENAME, FNR;}' *
-To Print count of appearance of the pattern                                     		    :- awk -F 'pattern' '{print NF-1}' filename
-To search at the beginning of the line                                          		    :- awk '/^UC occurrence/' filename
-To print 4th value at the end of the line or last line for a pattern           			    :- awk ‘END  {print $4}’ filename
-To search and print the pattern at the end of the line                          		    :- awk '/ A2MCXX006534SW$/' filename
-To search for a pattern in a column and print entire row for searched pattern   		    :- awk '/pattern/ {print $0}' filename
-To search for a pattern starting with UUID and printing only the first column   		    :- awk '/^UUID/ {print $1;}' filename
-To print lines matching ‘AAA’ or ‘BBB’ or ‘CCC’                                 		    :- awk '/AAA|BBB|CCC/' filename
-To print lines matching ‘AAA’ and ‘BBB’ and ‘CCC’                               		    :- awk '/AAA.*BBB.*CCC/' filename
-To Print all lines whose 7th field matches a regular expression                 		    :- awk '$7  ~ /^[a-f]/' filename
-To print the line immediately before a line that matches "/pattern/"		    :exclusive  :- awk '/pattern/ { print x }; { x=$0 }' filename
-To print the line immediately after a line that matches "/pattern/" 		    :exclusive  :- awk '/pattern/ { getline; print }' filename
-To print section of file with in the patterns 					                :inclusive  :- awk '/startpattern/,/endpattern/' filename
-To search the 2nd column in file for a pattern beginning with the pattern       		    :- awk '$2 ~ /^pattern/' filename
-To search the 2nd column in file for a pattern not beginning with the pattern   		    :- awk '$2 !~ /^pattern/' filename
+To search and print a pattern with case ignored (emulate grep -i)               		:- awk 'BEGIN {IGNORECASE=1}; /pattern/' filename
+To Print all lines where 5th field is equal to "abc123"                         		:- awk '$5 == "abc123"' filename
+To print section of file from pattern to end of file                            		:- awk '/pattern/,0'  filename
+To Print Count of lines containing the pattern                                  		:- awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' filename
+To print the line # of the current record (Special Variable NR)                 		:- awk '/pattern/ {print NR}' filename
+To print the filename where the pattern appears                                 		:- awk '/pattern/ {print FILENAME}' *
+To print the filename and the line # where record appears                       		:- awk '/pattern/ {print FILENAME, FNR;}' *
+To Print count of appearance of the pattern                                     		:- awk -F 'pattern' '{print NF-1}' filename
+To search at the beginning of the line                                          		:- awk '/^UC occurrence/' filename
+To print 4th value at the end of the line or last line for a pattern           			:- awk ‘END  {print $4}’ filename
+To search and print the pattern at the end of the line                          		:- awk '/ A2MCXX006534SW$/' filename
+To search for a pattern in a column and print entire row for searched pattern   		:- awk '/pattern/ {print $0}' filename
+To search for a pattern starting with UUID and printing only the first column   		:- awk '/^UUID/ {print $1;}' filename
+To print lines matching ‘AAA’ or ‘BBB’ or ‘CCC’                                 		:- awk '/AAA|BBB|CCC/' filename
+To print lines matching ‘AAA’ and ‘BBB’ and ‘CCC’                               		:- awk '/AAA.*BBB.*CCC/' filename
+To Print all lines whose 7th field matches a regular expression                 		:- awk '$7  ~ /^[a-f]/' filename
+To print the line immediately before a line that matches "/pattern/"		:exclusive   	:- awk '/pattern/ { print x }; { x=$0 }' filename
+To print the line immediately after a line that matches "/pattern/" 		:exclusive      :- awk '/pattern/ { getline; print }' filename
+To print section of file with in the patterns 					:inclusive      :- awk '/startpattern/,/endpattern/' filename
+To search the 2nd column in file for a pattern beginning with the pattern       		:- awk '$2 ~ /^pattern/' filename
+To search the 2nd column in file for a pattern not beginning with the pattern   		:- awk '$2 !~ /^pattern/' filename
 
-To search the 2nd column in file for a pattern not beginning with the pattern   		    :- awk '$2 !~ /^tti/ && $1 < 5' filename  
+To search the 2nd column in file for a pattern not beginning with the pattern   		:- awk '$2 !~ /^tti/ && $1 < 5' filename  
 and the entries in the first column is less than 5
 
-To print only the lines having more than 65 characters                          		    :- awk 'length > 64' Filename
+To print only the lines having more than 65 characters                          		:- awk 'length > 64' Filename
                                                                                     		:  awk 'length($0) > 18' marks.txt
 
                                                                                     
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: FILE MANIPULATION
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-To delete leading white spaces from the beginning of each line (ltrim)           		    :- awk '{ sub(/^[ \t]+/, ""); print }' filename
-To delete trailing white spaces from the end of each line (rtrim)                		    :- awk '{ sub(/[ \t]+$/, ""); print }' filename
-To delete both leading and trailing white spaces from the lines(trim)            		    :- awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print }' filename
-To remove white space between the fields                                         		    :- awk '{ $1=$1; print }' filename
-To insert 5 blank spaces at beginning of each line                              		    :- awk '{ sub(/^/, "     "); print }' filename
-To align all text flush right on a 79-column width                              		    :- awk '{ printf "%79s\n", $0 }' filename
-To center all text on a 79-character width                                      		    :- awk '{ l=length(); s=int((79-l)/2); printf "%"(s+l)"s\n", $0 }' filename
-To Substitute (find and replace) "foo" with "bar" on each line                  		    :- awk '{ sub(/foo/,"bar"); print }' filename
-To Substitute "foo" with "bar" only on lines that contain "baz"                 		    :- awk '/baz/ { gsub(/foo/, "bar") }; { print }' filename
-To Substitute "foo" with "bar" only on lines that do not contain "baz"          		    :- awk '!/baz/ { gsub(/foo/, "bar") }; { print }' filename
-To Change "scarlet" or "ruby" or "puce" to "red"                                		    :- awk '{ gsub(/scarlet|ruby|puce/, "red"); print}' filename
-To Remove duplicate, consecutive lines 					            :(emulate "uniq")       :- awk 'a != $0; { a = $0 }' filename
-To Remove duplicate, non consecutive lines                                      		    :- awk '!a[$0]++' filename
-To Concatenate every 5 lines of input with a comma                              		    :- awk 'ORS=NR%5?",":"\n"' filename
-To Delete the second field on each line                                         		    :- awk '{ $2 = ""; print }' filename
-To delete all blank lines from the file                                         		    :- awk NF filename
-                                                                                   		    :  awk '/./' filename
+To delete leading white spaces from the beginning of each line (ltrim)           		:- awk '{ sub(/^[ \t]+/, ""); print }' filename
+To delete trailing white spaces from the end of each line (rtrim)                		:- awk '{ sub(/[ \t]+$/, ""); print }' filename
+To delete both leading and trailing white spaces from the lines(trim)            		:- awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print }' filename
+To remove white space between the fields                                         		:- awk '{ $1=$1; print }' filename
+To insert 5 blank spaces at beginning of each line                              		:- awk '{ sub(/^/, "     "); print }' filename
+To align all text flush right on a 79-column width                              		:- awk '{ printf "%79s\n", $0 }' filename
+To center all text on a 79-character width                                      		:- awk '{ l=length(); s=int((79-l)/2); printf "%"(s+l)"s\n", $0 }' filename
+To Substitute (find and replace) "foo" with "bar" on each line                  		:- awk '{ sub(/foo/,"bar"); print }' filename
+To Substitute "foo" with "bar" only on lines that contain "baz"                 		:- awk '/baz/ { gsub(/foo/, "bar") }; { print }' filename
+To Substitute "foo" with "bar" only on lines that do not contain "baz"          		:- awk '!/baz/ { gsub(/foo/, "bar") }; { print }' filename
+To Change "scarlet" or "ruby" or "puce" to "red"                                		:- awk '{ gsub(/scarlet|ruby|puce/, "red"); print}' filename
+To Remove duplicate, consecutive lines 					:(emulate "uniq")       :- awk 'a != $0; { a = $0 }' filename
+To Remove duplicate, non consecutive lines                                      		:- awk '!a[$0]++' filename
+To Concatenate every 5 lines of input with a comma                              		:- awk 'ORS=NR%5?",":"\n"' filename
+To Delete the second field on each line                                         		:- awk '{ $2 = ""; print }' filename
+To delete all blank lines from the file                                         		:- awk NF filename
+                                                                                   		:  awk '/./' filename
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: ASSIGNMENT OPERATOR
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-To assign a variable before its execution and print it                          	        :- awk -v name=jerry 'BEGIN {print name}'
+To assign a variable before its execution and print it                          	:- awk -v name=jerry 'BEGIN {print name}'
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: CONCATENATION OPERATOR
@@ -192,7 +192,7 @@ arr[2] = 3
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: CONDITIONAL STATEMENTS
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-IF         	    :-   awk 'BEGIN {num = 10; if (num % 2 == 0) printf "%d is even number.\n", num }'
+IF         	:-   awk 'BEGIN {num = 10; if (num % 2 == 0) printf "%d is even number.\n", num }'
 IF - ELSE       :-   awk 'BEGIN {num = 11; if (num % 2 == 0) printf "%d is even number.\n", num; else printf "%d is odd number.\n", num }'
 IF-ELSE-IF      :-   awk 'BEGIN {a=30;if (a==10)  print "a = 10"; else if (a == 20)  print "a = 20";else if (a == 30)  print "a = 30";}'
 FOR Loop        :-   awk 'BEGIN { for (i = 1; i <= 5; ++i) print i }'
