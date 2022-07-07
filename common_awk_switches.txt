@@ -95,6 +95,17 @@ To Substitute "foo" with "bar" only on lines that contain "baz"                 
 To Substitute "foo" with "bar" only on lines that do not contain "baz"          :-  awk '!/baz/ { gsub(/foo/, "bar") }; { print }' filename
 To Change "scarlet" or "ruby" or "puce" to "red"                                :-  awk '{ gsub(/scarlet|ruby|puce/, "red"); print}' filename
 To Reverse order of lines (emulate "tac")                                       :-  awk '{ a[i++] = $0 } END { for (j=i-1; j>=0;) print a[j--] }' filename
+To Join a line ending with a backslash with the next line                       :-  awk '/\\$/ { sub(/\\$/,""); getline t; print $0 t; next }; 1' filename
+To Print the first two fields in reverse order on each line                     :-  awk '{ print $2, $1 }' filename
+To Swap first field with second on every line                                   :-  awk '{ temp = $1; $1 = $2; $2 = temp; print }' filename
+To Delete the second field on each line                                         :-  awk '{ $2 = ""; print }' filename
+To Print the fields in reverse order on every line                              :-  awk '{ for (i=NF; i>0; i--) printf("%s ", $i); printf ("\n") }' filename
+To Remove duplicate, consecutive lines (emulate "uniq")                         :-  awk 'a != $0; { a = $0 }' filename
+To Remove duplicate, non consecutive lines                                      :-  awk '!a[$0]++' filename
+To Concatenate every 5 lines of input with a comma                              :-  awk 'ORS=NR%5?",":"\n"' filename
+To Print all lines where 5th field is equal to "abc123"                         :-  awk '$5 == "abc123"' filename
+To Print all lines whose 7th field matches a regular expression                 :-  awk '$7  ~ /^[a-f]/' filename
+To re-arrange printing of columns in the file                                   :-  cat filename | awk '{print $2 " " print $1}'
 
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -143,6 +154,22 @@ Array Membership        :-  awk 'BEGIN { arr[0] = 1; arr[1] = 2; arr[2] = 3; for
                                 arr[2] = 3
                                 arr[0] = 1
                                 arr[1] = 2
+
+Format Specifier        :-  awk 'BEGIN { printf "ASCII value 65 = character %c\n", 65 }'                            :ASCII value 65 = character A
+                        :-  awk 'BEGIN { printf "Percentages = %d\n", 80.66 }'                                      :Percentages = 80
+                        :-  awk 'BEGIN { printf "Percentages = %E\n", 80.66 }'                                      :Percentages = 8.066000e+01
+                        :-  awk 'BEGIN { printf "Percentages = %e\n", 80.66 }'                                      :Percentages = 8.066000E+01
+                        :-  awk 'BEGIN { printf "Percentages = %f\n", 80.66 }'                                      :Percentages = 80.660000
+                        :-  awk 'BEGIN { printf "Percentages = %g\n", 80.66 }'                                      :Percentages = 80.66
+                        :-  awk 'BEGIN { printf "Percentages = %G\n", 80.66 }'                                      :Percentages = 80.66
+                        :-  awk 'BEGIN { printf "Octal representation of decimal number 10 = %o\n", 10}'            :Octal representation of decimal number 10 = 12
+                        :-  awk 'BEGIN { printf "Unsigned 10 = %u\n", 10 }'                                         :Unsigned 10 = 10
+                        :-  awk 'BEGIN { printf "Name = %s\n", "Sherlock Holmes" }'                                 :Name = Sherlock Holmes
+                        :-  awk 'BEGIN { printf "Hex representation of decimal number 15 = %x\n", 15}'              :Hex representation of decimal number 15 = f
+                        :-  awk 'BEGIN { printf "Hex representation of decimal number 15 = %X\n", 15}'              :Hex representation of decimal number 15 = F
+                        :-  awk 'BEGIN { printf "Percentages = %d%%\n", 80.66 }'                                    :Percentages = 80%
+                        :-  awk 'BEGIN { num1 = 10; num2 = 20; printf "Num1 = %10d\nNum2 = %10d\n", num1, num2 }'   :Num1 =         10, Num2 =         20
+                        :-  awk 'BEGIN { num1 = -10; num2 = 20; printf "Num1 = %05d\nNum2 = %05d\n", num1, num2 }'  :Num1 = -0010, Num2 = 00020
 
 Regular Expressions     :-  awk '$0 ~ 9' marks.txt
                             awk '$0 !~ 9' marks.txt
