@@ -1,0 +1,56 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#1  :-  Display Contents of file
+                :   cat filename
+                :   awk '{print}' filename
+                :   sed '' filename
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#2  :-  To search a pattern with case ignored
+                :   grep -i "pattern" filename
+                :   awk 'BEGIN {IGNORECASE=1} '/pattern/' {print $0}' filename
+                :   sed -n '/pattern/I p' filename
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#3  :-  To search a pattern and count its occurrence
+                :   grep -c "pattern" filename
+                :   awk '/pattern/ {++cnt} {END print $0}' filename
+                :   sed -n '/pattern/p' filename|sed -n '$='
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#4  :-  To search a pattern with in a specific time range (from 9:00 to 9:15)
+                :   grep "pattern" filename | egrep "`date+Y+m+d`_[09]:[0-1][0-5]"
+                :   awk '/pattern/' filename | awk '/[09]:[0-1][0-5]/ {print $0}'
+                :   sed -n '/pattern/p' filename | sed -n '/[09]:[0-1][0-5]/'
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#5  :-  To search pattern and removing unwanted content from result
+                :   grep -i "pattern" filename | grep -v "pattern"
+                :   awk '/pattern/ {print $0}' whatever* | awk '$0 !~ '/pattern/''
+                :   sed -n '/pattern/p' filename | sed -n '/pattern/!p'
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#6  :-  To search non-matching lines
+                :   grep -v "pattern" filename
+                :   awk '$0 !~ /pattern/ {print $0}' filename
+                :   sed -n '/pattern/!p' filename
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#7  :-  To print the filenames containing the pattern
+                :   grep -l "pattern" *
+                :   awk '/pattern/ {print FILENAME ; nextfile}' *
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#8  :-  To search specific lines of a file for a pattern
+                :   grep -m 5 "pattern" filename
+                :   awk 'NR < 6 {print}' filename | awk '/pattern/'
+                :   sed -n '1,5p' filename | sed -n '/pattern/p'
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#9  :-  To search for a pattern in a line range
+                :   awk 'NR == 2 || NR ==3 && /pattern/ {print}' filename
+                :   sed -n '1,5p' filename | sed -n '/pattern/p'
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#10 :-  To grep the pattern and suppress any error messages
+                :   grep -s "pattern" filename
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#11 :-  To grep the pattern and print file name with the pattern match
+                :   grep - H "pattern" *.fileextension
+                :   awk '/pattern/ {print; print FILENAME}' *.txt
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+Scenario#12 :-  To grep the pattern and suppress the file name from output with the pattern match
+                :   grep -h "pattern" filename
+                :   awk '/pattern/ {print}' filename
+                :   sed -n '/pattern/p' filename
+---------------------------------------------------------------------------------------------------------------------------------------------------------
