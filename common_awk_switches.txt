@@ -138,22 +138,21 @@ Relational Operations   :-  awk 'BEGIN { a = 10; b = 10; if (a == b) print "a ==
                             awk 'BEGIN { a = 10; b = 20; if (b > a ) print "b > a" }'
                             awk 'BEGIN { a = 10; b = 10; if (a >= b) print "a >= b" }'
 
-Logical Operators       :-  awk 'BEGIN {num = 5; if (num >= 0 && num <= 7) printf "%d is in octal format\n", num }'                         :AND
-                            awk 'BEGIN {ch = "\n"; if (ch == " " || ch == "\t" || ch == "\n") print "Current character is whitespace." }'   :OR
-                            awk 'BEGIN { name = ""; if (! length(name)) print "name is empty string." }'                                    :NOT
-                            awk 'BEGIN { a = 10; b = 20; (a > b) ? max = a : max = b; print "Max =", max}'                                  :Ternary
-                            awk 'BEGIN { a = -10; a = +a; print "a =", a }'                                                                 :Unary+ {a=-10}
-                            awk 'BEGIN { a = -10; a = -a; print "a =", a }'                                                                 :Unary- {a =10}
-                            awk 'BEGIN { a = 10; a = a ^ 2; print "a =", a }'                                                               :Exponential {a=100}
-                            awk 'BEGIN { a = 10; a = a ** 2; print "a =", a }'                                                              :Exponential {a=100}
+Logical Operators       :-  awk 'BEGIN {num = 5; if (num >= 0 && num <= 7) printf "%d is in octal format\n", num }'                    :AND
+                            awk 'BEGIN {ch = "\n"; if (ch == " " || ch == "\t" || ch == "\n") print "Current char is whitespace." }'   :OR
+                            awk 'BEGIN { name = ""; if (! length(name)) print "name is empty string." }'                               :NOT
+                            awk 'BEGIN { a = 10; b = 20; (a > b) ? max = a : max = b; print "Max =", max}'                             :Ternary
+                            awk 'BEGIN { a = -10; a = +a; print "a =", a }'                                                            :Unary+ {a=-10}
+                            awk 'BEGIN { a = -10; a = -a; print "a =", a }'                                                            :Unary- {a =10}
+                            awk 'BEGIN { a = 10; a = a ^ 2; print "a =", a }'                                                          :Exponential {a=100}
+                            awk 'BEGIN { a = 10; a = a ** 2; print "a =", a }'                                                         :Exponential {a=100}
   
-Concatenation           :-  awk 'BEGIN { str1="Hello, "; str2="World"; str3 = str1 str2; print str3 }'  :-- Hello World
+Concatenation           :-  awk 'BEGIN { str1="Hello, "; str2="World"; str3 = str1 str2; print str3 }'                                 :Hello World
 
 Array Membership        :-  awk 'BEGIN { arr[0] = 1; arr[1] = 2; arr[2] = 3; for (i in arr) printf "arr[%d] = %d\n", i, arr[i] }'
-
-                                arr[2] = 3
-                                arr[0] = 1
-                                arr[1] = 2
+                                                                                                                                       :arr[0] = 1
+                                                                                                                                        arr[1] = 2  
+                                                                                                                                        arr[2] = 3
 
 Format Specifier        :-  awk 'BEGIN { printf "ASCII value 65 = character %c\n", 65 }'                            :ASCII value 65 = character A
                         :-  awk 'BEGIN { printf "Percentages = %d\n", 80.66 }'                                      :Percentages = 80
@@ -194,8 +193,3 @@ Conditional Statements  :-
     BREAK               :-   awk 'BEGIN {sum = 0; for (i = 0; i < 20; ++i) { sum += i; if (sum > 50) break; else print "Sum =", sum } }'
     CONTINUE            :-   awk 'BEGIN {for (i = 1; i <= 20; ++i) {if (i % 2 == 0) print i ; else continue} }'
     EXIT                :-   awk 'BEGIN {sum = 0; for (i = 0; i < 20; ++i) { sum += i; if (sum > 50) exit(10); else print "Sum =", sum } }'
-
-
-
-
-
