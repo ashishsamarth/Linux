@@ -68,7 +68,8 @@ To delete all blank lines from the file                                         
 
 To create double space in the file                                              :-  awk '1; { print "" }' filename
                                                                                     awk 'BEGIN { ORS="\n\n" }; 1'
-
+To triple space a file                                                          :-  awk '1; { print "\n" }' filename
+To number lines in each file separately                                         :-  awk '{ print FNR "\t" $0 }' filename
 
 
 
