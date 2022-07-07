@@ -77,6 +77,26 @@ To create double space in the file                                              
 To triple space a file                                                          :-  awk '1; { print "\n" }' filename
 To number lines in each file separately                                         :-  awk '{ print FNR "\t" $0 }' filename
 
+To number lines for all files together                                          :-  awk '{ print NR "\t" $0 }' filename
+To number only non-blank lines                                                  :-  awk 'NF { $0=++a " :" $0 }; { print }' filename
+To print the sum of fields in every line                                        :-  awk '{ s = 0; for (i = 1; i <= NF; i++) s = s+$i; print s }' filename
+To print the sum of fields in all lines                                         :-  awk '{ for (i = 1; i <= NF; i++) s = s+$i }; END { print s+0 }' filename
+To print the number of fields in each line, followed by the line                :-  awk '{ print NF ":" $0 } ' filename
+To print last field of each line                                                :-  awk '{ print $NF }' filename
+To delete leading whitespaces from the beginning of each line (ltrim)           :-  awk '{ sub(/^[ \t]+/, ""); print }' filename
+To delete trailing whitespaces from the end of each line (rtrim)                :-  awk '{ sub(/[ \t]+$/, ""); print }' filename
+To delete both leading and trailing whitespaces from the lines(trim)            :-  awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print }' filename
+To remove whitespace between the fields                                         :-  awk '{ $1=$1; print }' filename
+To insert 5 blank spaces at beginning of each line                              :-  awk '{ sub(/^/, "     "); print }' filename
+To align all text flush right on a 79-column width                              :-  awk '{ printf "%79s\n", $0 }' filename
+To center all text on a 79-character width                                      :-  awk '{ l=length(); s=int((79-l)/2); printf "%"(s+l)"s\n", $0 }' filename
+To Substitute (find and replace) "foo" with "bar" on each line                  :-  awk '{ sub(/foo/,"bar"); print }' filename
+To Substitute "foo" with "bar" only on lines that contain "baz"                 :-  awk '/baz/ { gsub(/foo/, "bar") }; { print }' filename
+To Substitute "foo" with "bar" only on lines that do not contain "baz"          :-  awk '!/baz/ { gsub(/foo/, "bar") }; { print }' filename
+To Change "scarlet" or "ruby" or "puce" to "red"                                :-  awk '{ gsub(/scarlet|ruby|puce/, "red"); print}' filename
+To Reverse order of lines (emulate "tac")                                       :-  awk '{ a[i++] = $0 } END { for (j=i-1; j>=0;) print a[j--] }' filename
+
+
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Arithmetic Operators    :-  awk 'BEGIN { a = 50; b = 20; print "(a + b) = " (a + b) }'
