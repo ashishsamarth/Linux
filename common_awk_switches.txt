@@ -32,11 +32,20 @@ To print values from a file having fixed length or to emulate cut -c            
 To search and print a pattern with case ignored (emulate grep -i)               :-  awk 'BEGIN {IGNORECASE=1}; /pattern/' marks.txt
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-To Print count of appearance of the pattern	                                    :-  awk -F 'USD' '{print NF-1}' filename 
+To Print count of appearance of the pattern                                     :-  awk -F 'USD' '{print NF-1}' filename
 To Print only the 4th column from ls                                            :-  ls -l|awk '{print $5}'|sort -nr|more
 To search at the beginning of the line                                          :-  awk '/^UC occurrence/' filename
 To print 4rth value at the end of the line or last line for a pattern           :-  awk ‘END  {print $4}’ filename
 To search and print the pattern at the end of the line                          :-  awk '/ A2MCXX006534SW$/' filename
+To search the 2nd column in file for a pattern beginning with the pattern       :-  awk '$2 ~ /^pattern/' filename
+To search the 2nd column in file for a pattern not beginning with the pattern   :-  awk '$2 !~ /^pattern/' filename
+To search the 2nd column in file for a pattern not beginning with the pattern   :-  awk '$2 !~ /^tti/ && $1 < 5' filename  
+and the entries in the first column is less than 5
+To search for a pattern starting with UUID and printing only the first column   :-  awk '/^UUID/ {print $1;}' filename
+To print only starting 10 lines (emulate head -10)                              :-  awk 'NR < 11' filename
+                                                                                    awk '1; NR == 10 { exit }' filename
+To print only 1st line of the file (emulate head -1)                            :-  awk 'NR > 1 { exit }; 1' filename
+To print only last 2 lines of the file (emulate tail -2)                        :-  awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
