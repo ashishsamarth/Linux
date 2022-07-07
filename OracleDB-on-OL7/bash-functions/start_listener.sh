@@ -18,7 +18,7 @@ start_listener()
 		listener_status=`lsnrctl status LISTENER | xargs` 1> /dev/null
 		if [[ $listener_status == *"STATUS of the LISTENER"* ]]
 		then 
-			echo "$listener_name is up and running !!!"
+			echo "$listener_name is already up and running !!!"
 		else
 			# If the listener is not up, run the following command to start it again
 			# Redirect the output from stdout to null
