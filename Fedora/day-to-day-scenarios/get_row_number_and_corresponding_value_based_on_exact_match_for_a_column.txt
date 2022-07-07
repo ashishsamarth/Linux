@@ -1,0 +1,9 @@
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ awk '$10 == "FL" {print "Row-Number:- ", NR, $0}' cities.csv
+Row-Number:-  54    27,   57,    0, "N",     82,   26,   59, "W", "Tampa", FL
+Row-Number:-  55    30,   27,    0, "N",     84,   16,   47, "W", "Tallahassee", FL
+Row-Number:-  86    27,   20,   24, "N",     82,   31,   47, "W", "Sarasota", FL
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ 
