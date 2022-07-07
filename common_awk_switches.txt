@@ -56,8 +56,9 @@ To print the line immediately after a line that matches "/regex/"               
 (but not the line that matches itself)
 To print lines matching ‘AAA’ or ‘BBB’ or ‘CCC’                                 :-  awk '/AAA|BBB|CCC/' filename
 To print lines matching ‘AAA’ and ‘BBB’ and ‘CCC’                               :-  awk '/AAA.*BBB.*CCC/' filename
-
-
+To print only the lines having more than 65 characters                          :-  awk 'length > 64' Filename
+                                                                                    awk 'length($0) > 18' marks.txt
+To print section of file from pattern to end of file                            :-  awk '/regex/,0'  filename
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
