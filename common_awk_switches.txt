@@ -63,6 +63,16 @@ To print lines from lines 8 to 12 from the file                                 
 To print line # 52 from the file                                                :-  awk 'NR==52 { print; exit }' filename
 To print section of file with in the patterns (inclusive)                       :-  awk '/Iowa/,/Montana/' filename
 
+To delete all blank lines from the file                                         :-  awk NF filename
+                                                                                    awk '/./' filename
+
+To create double space in the file                                              :-  awk '1; { print "" }' filename
+                                                                                    awk 'BEGIN { ORS="\n\n" }; 1'
+
+
+
+
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
