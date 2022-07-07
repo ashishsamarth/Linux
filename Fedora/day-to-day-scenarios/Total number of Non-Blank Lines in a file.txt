@@ -1,3 +1,4 @@
 (base) [devops@fedora functions]$ cat -b get_git_useremail.sh | tail -1 | awk 'BEGIN{print ARGV[1]} { print }' | xargs | awk '{print "Filename:- ",$2, "has", $1, "Non-Blank lines"}'
 Filename:-  get_git_useremail has 24 Non-Blank lines
 (base) [devops@fedora functions]$ 
+
