@@ -5,7 +5,7 @@ To check awk version                                                            
 To print the current user (special variable ENVIRON & USER)                    	:- awk 'BEGIN {print ENVIRON["USER"]}'
 To print tabbed output of specific columns                                      :- awk '{print $3 "\t" $4}' filename
 To Print number of lines in a file                                              :- awk 'END { print NR }' filename
-To print number of fields in current record 		:(special variable NF)  :- awk 'NR==1 {print NF}' filename
+To print number of fields in line number 1 		:(special variable NF)  :- awk 'NR==1 {print NF}' filename
 To print only the 4th column from ls                                            :- ls -l | awk '{print $5}'|sort -nr
 To print lines from lines 8 to 12 from the file                                 :- awk 'NR==8,NR==12' filename
 To print line # 52 from the file                                                :- awk 'NR==52 { print; exit }' filename
