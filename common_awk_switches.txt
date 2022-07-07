@@ -46,6 +46,11 @@ To print only starting 10 lines (emulate head -10)                              
                                                                                     awk '1; NR == 10 { exit }' filename
 To print only 1st line of the file (emulate head -1)                            :-  awk 'NR > 1 { exit }; 1' filename
 To print only last 2 lines of the file (emulate tail -2)                        :-  awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
+T0 print last line of the file (emulate tail -1)                                :-  awk 'END { print }' filename
+                                                                                    awk '{ rec=$0 } END{ print rec }' filename
+                                                                                    awk 'END{ print $0}' filename
+
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
