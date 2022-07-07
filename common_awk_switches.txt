@@ -32,6 +32,13 @@ To print values from a file having fixed length or to emulate cut -c            
 To search and print a pattern with case ignored (emulate grep -i)               :-  awk 'BEGIN {IGNORECASE=1}; /pattern/' marks.txt
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
+To Print count of appearance of the pattern	                                    :-  awk -F 'USD' '{print NF-1}' filename 
+To Print only the 4th column from ls                                            :-  ls -l|awk '{print $5}'|sort -nr|more
+To search at the beginning of the line                                          :-  awk '/^UC occurrence/' filename
+To print 4rth value at the end of the line or last line for a pattern           :-  awk ‘END  {print $4}’ filename
+To search and print the pattern at the end of the line                          :-  awk '/ A2MCXX006534SW$/' filename
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Arithmetic Operators    :-  awk 'BEGIN { a = 50; b = 20; print "(a + b) = " (a + b) }'
                             awk 'BEGIN { a = 50; b = 20; print "(a - b) = " (a - b) }'
