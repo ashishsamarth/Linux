@@ -1,0 +1,12 @@
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ awk '{print "Row-Num", NR, "has", NF, "Columns"}' cities.csv | head -5
+Row-Num 1 has 10 Columns
+Row-Num 2 has 10 Columns
+Row-Num 3 has 10 Columns
+Row-Num 4 has 10 Columns
+Row-Num 5 has 10 Columns
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$ 
