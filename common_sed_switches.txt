@@ -84,4 +84,7 @@ To only print lines ending with uppercase letter						:- sed -n '/[[:upper:]]$/p
 									
 To print the line numbers(s) where pattern appeared						:- sed -n '/pattern/=' filename
 
-
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+SED: FILE MANIPULATION
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+To delete all blank lines from the file									:- sed '/^$/d' filename
