@@ -19,13 +19,13 @@ To print the current user (special variable ENVIRON & USER)                    	
 To print tabbed output of specific columns                                      :- awk '{print $3 "\t" $4}' filename
 To Print number of lines in a file                                              :- awk 'END { print NR }' filename
 To print number of fields in line number 1 		:(special variable NF)  :- awk 'NR==1 {print NF}' filename
-To print only the 4th column from ls                                            :- ls -l | awk '{print $5}'|sort -nr
-To print lines from lines 8 to 12 from the file                                 :- awk 'NR==8,NR==12' filename
-To print line # 52 from the file                                                :- awk 'NR==52 { print; exit }' filename
-To print only 1st line of the file			:(emulate head -1)      :- awk 'NR > 1 { exit }; 1' filename
-To print only last 2 lines of the file 			:(emulate tail -2)      :- awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
+To only print the 4th column from ls                                            :- ls -l | awk '{print $5}'|sort -nr
+To only print lines 8 to 12 from the file                                 	:- awk 'NR==8,NR==12' filename
+To only print line # 52 from the file                                           :- awk 'NR==52 { print; exit }' filename
+To only print 1st line of the file			:(emulate head -1)      :- awk 'NR > 1 { exit }; 1' filename
+To only print last 2 lines of the file 			:(emulate tail -2)      :- awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
 	
-To print only starting 10 lines				:(emulate head -10)     :- awk 'NR < 11' filename
+To only print top 10 lines				:(emulate head -10)     :- awk 'NR < 11' filename
                                                                                 :  awk '1; NR == 10 { exit }' filename
                                                                                 
 To print last line of the file 				:(emulate tail -1)      :- awk 'END { print }' filename
@@ -54,11 +54,11 @@ To search and print a pattern with case ignored (emulate grep -i)               
 To print all lines where 5th field is equal to "abc123"                         :- awk '$5 == "abc123"' filename
 To print all lines where 5th field is equal to "abc123" with row number         :- awk '$5 == "abc123" {print "Row-Number:- ", NR, $0}' filename
 To print section of file from pattern to end of file                            :- awk '/pattern/,0'  filename
-To Print Count of lines containing the pattern                                  :- awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' filename
+To print Count of lines containing the pattern                                  :- awk '/pattern/ {++cnt} END {print "COUNT=" cnt}' filename
 To print the line # of the current record (Special Variable NR)                 :- awk '/pattern/ {print NR}' filename
 To print the filename where the pattern appears                                 :- awk '/pattern/ {print FILENAME}' *
 To print the filename and the line # where record appears                       :- awk '/pattern/ {print FILENAME, FNR;}' *
-To Print count of appearance of the pattern                                     :- awk -F 'pattern' '{print NF-1}' filename
+To print count of appearance of the pattern                                     :- awk -F 'pattern' '{print NF-1}' filename
 To search at the beginning of the line                                          :- awk '/^UC occurrence/' filename
 To print 4th value at the end of the line or last line for a pattern           	:- awk ‘END  {print $4}’ filename
 To search and print the pattern at the end of the line                          :- awk '/ A2MCXX006534SW$/' filename
@@ -66,7 +66,7 @@ To search for a pattern in a column and print entire row for searched pattern   
 To search for a pattern starting with UUID and printing only the first column   :- awk '/^UUID/ {print $1;}' filename
 To print lines matching ‘AAA’ or ‘BBB’ or ‘CCC’                                 :- awk '/AAA|BBB|CCC/' filename
 To print lines matching ‘AAA’ and ‘BBB’ and ‘CCC’                               :- awk '/AAA.*BBB.*CCC/' filename
-To Print all lines whose 7th field matches a regular expression                 :- awk '$7  ~ /^[a-f]/' filename
+To print all lines whose 7th field matches a regular expression                 :- awk '$7  ~ /^[a-f]/' filename
 To print the line immediately before a line that matches "/pattern/":exclusive  :- awk '/pattern/ { print x }; { x=$0 }' filename
 To print the line immediately after a line that matches "/pattern/" :exclusive  :- awk '/pattern/ { getline; print }' filename
 To print section of file with in the patterns 			:inclusive      :- awk '/startpattern/,/endpattern/' filename
@@ -76,7 +76,7 @@ To search the 2nd column in file for a pattern not beginning with the pattern   
 To search the 2nd column in file for a pattern not beginning with the pattern   :- awk '$2 !~ /^tti/ && $1 < 5' filename  
 and the entries in the first column is less than 5
 
-To print only the lines having more than 65 characters                          :- awk 'length > 64' filename
+To only print the lines having more than 65 characters                          :- awk 'length > 64' filename
                                                                                 :  awk 'length($0) > 18' filename
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
