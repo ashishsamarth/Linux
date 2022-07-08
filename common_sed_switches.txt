@@ -1,0 +1,87 @@
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+SED: PRINTING
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+To print content of entire file						:(emulates cat)		:- sed '' filename
+To print every line twice									:- sed p filename
+To print every empty line twice									:- sed '/^$/p' filename
+
+To print the total number of lines in the file				:(emulates wc -l)	:- sed -n '$=' filename
+To print the number of non-blank lines in the file						:- sed -n '/^$/!p' filename | sed -n '$='
+To print the number of blank lines in the file							:- sed -n '/^$/p' filename | sed -n '$='
+
+To only print empty lines of the file								:- sed -n '/^$/p' filename
+To only print non-empty lines of the file							:- sed -n '/^$/!p' filename
+
+To only print empty line numbers of the file				:(Useful in For loop)	:- sed -n '/^$/=' filename
+To only print non-empty line numbers of the file			:(Useful in For loop)	:- sed -n '/^./=' filename
+To print all the line numbers of the file				:(Useful in For loop)	:- sed -n '/^.*/=' filename
+												:- sed -n /$/=' filename
+
+To only print 1st line of the file								:- sed -n '1p' filename
+												:- sed '1!d' filename
+												:- sed '1q' filename
+												:- sed q filename
+									
+To only print last line of the file								:- sed -n '$p' filename
+												:- sed '$!d' filename
+
+To only print last two lines of the file							:- sed '$!N;$!D' filename											
+To print specific lines							:(Lines 1 and 3)	:- sed -n -e '1p' -e '3p' filename
+To print non-printable characters in the file							:- sed -n l filename
+To print lines with 65 characters or more							:- sed -n '/^.\{65\}/p' filename
+To print lines with less than 65 characters							:- sed -n '/^.\{65\}/!p'
+
+To print range of lines							:(Lines 1-5)		:- sed -n '1,5p' filename
+												:- sed 5q filename
+												:- sed '6,$d' filename
+									
+To print 1st, 3rd, 5th lines and so on					:(x, x+n)		:- sed -n '1~2p' filename
+To print 1st, 4th, 7th lines and so on					:(x, x+n)		:- sed -n '1~3p' filename
+To print 2nd, 4th, 6th lines and so on					:(x, x+n)		:- sed -n '2~2p' filename
+To print 2nd, 6th, 10th lines and so on					:(x, x+n)		:- sed -n '2~4p' filename
+
+To print every 7th line starting from line 3							:- sed -n '3,${p;n;n;n;n;n;n;}' filename
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+SED: SEARCH & PRINT
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+To search a pattern and print the lines containing the pattern					:- sed -n '/pattern/p' filename
+												:  sed -n '/pattern/!d' filename
+
+To search a pattern with case ignored								:- sed -n '/pattern/Ip' filename
+To only print commented lines from the line 				:(bash comments)	:- sed -n '/^#/p' filename												
+
+To search a pattern and print the lines NOT containing the pattern				:- sed -n '/pattern/!p' filename
+To search a pattern and print 1 line after the pattern match 		:(inclusive)		:- sed -n '/pattern/{p;n;p;}' filename
+To search a pattern and print 2 lines after the pattern match 		:(inclusive)		:- sed -n '/pattern/{p;n;p;n;p;}' filename
+To search a pattern and print 3 lines after the pattern match 		:(inclusive)		:- sed -n '/pattern/{p;n;p;n;p;n;p;}' filename
+
+To search a pattern and print 1 line after the pattern match 		:(exclusive)		:- sed -n '/pattern/{n;p;}' filename
+To search a pattern and print 2 lines after the pattern match 		:(exclusive)		:- sed -n '/pattern/{n;p;n;p;}' filename
+To search a pattern and print 3 lines after the pattern match 		:(exclusive)		:- sed -n '/pattern/{n;p;n;p;n;p;}' filename
+
+To only print lines starting with punctuation							:- sed -n '/^[[:punct:]]/p' filename
+To only print lines containing punctuation							:- sed -n '/[[:punct:]]/p' filename
+To only print lines ending with punctuation							:- sed -n '/[[:punct:]]$/p' filename
+
+To only print lines starting with numbers							:- sed -n '/^[[:digits:]]/p' filename
+												:  sed -n '/^[0-9]/p' filename
+									
+To only print lines containing numbers								:- sed -n '/[[:digits:]]/p' filename
+												:  sed -n '/[0-9]/p' filename
+									
+To only print lines ending with numbers								:- sed -n '/[[:digits:]]$/p' filename
+												:  sed -n '/[0-9]$/p' filename
+									
+To only print lines starting with uppercase letter						:- sed -n '/^[[:upper:]]/p' filename
+												:  sed -n '/^[A-Z]/p' filename
+									
+To only print lines with at least one uppercase letter						:- sed -n '/[[:upper:]]/p' filename
+												:  sed -n '/[A-Z]/p' filename
+									
+To only print lines ending with uppercase letter						:- sed -n '/[[:upper:]]$/p' filename
+												:  sed -n '/[A-Z]$/p' filename
+									
+To print the line numbers(s) where pattern appeared						:- sed -n '/pattern/=' filename
+
+
