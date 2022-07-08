@@ -83,6 +83,7 @@ To print only the lines having more than 65 characters                          
 AWK: FILE MANIPULATION
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 To delete leading white spaces from the beginning of each line (ltrim)          :- awk '{ sub(/^[ \t]+/, ""); print }' filename
+                                                                                :  awk '{$1=$1; print}' filename
 To delete trailing white spaces from the end of each line (rtrim)               :- awk '{ sub(/[ \t]+$/, ""); print }' filename
 To delete both leading and trailing white spaces from the lines(trim)           :- awk '{ gsub(/^[ \t]+|[ \t]+$/, ""); print }' filename
 To remove white space between the fields                                        :- awk '{ $1=$1; print }' filename
