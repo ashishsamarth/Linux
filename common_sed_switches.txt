@@ -87,4 +87,4 @@ To print the line numbers(s) where pattern appeared						:- sed -n '/pattern/=' 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 SED: FILE MANIPULATION
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-To delete all blank lines from the file									:- sed '/^$/d' filename
+To delete all blank lines from the file								:- sed '/^$/d' filename
