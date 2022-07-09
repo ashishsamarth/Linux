@@ -14,6 +14,8 @@ get_boot_id()
 
 	# AWK equivalent
 	# $1=$1 gets rid of the lead whitespaces
+	# awk 'BEGIN {FS=": "}{print $2}	:- Modifies the default FieldSeparator (<space>) to ': '
+	# Advantage of this approach is that it allows multi character delimiter, while cut allows only single character delimiter
 	# my_machine_boot_id=read hostnamectl |awk 'BEGIN {IGNORECASE=1} /boot/ {$1=$1; print}' | awk 'BEGIN {FS=": "}{print $2}'
 
 	# return value of the function is machine boot id
