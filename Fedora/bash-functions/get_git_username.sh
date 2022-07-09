@@ -12,6 +12,7 @@ get_git_username()
 		then uname=read grep -iF "name" ~/.gitconfig | xargs | cut -d '=' -f2 | xargs
 
 		# AWK equivalent
+		# awk '$1=$1' : Gets rid of the leading space just like xargs
 		# uname=read awk 'BEGIN {IGNORECASE=1} /name/ {print}' ~/.gitconfig | awk '$1=$1' |awk 'BEGIN {FS=" = "} {print $2}'
 		
 		# SED + AWK equivalent
