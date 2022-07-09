@@ -50,7 +50,7 @@ To swap first field with second on every line                                   
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: SEARCH & PRINT
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
-To search and print a pattern with case ignored (emulate grep -i)               :- awk 'BEGIN {IGNORECASE=1}; /pattern/' filename
+To search and print a pattern with case ignored (emulate grep -i)               :- awk 'BEGIN {IGNORECASE=1} /pattern/' filename
 To print all lines where 5th field is equal to "abc123"                         :- awk '$5 == "abc123"' filename
 To print all lines where 5th field is equal to "abc123" with row number         :- awk '$5 == "abc123" {print "Row-Number:- ", NR, $0}' filename
 To print section of file from pattern to end of file                            :- awk '/pattern/,0'  filename
