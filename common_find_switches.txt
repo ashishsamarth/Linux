@@ -3,3 +3,5 @@ To run the last find command that was executed                                  
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 To find files/directories with a specific name, relative to current working directory     :-  find . -name "myFile.txt"
 To find files/directories with a specific name (case insensitive search)                  :-  find . -iname "myFile.txt"
+To find files/directories with a specific extension, use a wildcard                       :-  find . -name "*.txt"
+To find files/directories matching one of many extensions, use the or flag                :-  find . -name "*.txt" -o -name "*.sh"
