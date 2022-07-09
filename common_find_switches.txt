@@ -36,3 +36,5 @@ To find only files within a folder called log or data                           
 To find all files except the ones contained in a folder called bin                        :-  find . -type f -not -path '*/bin/*'
 To find all files of type .txt from the current directory                                 :-  find . -maxdepth 1 -type f -name "*.txt"
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+To find all files and directories which holds 777 permissions                             :-  find . -perm 777
+--------------------------------------------------------------------------------------------------------------------------------------------------------
