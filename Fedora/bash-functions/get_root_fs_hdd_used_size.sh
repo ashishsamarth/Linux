@@ -11,6 +11,12 @@ get_root_fs_hdd_used_size()
 
 	# Another way of executing the piped command in bash is by using command keyword
 	# used_hhd_size=command df -h /|awk '{print $3}'| tail -1|xargs
+
+	# AWK Equivalent
+	# used_hhd_size=read df -h / | awk 'END {print $3}'
+
+	# SED + AWK Equivalent
+	# used_hhd_size=read df -h / | awk '{print $3}' | sed -n '$p'
 	
 	# return value of the function is used hard drive size in GBs
 	return $used_hdd_size
