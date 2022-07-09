@@ -32,3 +32,4 @@ To find files more than 1 MB and less than 5 MB                                 
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 To find only files containing log anywhere in their path (folder or name)                 :-  find . -type f -path '*log*'
 To find only files within a folder called log (on any level)                              :-  find . -type f -path '*/log/*'
+To find only files within a folder called log or data                                     :-  find . -type f -path '*/log/*' -o -path '*/data/*'
