@@ -12,6 +12,10 @@ get_boot_id()
 	# Another way of executing the piped command in bash is by using command keyword
 	# my_machine_boot_id=command hostnamectl|grep -i boot|cut -d ':' -f2|xargs
 
+	# AWK equivalent
+	# $1=$1 gets rid of the lead whitespaces
+	# my_machine_boot_id=read hostnamectl |awk 'BEGIN {IGNORECASE=1} /boot/ {$1=$1; print}' | awk 'BEGIN {FS=": "}{print $2}'
+
 	# return value of the function is machine boot id
 	return $my_machine_boot_id
 }
