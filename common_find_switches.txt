@@ -10,3 +10,8 @@ To search for directories only                                                  
 To find files having white spaces in the name                                             :-  find . -type f -name "*filename*" -print0 | xargs -0 ls -l
 To find files/directories which name begin with abc and end with one alpha character	  :-  find . -name "abc[a-z][0-9]"
 following by one digit
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+To change permissions of all sub-directories in a directory                               :-  find . -type d -print | xargs -r chmod 770
+                                                                                          :   find . -type d -exec chmod 770 {} \;
+                                                                                          :   find . -type d | while read -r d; do chmod 770 "$d"; done
+--------------------------------------------------------------------------------------------------------------------------------------------------------
