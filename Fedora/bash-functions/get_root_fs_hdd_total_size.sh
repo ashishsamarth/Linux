@@ -11,6 +11,12 @@ get_root_fs_hdd_total_size()
 
 	# Another way of executing the piped command in bash is by using command keyword
 	# hhd_size=command df -h /|awk '{print $2}'| tail -1|xargs
+
+	# AWK Equivalent
+	# hhd_size=read df -h / | awk 'END {print $2}'
+
+	# SED + AWK Equivalent
+	# hhd_size=read df -h / | awk '{print $2}' | sed -n '$p'
 	
 	# return value of the function is total hard drive size in GBs
 	return $hdd_size
