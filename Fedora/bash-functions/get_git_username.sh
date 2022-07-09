@@ -14,6 +14,10 @@ get_git_username()
 		# AWK equivalent
 		# uname=read awk 'BEGIN {IGNORECASE=1} /name/ {print}' ~/.gitconfig | awk '$1=$1' |awk 'BEGIN {FS=" = "} {print $2}'
 		
+		# SED + AWK equivalent
+		# sed 's/^[[:space:]]//' :- Gets rid of leading space characters using the character classes
+		# uname=read sed -n '/name/Ip' ~/.gitconfig | sed 's/^[[:space:]]//' | awk 'BEGIN {FS=" = "}{print $2}'
+
 		# If the username value is not empty
 		if [[ -n $uname ]]
 		then	
