@@ -10,6 +10,10 @@ get_git_useremail()
 	if [[ -n $(rpm -q git) ]] && [[ -f ~/.gitconfig ]]
 		# Fetch the user email from git configuration file
 		then uemail=read grep -iF "email" ~/.gitconfig | xargs | cut -d '=' -f2 | xargs
+
+		# AWK equivalent
+		# uemail=read awk 'BEGIN {IGNORECASE=1} /email/ {print}' ~/.gitconfig | awk '$1=$1' |awk 'BEGIN {FS=" = "} {print $2}'
+		
 		# If the user email is not empty
 		if [[ -n $uemail ]]
 		then
