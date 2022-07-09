@@ -19,3 +19,6 @@ To find files that have been modified within the last 2 hours                   
 To find files that have not been modified within the last 2 hours                         :-  find . -mmin +120
 To find files that have been accessed within the last 2 hours                             :-  find . -amin -120
 To find files that have not been accessed within the last 2 hours                         :-  find . -amin +120
+To find files that have been modified within the last 2 days                              :-  find . -mtime -2
+To find files that have been modified in exact 2 day                                      :-  find . -mtime 2
+                                                                                          :   find . -mtime +1 -mtime -3
