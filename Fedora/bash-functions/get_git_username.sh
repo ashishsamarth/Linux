@@ -10,6 +10,10 @@ get_git_username()
 	if [[ -n $(rpm -q git) ]] && [[ -f ~/.gitconfig ]]
 		# fetch the username from the git configuration file
 		then uname=read grep -iF "name" ~/.gitconfig | xargs | cut -d '=' -f2 | xargs
+
+		# AWK equivalent
+		# uname=read awk 'BEGIN {IGNORECASE=1} /name/ {print}' ~/.gitconfig | awk '$1=$1' |awk 'BEGIN {FS=" = "} {print $2}'
+		
 		# If the username value is not empty
 		if [[ -n $uname ]]
 		then	
