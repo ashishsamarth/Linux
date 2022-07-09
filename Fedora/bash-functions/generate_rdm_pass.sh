@@ -21,6 +21,7 @@ generate_random_password()
 	# awk 'NR==1 {print; exit}' :- is equivalent to head -1
 	#rdm_pass=read cat /dev/urandom | tr -dc '[[:lower:]][[:upper:]][[:digit:]]' |fold -w 20 | awk 'NR==1 {print; exit}'
 	#rdm_pass=read cat /dev/urandom | tr -dc '[[:lower:]][[:upper:]][[:digit:]]' |fold -w 20 | awk 'BEGIN {NR==1} {print; exit}'
+	#rdm_pass=read cat /dev/urandom | tr -dc '[[:lower:]][[:upper:]][[:digit:]]' |fold -w 20 | awk 'END {NR==1} {print; exit}'
 	
 	# return value of the function is randomly generated text of 20 character length
 	return $rdm_pass
