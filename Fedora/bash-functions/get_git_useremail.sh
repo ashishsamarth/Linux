@@ -13,6 +13,9 @@ get_git_useremail()
 
 		# AWK equivalent
 		# uemail=read awk 'BEGIN {IGNORECASE=1} /email/ {print}' ~/.gitconfig | awk '$1=$1' |awk 'BEGIN {FS=" = "} {print $2}'
+
+		# SED + AWK equivalent
+		# uemail=read sed -n '/email/Ip' ~/.gitconfig | sed s'/^[[:space:]]//' | awk 'BEGIN {FS=" = "} {print $2}'
 		
 		# If the user email is not empty
 		if [[ -n $uemail ]]
