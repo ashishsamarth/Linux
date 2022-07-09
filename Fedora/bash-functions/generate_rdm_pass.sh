@@ -14,7 +14,12 @@ generate_random_password()
 	rdm_pass=read cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 20 | head -1
 
 	# Another way to write the same thing using character classes and sed
+	# sed q :- is equivalent to head -1
 	#rdm_pass=read cat /dev/urandom | tr -dc '[[:lower:]][[:upper:]][[:digit:]]' |fold -w 20 | sed q
+
+	# Another way to write the same thing using character classes and awk
+	# awk 'NR==1 {print; exit}' :- is equivalent to head -1
+	#rdm_pass=read cat /dev/urandom | tr -dc '[[:lower:]][[:upper:]][[:digit:]]' |fold -w 20 | awk 'NR==1 {print; exit}'
 	
 	# return value of the function is randomly generated text of 20 character length
 	return $rdm_pass
