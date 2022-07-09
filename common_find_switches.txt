@@ -31,3 +31,4 @@ To find files exactly of 15KB size                                              
 To find files more than 1 MB and less than 5 MB                                           :-  find . -type f -size +1M -size -5M
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 To find only files containing log anywhere in their path (folder or name)                 :-  find . -type f -path '*log*'
+To find only files within a folder called log (on any level)                              :-  find . -type f -path '*/log/*'
