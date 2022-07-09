@@ -24,3 +24,9 @@ To find files that have been modified in exact 2 day                            
                                                                                           :   find . -mtime +1 -mtime -3
 To find files that have not been modified within the last 2 days                          :-  find . -mtime +2
 To find files modified in a date range	                                                  :-  find . -type f -newermt yyyy-mm-dd ! -newermt yyyy-mm-dd
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+To find files larger than 15MB                                                            :-  find . -type f -size +15M
+To find files less than 15KB                                                              :-  find . -type f -size +15k
+To find files exactly of 15KB size                                                        :-  find . -type f -size 15k
+To find files more than 1 MB and less than 5 MB                                           :-  find . -type f -size +1M -size -5M
+--------------------------------------------------------------------------------------------------------------------------------------------------------
