@@ -7,3 +7,6 @@ To find files/directories with a specific extension, use a wildcard             
 To find files/directories matching one of many extensions, use the or flag                :-  find . -name "*.txt" -o -name "*.sh"
 To search for files only                                                                  :-  find . -type f
 To search for directories only                                                            :-  find . -type d
+To find files having white spaces in the name                                             :-  find . -type f -name "*filename*" -print0 | xargs -0 ls -l
+To find files/directories which name begin with abc and end with one alpha character	  :-  find . -name "abc[a-z][0-9]"
+following by one digit
