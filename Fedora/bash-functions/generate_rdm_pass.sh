@@ -12,6 +12,9 @@ generate_random_password()
 	# fold -w 20 will limit the generated text to 20 characters in one line (reverse of new line character)
 	# head -n 1 will pick the 1st generated random text
 	rdm_pass=read cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 20 | head -1
+
+	# Another way to write the same thing using character classes and sed
+	#rdm_pass=read cat /dev/urandom | tr -dc '[[:lower:]][[:upper:]][[:digit:]]' |fold -w 20 | sed q
 	
 	# return value of the function is randomly generated text of 20 character length
 	return $rdm_pass
