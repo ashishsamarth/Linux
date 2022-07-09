@@ -16,3 +16,4 @@ To change permissions of all sub-directories in a directory                     
                                                                                           :   find . -type d | while read -r d; do chmod 770 "$d"; done
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 To find files that have been modified within the last 2 hours                             :-  find . -mmin -120
+To find files that have not been modified within the last 2 hours                         :-  find . -mmin +120
