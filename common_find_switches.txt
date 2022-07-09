@@ -1,3 +1,5 @@
 --------------------------------------------------------------------------------------------------------------------------------------------------------
 To run the last find command that was executed                                            :-  !find
 --------------------------------------------------------------------------------------------------------------------------------------------------------
+To find files/directories with a specific name, relative to current working directory     :-  find . -name "myFile.txt"
+To find files/directories with a specific name (case insensitive search)                  :-  find . -iname "myFile.txt"
