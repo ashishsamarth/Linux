@@ -64,6 +64,10 @@ To only print lines starting with punctuation							:- sed -n '/^[[:punct:]]/p' 
 To only print lines containing punctuation							:- sed -n '/[[:punct:]]/p' filename
 To only print lines ending with punctuation							:- sed -n '/[[:punct:]]$/p' filename
 
+To only print lines starting with space								:- sed -n '/^[[:space:]]/p' filename
+To only print lines containing space								:- sed -n '/[[:space:]]/p' filename
+To only print lines ending with space								:- sed -n '/[[:space:]]$/p' filename
+
 To only print lines starting with numbers							:- sed -n '/^[[:digits:]]/p' filename
 												:  sed -n '/^[0-9]/p' filename
 									
