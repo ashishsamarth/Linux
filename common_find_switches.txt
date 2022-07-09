@@ -5,3 +5,5 @@ To find files/directories with a specific name, relative to current working dire
 To find files/directories with a specific name (case insensitive search)                  :-  find . -iname "myFile.txt"
 To find files/directories with a specific extension, use a wildcard                       :-  find . -name "*.txt"
 To find files/directories matching one of many extensions, use the or flag                :-  find . -name "*.txt" -o -name "*.sh"
+To search for files only                                                                  :-  find . -type f
+To search for directories only                                                            :-  find . -type d
