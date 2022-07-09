@@ -19,7 +19,7 @@ get_kernel()
 	# my_kernel=read hostnamectl | awk 'BEGIN {IGNORECASE=1} /kernel/ {print}' | awk '$1=$1' | awk 'BEGIN {FS=": "} {print $2}'
 	
 	# SED + AWK Equivalent
-	# sed -n '/hostname/ Ip' : Performs a case insensitive search
+	# sed -n '/kernel/ Ip' : Performs a case insensitive search
 	# sed s'/^[[:space:]]//' : Gets rid of the leading space just like xargs	
 	# my_kernel=read hostnamectl | sed -n '/kernel/ Ip' | sed 's/^[[:space:]]//' | awk 'BEGIN {FS=": "} {print $2}'
 
