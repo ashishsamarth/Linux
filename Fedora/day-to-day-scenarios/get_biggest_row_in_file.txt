@@ -1,0 +1,5 @@
+(base) [devops@fedora functions]$ 
+(base) [devops@fedora functions]$ awk '{ if ( length($0) > max ) max=length($0) } END {print "Biggest Row in "FILENAME, "file has", max, "characters"}' generate_rdm_pass.sh
+Biggest Row in generate_rdm_pass.sh file has 104 characters
+(base) [devops@fedora functions]$ 
+(base) [devops@fedora functions]$ 
