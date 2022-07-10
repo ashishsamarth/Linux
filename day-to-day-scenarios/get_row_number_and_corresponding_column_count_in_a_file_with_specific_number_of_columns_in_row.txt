@@ -6,4 +6,4 @@ Row-Num 18 has 12 Columns
 Row-Num 85 has 12 Columns
 Row-Num 98 has 12 Columns
 (base) [devops@fedora sample-files]$ 
-(base) [devops@fedora sample-files]$ 
+(base) [devops@fedora sample-files]$
