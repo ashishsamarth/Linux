@@ -12,4 +12,3 @@ bash
 (base) [devops@fedora ~]$ ps -ef|grep $$ | sed q | awk '{print $8}'
 bash
 (base) [devops@fedora ~]$ 
-(base) [devops@fedora ~]$
