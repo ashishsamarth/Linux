@@ -24,6 +24,7 @@ To print number of fields in line number 1 		:(special variable NF)  :- awk 'NR=
 To only print the 4th column from ls                                            :- ls -l | awk '{print $5}'|sort -nr
 To only print lines 8 to 12 from the file                                 	:- awk 'NR==8,NR==12' filename
 To only print line # 52 from the file                                           :- awk 'NR==52 { print; exit }' filename
+To only print even numbered lines from the file                                 :- awk 'NR%2 == 0' filename
 To only print 1st line of the file			:(emulate head -1)      :- awk 'NR > 1 { exit }; 1' filename
 To only print last 2 lines of the file 			:(emulate tail -2)      :- awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
 	
