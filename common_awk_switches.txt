@@ -76,8 +76,8 @@ To search the 2nd column in file for a pattern not beginning with the pattern   
 To search the 2nd column in file for a pattern not beginning with the pattern   :- awk '$2 !~ /^tti/ && $1 < 5' filename  
 and the entries in the first column is less than 5
 
-To only print the lines having more than 65 characters                          :- awk 'length > 64' filename
-                                                                                :  awk 'length($0) > 18' filename
+To only print the lines having more than 65 characters                          :- awk 'length > 65' filename
+                                                                                :  awk 'length($0) > 65' filename
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 AWK: FILE MANIPULATION
