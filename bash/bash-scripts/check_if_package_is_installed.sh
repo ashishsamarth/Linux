@@ -15,4 +15,4 @@ else
 fi
 
 # How to execute: ./check-if-package-is-installed.sh
-# Package name to be provided after script execution, not as a positional parameter
+# Package name to be provided after script execution, not as a positional parameter 
