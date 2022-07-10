@@ -34,7 +34,8 @@ To print lines with less than 65 characters							:- sed -n '/^.\{65\}/!p'
 To print range of lines							:(Lines 1-5)		:- sed -n '1,5p' filename
 												:- sed 5q filename
 												:- sed '6,$d' filename
-									
+
+To print range of lines							:(Line# till end)	:- sed -n '2,$ p' filename									
 To print 1st, 3rd, 5th lines and so on					:(x, x+n)		:- sed -n '1~2p' filename
 To print 1st, 4th, 7th lines and so on					:(x, x+n)		:- sed -n '1~3p' filename
 To print 2nd, 4th, 6th lines and so on					:(x, x+n)		:- sed -n '2~2p' filename
