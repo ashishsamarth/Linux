@@ -16,4 +16,4 @@ get_current_time_cst_tz()
 }
 
 # Calling the function
-get_current_time_cst_tz
+get_current_time_cst_tz 
