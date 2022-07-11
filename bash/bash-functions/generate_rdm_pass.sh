@@ -29,4 +29,4 @@ generate_random_password()
 
 
 # Calling the function
-generate_random_password
+generate_random_password 
