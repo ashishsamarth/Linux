@@ -22,4 +22,3 @@ get_os()
 
 #Calling the function
 get_os
-
