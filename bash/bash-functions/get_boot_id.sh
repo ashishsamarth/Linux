@@ -23,4 +23,4 @@ get_boot_id()
 }
 
 #Calling the function
-get_boot_id
+get_boot_id 
