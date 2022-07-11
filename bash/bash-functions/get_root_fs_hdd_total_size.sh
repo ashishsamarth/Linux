@@ -23,4 +23,4 @@ get_root_fs_hdd_total_size()
 }
 
 # Calling the function
-get_root_fs_hdd_total_size
+get_root_fs_hdd_total_size 
