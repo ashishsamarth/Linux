@@ -17,4 +17,4 @@ get_tmp_fs_hdd_total_size()
 }
 
 # Calling the function
-get_tmp_fs_hdd_total_size
+get_tmp_fs_hdd_total_size 
