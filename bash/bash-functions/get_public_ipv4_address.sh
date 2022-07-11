@@ -16,4 +16,4 @@ get_public_ipv4_address()
 }
 
 #Calling the function
-get_public_ipv4_address
+get_public_ipv4_address 
