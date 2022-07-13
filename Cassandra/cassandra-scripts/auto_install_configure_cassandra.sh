@@ -70,6 +70,8 @@ then
             echo "stage#2 : Completed Successfully"
             echo "****************************************************"
             echo "stage#3 : Updating Node Configuration"
+            # Create an empty variable to hold the seed ip values
+            # At the end of for loop, result will be an appended list of ip addresses separated by comma
             seed_ip_list=''
             for num in $(seq $num_node)
             do
@@ -81,7 +83,7 @@ then
                 fi
             done
             echo "-------------------------------------------------------------------------------------------------------------------------"
-
+            
             for num in $(seq $num_node)
                 do
                     echo -e "\tProcessing Node Number :- node$num"
