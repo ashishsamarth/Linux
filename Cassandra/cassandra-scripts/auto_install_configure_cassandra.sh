@@ -73,3 +73,8 @@ then
                     then
                         sed -i '/num_tokens:/{n;s/$/num_tokens: 1/}' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
                     fi
+
+                    # Modify the directory paths created per node
+                    sed -i "s/\/var\/lib\/cassandra\//\/var\/lib\/cassandra\/node$num\//g" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+
+                    
