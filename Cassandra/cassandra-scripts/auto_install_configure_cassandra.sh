@@ -54,21 +54,22 @@ then
                 mkdir -p /var/lib/cassandra/node$num/cdc_raw
                 mkdir -p /var/lib/cassandra/node$num/saved_caches
 
+                # echo back directory creation messages to stdout 
                 for sub_dir in hints data commitlog cdc_raw saved_caches
                 do
                     echo -e "\t\tConfig Directory $sub_dir created in /var/lib/cassandra/node$num"
                 done
 
+                # Perform a protected recurssive copy from uncompressed tar-ball to node home for iterated node number
                 cp -pR /tmp/dse-6*/* /opt/cassandra/node$num/. && echo -e "\t\tFiles Copied successfully to /opt/cassandra/node$num"
+                # Since the script is executed as root
+                # Perform change ownership to non-root user
                 chown -R $USER:$USER /opt/cassandra
                 echo "-------------------------------------------------------------------------------------------------------------------------"
-
             done
             echo "stage#2 : Completed Successfully"
-            sleep 2
             echo "****************************************************"
             echo "stage#3 : Updating Node Configuration"
-            sleep 3
             seed_ip_list=''
             for num in $(seq $num_node)
             do
