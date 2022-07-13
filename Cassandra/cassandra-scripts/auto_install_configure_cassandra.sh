@@ -82,3 +82,6 @@ then
 
                     # Modify Param: listen_address per node
                     sed -i "/^listen_address/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+
+                    # Modify Param: native_transport_port per node
+                    sed -i "/^native_transport_port/ s/9042/904$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
