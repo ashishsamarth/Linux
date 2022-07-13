@@ -1,5 +1,14 @@
 #! /bin/bash
 
+# This script performs the following
+# Downloads DSE Cassandra version 6.0.0
+# Creates required directory structures based on the number of nodes to be created
+# Updates the configuration files per node
+# --> Creates a minimum of 1 and maximum of 9 nodes on same local host
+# Enables the configuration file for use
+
+# Verify the URL before use, jsut to be sure its working fine
+
 # Identify the current logged in user
 trigger_owner=`whoami`
 
@@ -69,6 +78,7 @@ then
             done
             echo "stage#2 : Completed Successfully"
             echo "****************************************************"
+            echo " "
             echo "stage#3 : Updating Node Configuration"
             # Create an empty variable to hold the seed ip values
             # At the end of for loop, result will be an appended list of ip addresses separated by comma
@@ -150,6 +160,8 @@ then
                     echo -e "\t\tUpdating Configuration for cassandra-env.sh"
                     # Update value fo param: MAX_HEAP_SIZE to 512M
                     sed -i '/\t*MAX_HEAP_SIZE="/ s/${max_heap_size_in_mb}M/512M/' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
+                    
+                    # Define Ending port number to be used with stream editor: In place editing
                     port_end=99
                     # Update value for param: JMX_PORT to node specific port #
                     sed -i "/JMX_PORT=/ s/7199/7$num$port_end/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
@@ -162,15 +174,23 @@ then
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh
 
                     # End update: cassandra-env.sh
+
+                    # Start update: cqlsh.py
                     echo -e "\n"
                     echo -e "\t\tUpdating Configuration for cqlsh.py"
+                    # Update value fo param: DEFAULT_HOST to Node specific ip address
                     sed -i "/^DEFAULT_HOST/ s/127.0.0.1/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py
+                    # Update value fo param: DEFAULT_POR to Node specific port number
                     sed -i "/^DEFAULT_PORT/ s/9042/904$num/" /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py
+                    # echo back modified parameters to stdout
                     echo -e "\t\t\tDEFAULT HOST & PORT updated in cqlsh.py for node$num"
 
+                    # Rename default cqlsh.py to cqlsh.py_orig
                     mv /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py_orig
+                    # Rename default cqlsh_mod_node.py to cqlsh.py
                     mv /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py
-
+                    
+                    # End update: cqlsh.py
                     echo "-------------------------------------------------------------------------------------------------------------------------"
 
                 done
