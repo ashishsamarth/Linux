@@ -83,20 +83,36 @@ then
                 fi
             done
             echo "-------------------------------------------------------------------------------------------------------------------------"
-            
+
+            # Run a For loop
             for num in $(seq $num_node)
                 do
                     echo -e "\tProcessing Node Number :- node$num"
+                    # Make a copy of cassandra.yaml
                     cp -p /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                    # Make a copy of cassandra-env.sh
                     cp -p /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
+                    # Make a copu of cqlsh.py
                     cp -p /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py
 
+                    # Identify if parameter: initial_token is defined
                     get_initial_token_val=`grep -nF '^initial_token:' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml`
+                    # Identify if parameter: num_tokens is defined
                     get_num_tokens_val=`grep -nF '^num_tokens:' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml`
+
+                    # These parameters needs to be checked since only one of them should be defined
+                    # Defining both of them will interfere with Cassandra Start up
+                    # In this case, I am defining num_tokens
                     echo -e "\t\tUpdating Configuration for cassandra.yaml"
-                    # Add Parameter num_tokens with value of 1
+                    # Add Parameter num_tokens with value of 1 only when 
+                    # $get_initial_token_val does not have any value and $get_num_tokens_val does not have any value
                     if [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
                     then
+                        # Find num_tokens
+                        # Insert an empty line
+                        # Add paramter with value
+                        # num_tokens: 1
+                        # In the cassandra.yaml file per node
                         sed -i '/num_tokens:/{n;s/$/num_tokens: 1/}' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
                     fi
 
