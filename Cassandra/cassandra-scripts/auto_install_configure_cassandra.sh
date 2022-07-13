@@ -106,6 +106,8 @@ then
                     echo -e "\t\tUpdating Configuration for cassandra.yaml"
                     # Add Parameter num_tokens with value of 1 only when 
                     # $get_initial_token_val does not have any value and $get_num_tokens_val does not have any value
+
+                    # Start update: cassandra.yaml
                     if [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
                     then
                         # Find num_tokens
@@ -131,14 +133,20 @@ then
                     # Modify Param: native_transport_address (old name: rpc_address) per node
                     sed -i "/^native_transport_address/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
 
+                    # Rename default cassandra.yaml to cassandra.yaml_orig
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml_orig
+                    # Rename modified cassandra_mod_node.yaml to cassandra.yaml
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml
 
+                    # echo back modified parameters to stdout
                     for param in num_tokens config_dirs seed_provider listen_address native_transport_port native_transport_address
                     do
                         echo -e "\t\t\t$param updated for node$num"
                     done
                     echo -e "\n"
+                    # End update: cassandra.yaml
+
+                    # Start update: cassandra-env.sh
                     echo -e "\t\tUpdating Configuration for cassandra-env.sh"
                     sed -i '/\t*MAX_HEAP_SIZE="/ s/${max_heap_size_in_mb}M/512M/' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
                     port_end=99
@@ -149,6 +157,8 @@ then
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh_orig
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh
 
+
+                    # End update: cassandra-env.sh
                     echo -e "\n"
                     echo -e "\t\tUpdating Configuration for cqlsh.py"
                     sed -i "/^DEFAULT_HOST/ s/127.0.0.1/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py
