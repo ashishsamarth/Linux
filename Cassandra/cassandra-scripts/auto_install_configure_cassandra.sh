@@ -21,4 +21,22 @@ then
         echo "stage#2 : Creating Home & Configuration Directories for $num_node Nodes"
         echo "-------------------------------------------------------------------------------------------------------------------------"
         for num in $(seq $num_node)
-            
+            do
+                mkdir -p /opt/cassandra/node$num
+                echo -e "\tProcessing Node Number :- node$num"
+                echo -e "\t\tHome directory created in /opt/cassandra/node$num"
+                mkdir -p /var/lib/cassandra/node$num/hints
+                mkdir -p /var/lib/cassandra/node$num/data
+                mkdir -p /var/lib/cassandra/node$num/commitlog
+                mkdir -p /var/lib/cassandra/node$num/cdc_raw
+                mkdir -p /var/lib/cassandra/node$num/saved_caches
+
+                for sub_dir in hints data commitlog cdc_raw saved_caches
+                do
+                    echo -e "\t\tConfig Directory $sub_dir created in /var/lib/cassandra/node$num"
+                done
+
+                cp -pR /tmp/dse-6*/* /opt/cassandra/node$num/. && echo -e "\t\tFiles Copied successfully to /opt/cassandra/node$num"
+                chown -R $USER:$USER /opt/cassandra
+                echo "-------------------------------------------------------------------------------------------------------------------------"
+                
