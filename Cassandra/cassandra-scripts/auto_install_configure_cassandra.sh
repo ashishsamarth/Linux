@@ -148,8 +148,10 @@ then
 
                     # Start update: cassandra-env.sh
                     echo -e "\t\tUpdating Configuration for cassandra-env.sh"
+                    # Update value fo param: MAX_HEAP_SIZE to 512M
                     sed -i '/\t*MAX_HEAP_SIZE="/ s/${max_heap_size_in_mb}M/512M/' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
                     port_end=99
+                    # Update value for param: JMX_PORT to node specific port #
                     sed -i "/JMX_PORT=/ s/7199/7$num$port_end/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
 
                     echo -e "\t\t\tMAX_HEAP_SIZE & JMX_PORT updated in Cassandra-env.sh for node$num"
