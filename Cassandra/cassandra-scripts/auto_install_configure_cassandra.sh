@@ -1,8 +1,15 @@
-trigger_owner=`whoami`
-tar_ball="dse-6.0.tar.gz"
-if [[ $trigger_owner == 'root' ]]
+#! /bin/bash
 
+# Identify the current logged in user
+trigger_owner=`whoami`
+
+# Get the tar ball name
+tar_ball="dse-6.0.tar.gz"
+
+# Proceed only if the the current user is root
+if [[ $trigger_owner == 'root' ]]
 then
+    
     read -p 'Enter the number of nodes you wish to create:- ' num_node
     if [[ "$num_node" =~ ^[0-9]+$ ]] && [[ $num_node > 0 ]]
     then
