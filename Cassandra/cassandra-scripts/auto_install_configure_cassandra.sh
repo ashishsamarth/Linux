@@ -91,3 +91,42 @@ then
 
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml_orig
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml
+
+                    for param in num_tokens config_dirs seed_provider listen_address native_transport_port native_transport_address
+                    do
+                        echo -e "\t\t\t$param updated for node$num"
+                    done
+                    echo -e "\n"
+                    echo -e "\t\tUpdating Configuration for cassandra-env.sh"
+                    sed -i '/\t*MAX_HEAP_SIZE="/ s/${max_heap_size_in_mb}M/512M/' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
+                    port_end=99
+                    sed -i "/JMX_PORT=/ s/7199/7$num$port_end/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
+
+                    echo -e "\t\t\tMAX_HEAP_SIZE & JMX_PORT updated in Cassandra-env.sh for node$num"
+
+                    mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh_orig
+                    mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh
+
+                    echo -e "\n"
+                    echo -e "\t\tUpdating Configuration for cqlsh.py"
+                    sed -i "/^DEFAULT_HOST/ s/127.0.0.1/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py
+                    sed -i "/^DEFAULT_PORT/ s/9042/904$num/" /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py
+                    echo -e "\t\t\tDEFAULT HOST & PORT updated in cqlsh.py for node$num"
+
+                    mv /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py_orig
+                    mv /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py
+
+                    echo "-------------------------------------------------------------------------------------------------------------------------"
+
+                done
+                echo -e "stage#3 : Completed Successfully"
+                echo "****************************************************"
+
+
+        else
+                echo "User did not provide Number of Nodes in Valid Format"
+        fi
+
+else
+        echo "Please run this script as a root user"
+fi
