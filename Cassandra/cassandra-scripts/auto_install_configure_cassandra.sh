@@ -13,3 +13,12 @@ then
         sleep 5
         tar -xf $tar_ball && echo "Tar-Ball: Uncompressed successfully in `pwd`"
         rm -rf $tar_ball && echo "Tar-Ball: Deleted from `pwd`"
+
+        sleep 5
+        echo "stage#1 : Completed Successfully"
+        echo "****************************************************"
+        echo ""
+        echo "stage#2 : Creating Home & Configuration Directories for $num_node Nodes"
+        echo "-------------------------------------------------------------------------------------------------------------------------"
+        for num in $(seq $num_node)
+            
