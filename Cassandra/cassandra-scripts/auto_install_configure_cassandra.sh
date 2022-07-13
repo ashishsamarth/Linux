@@ -17,9 +17,14 @@ then
     then
         echo "" 
         echo "stage#1 : Download Datastax Cassandra"
+        # Navigate to /tmp and perform a silent download of DSE Cassandra version 6.0.0
         cd /tmp && echo "Downloading Datastax Cassandra version 6.0.0"
+        # -q flag of wget performs a silent download from the url
+        # && followed by echo is to validate if the wget was successful
         wget -q https://downloads.datastax.com/enterprise/$tar_ball && echo "Tar-Ball: Downloaded Successfully"
-        sleep 5
+
+        # Uncompress the tar-ball
+        # && followed by echo is to validate if the tar -xf was successful
         tar -xf $tar_ball && echo "Tar-Ball: Uncompressed successfully in `pwd`"
         rm -rf $tar_ball && echo "Tar-Ball: Deleted from `pwd`"
 
