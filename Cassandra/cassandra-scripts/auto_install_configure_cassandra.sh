@@ -80,4 +80,5 @@ then
                     # Modify Seed Provider List per node
                     sed -i "/seeds:/ s/127.0.0.1/$seed_ip_list/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
 
-                    
+                    # Modify Param: listen_address per node
+                    sed -i "/^listen_address/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
