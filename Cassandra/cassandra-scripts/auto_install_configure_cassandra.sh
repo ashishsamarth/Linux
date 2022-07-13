@@ -11,7 +11,9 @@ if [[ $trigger_owner == 'root' ]]
 then
     # Fetch the number of nodes the user wishes to create
     read -p 'Enter the number of nodes you wish to create:- ' num_node
-    if [[ "$num_node" =~ ^[0-9]+$ ]] && [[ $num_node > 0 ]]
+
+    # The user input must be an integer between 1 and 9
+    if [[ "$num_node" =~ ^[1-9]+$ ]]
     then
         echo "" 
         echo "stage#1 : Download Datastax Cassandra"
