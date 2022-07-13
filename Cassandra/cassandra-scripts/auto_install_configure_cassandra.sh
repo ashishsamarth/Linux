@@ -9,13 +9,15 @@ tar_ball="dse-6.0.tar.gz"
 # Proceed only if the the current user is root
 if [[ $trigger_owner == 'root' ]]
 then
+    echo " "
     # Fetch the number of nodes the user wishes to create
     read -p 'Enter the number of nodes you wish to create:- ' num_node
 
     # The user input must be an integer between 1 and 9
     if [[ "$num_node" =~ ^[1-9]+$ ]]
     then
-        echo "" 
+        echo ""
+        echo "-------------------------------------------------------------------------------------------------------------------------" 
         echo "stage#1 : Download Datastax Cassandra"
         # Navigate to /tmp and perform a silent download of DSE Cassandra version 6.0.0
         cd /tmp && echo "Downloading Datastax Cassandra version 6.0.0"
@@ -26,19 +28,26 @@ then
         # Uncompress the tar-ball
         # && followed by echo is to validate if the tar -xf was successful
         tar -xf $tar_ball && echo "Tar-Ball: Uncompressed successfully in `pwd`"
+
+        # Delete the tar-ball; since its no longer needed
         rm -rf $tar_ball && echo "Tar-Ball: Deleted from `pwd`"
 
-        sleep 5
         echo "stage#1 : Completed Successfully"
         echo "****************************************************"
         echo ""
         echo "stage#2 : Creating Home & Configuration Directories for $num_node Nodes"
         echo "-------------------------------------------------------------------------------------------------------------------------"
+        # $(seq $num_node) : It behaves as a range
+        # Run a for loop
         for num in $(seq $num_node)
             do
+                # Create home directories for Nodes
                 mkdir -p /opt/cassandra/node$num
                 echo -e "\tProcessing Node Number :- node$num"
                 echo -e "\t\tHome directory created in /opt/cassandra/node$num"
+                
+                # Create configuration directories for every node
+                # hints, data, commitlog, cdc_raw, saved_caches
                 mkdir -p /var/lib/cassandra/node$num/hints
                 mkdir -p /var/lib/cassandra/node$num/data
                 mkdir -p /var/lib/cassandra/node$num/commitlog
