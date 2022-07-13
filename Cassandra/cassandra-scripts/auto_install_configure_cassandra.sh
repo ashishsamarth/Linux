@@ -154,9 +154,10 @@ then
 
                     echo -e "\t\t\tMAX_HEAP_SIZE & JMX_PORT updated in Cassandra-env.sh for node$num"
 
+                    # Rename default cassandra-env.sh to cassandra-env.sh_orig
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh_orig
+                    # Rename default cassandra_mod_node-env.sh to cassandra-env.sh
                     mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh
-
 
                     # End update: cassandra-env.sh
                     echo -e "\n"
