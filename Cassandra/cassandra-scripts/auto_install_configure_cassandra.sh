@@ -39,4 +39,21 @@ then
                 cp -pR /tmp/dse-6*/* /opt/cassandra/node$num/. && echo -e "\t\tFiles Copied successfully to /opt/cassandra/node$num"
                 chown -R $USER:$USER /opt/cassandra
                 echo "-------------------------------------------------------------------------------------------------------------------------"
-                
+
+            done
+            echo "stage#2 : Completed Successfully"
+            sleep 2
+            echo "****************************************************"
+            echo "stage#3 : Updating Node Configuration"
+            sleep 3
+            seed_ip_list=''
+            for num in $(seq $num_node)
+            do
+                if [[ $num < $num_node ]]
+                then
+                    seed_ip_list+="127.0.0.$num, "
+                else
+                    seed_ip_list+="127.0.0.$num"
+                fi
+            done
+            echo "-------------------------------------------------------------------------------------------------------------------------"
