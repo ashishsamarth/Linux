@@ -77,4 +77,7 @@ then
                     # Modify the directory paths created per node
                     sed -i "s/\/var\/lib\/cassandra\//\/var\/lib\/cassandra\/node$num\//g" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
 
+                    # Modify Seed Provider List per node
+                    sed -i "/seeds:/ s/127.0.0.1/$seed_ip_list/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+
                     
