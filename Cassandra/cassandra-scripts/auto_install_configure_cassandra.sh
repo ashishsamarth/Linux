@@ -57,3 +57,19 @@ then
                 fi
             done
             echo "-------------------------------------------------------------------------------------------------------------------------"
+
+            for num in $(seq $num_node)
+                do
+                    echo -e "\tProcessing Node Number :- node$num"
+                    cp -p /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                    cp -p /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh
+                    cp -p /opt/cassandra/node$num/resources/cassandra/bin/cqlsh.py /opt/cassandra/node$num/resources/cassandra/bin/cqlsh_mod_node$num.py
+
+                    get_initial_token_val=`grep -nF '^initial_token:' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml`
+                    get_num_tokens_val=`grep -nF '^num_tokens:' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml`
+                    echo -e "\t\tUpdating Configuration for cassandra.yaml"
+                    # Add Parameter num_tokens with value of 1
+                    if [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
+                    then
+                        sed -i '/num_tokens:/{n;s/$/num_tokens: 1/}' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                    fi
