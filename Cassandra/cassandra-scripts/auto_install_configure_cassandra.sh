@@ -88,3 +88,6 @@ then
 
                     # Modify Param: native_transport_address (old name: rpc_address) per node
                     sed -i "/^native_transport_address/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+
+                    mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml_orig
+                    mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml
