@@ -21,7 +21,7 @@ tar_ball="dse-6.0.tar.gz"
 if [[ $trigger_owner == 'root' ]]
 then
     echo " "
-    # Fetch the number of nodes the user wishes to create
+    # Fetch the number of nodes the user wishes to create in to a variable
     read -p 'Enter the number of nodes you wish to create:- ' num_node
 
     # The user input must be an integer between 1 and 9
