@@ -16,7 +16,7 @@ trigger_owner=`whoami`
 # This will help control the version of cassandra you wish to install
 tar_ball="dse-6.0.tar.gz"
 # Manage the download url via a variable
-download_url='https://downloads.datastax.com/enterprise/'
+download_url="https://downloads.datastax.com/enterprise/'$tar_ball"
 
 # Proceed only if the the current user is root
 # Installation is done as root, since we need to create directories under /opt
@@ -38,7 +38,7 @@ then
         cd /tmp && echo "Downloading Datastax Cassandra version 6.0.0"
         # -q flag of wget performs a silent download from the url
         # && followed by echo is to validate if the wget was successful
-        wget -q https://downloads.datastax.com/enterprise/$tar_ball && echo "Tar-Ball: Downloaded Successfully"
+        wget -q $download_url && echo "Tar-Ball: Downloaded Successfully"
 
         # Uncompress the tar-ball
         # && followed by echo is to validate if the tar -xf was successful
