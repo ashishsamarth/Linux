@@ -80,7 +80,7 @@ then
             echo "stage#2 : Completed Successfully"
             echo "****************************************************"
             echo " "
-            echo "stage#3 : Updating Node Configuration"
+            echo "stage#3 : Update Node Configuration"
             # Create an empty variable to hold the seed ip values
             # At the end of for loop, result will be an appended list of ip addresses separated by comma
             seed_ip_list=''
