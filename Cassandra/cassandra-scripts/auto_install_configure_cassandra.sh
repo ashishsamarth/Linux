@@ -81,23 +81,21 @@ then
             echo "****************************************************"
             echo " "
             echo "stage#3 : Update Node Configuration"
-            # Create an empty variable to hold the seed ip values
-            # At the end of for loop, result will be an appended list of ip addresses separated by comma
-            seed_ip_list=''
-            for num in $(seq $num_node)
-            do
-                if [[ $num < $num_node ]]
-                then
-                    seed_ip_list+="127.0.0.$num, "
-                else
-                    seed_ip_list+="127.0.0.$num"
-                fi
-            done
             echo "-------------------------------------------------------------------------------------------------------------------------"
 
             # Run a For loop
+            # Create an empty variable to hold the seed ip values
+            seed_ip_list=''            
             for num in $(seq $num_node)
                 do
+                    # Result will be an appended list of ip addresses separated by comma
+                    if [[ $num < $num_node ]]
+                    then
+                        seed_ip_list+="127.0.0.$num, "
+                    else
+                        seed_ip_list+="127.0.0.$num"
+                    fi
+
                     echo -e "\tProcessing Node Number :- node$num"
                     # Make a copy of cassandra.yaml
                     cp -p /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
