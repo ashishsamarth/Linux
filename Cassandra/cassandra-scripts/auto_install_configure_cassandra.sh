@@ -26,6 +26,8 @@ then
 
     # The user input must be an integer between 1 and 9
     if [[ "$num_node" =~ ^[1-9]+$ ]]
+    # If you wish to create up to 99 nodes, use the following
+    # if [[ "$num_node" =~ ^[1-9][0-9]+$ ]]
     then
         echo ""
         echo "-------------------------------------------------------------------------------------------------------------------------" 
