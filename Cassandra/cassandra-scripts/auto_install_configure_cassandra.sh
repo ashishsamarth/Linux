@@ -95,7 +95,6 @@ then
             echo "-------------------------------------------------------------------------------------------------------------------------"
 
             # Run a For loop
-        
             for num in $(seq $num_node)
                 do
                     echo -e "\tProcessing Node Number :- node$num"
