@@ -196,8 +196,6 @@ then
                 done
                 echo -e "stage#3 : Completed Successfully"
                 echo "****************************************************"
-
-
         else
                 echo "User did not provide Number of Nodes in Valid Format"
         fi
