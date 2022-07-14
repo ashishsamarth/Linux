@@ -139,7 +139,7 @@ then
                 # Modify the directory paths created per node in cassandra.yaml file per node
                 sed -i "s/\/var\/lib\/cassandra\//\/var\/lib\/cassandra\/node$num\//g" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
 
-		        for param in num_tokens seeds listen_address native_transport_port native_transport_address
+                for param in num_tokens seeds listen_address native_transport_port native_transport_address
 		            do
                         # For param: num_tokens update the value based on following conditions
                         if [[ "$param" == "num_tokens" ]] && [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
