@@ -15,6 +15,8 @@ trigger_owner=`whoami`
 # Store the tar ball name in a variable
 # This will help control the version of cassandra you wish to install
 tar_ball="dse-6.0.tar.gz"
+# Manage the download url via a variable
+download_url='https://downloads.datastax.com/enterprise/'
 
 # Proceed only if the the current user is root
 # Installation is done as root, since we need to create directories under /opt
