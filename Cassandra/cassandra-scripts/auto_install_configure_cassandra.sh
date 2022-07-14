@@ -61,7 +61,7 @@ then
                 echo -e "\tProcessing Node Number :- node$num"
                 echo -e "\t\tHome directory created in /opt/cassandra/node$num"
                 
-                # Create configuration directories for every node
+                # Create configuration directories for each node
                 # hints, data, commitlog, cdc_raw, saved_caches
                 # echo back directory creation messages to stdout 
                 for sub_dir in hints data commitlog cdc_raw saved_caches
