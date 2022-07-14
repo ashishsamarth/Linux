@@ -7,7 +7,7 @@
     # --> Creates a minimum of 1 and maximum of 9 nodes on same local host
     # Enables the configuration file for use
 
-# Verify the URL before use, jsut to be sure its working fine
+# Verify the URL before use, just to be sure its working fine
 
 # Identify the current logged in user
 trigger_owner=`whoami`
