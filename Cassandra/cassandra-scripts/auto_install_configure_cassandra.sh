@@ -73,7 +73,7 @@ then
                 # Perform a protected recurssive copy from uncompressed tar-ball to node home for iterated node number
                 cp -pR /tmp/dse-6*/* /opt/cassandra/node$num/. && echo -e "\t\tFiles Copied successfully to /opt/cassandra/node$num"
                 # Since the script is executed as root
-                # Perform change ownership to non-root user
+                # Perform change ownership recursively to non-root user
                 chown -R $USER:$USER /opt/cassandra
                 echo "-------------------------------------------------------------------------------------------------------------------------"
             done
