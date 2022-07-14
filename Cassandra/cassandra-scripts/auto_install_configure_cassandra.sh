@@ -95,7 +95,7 @@ then
                 chown -R $USER:$USER /opt/cassandra
 
                 # Result will be an appended list of ip addresses separated by comma
-		        # Updated array will be used in 'seeds:' parameter defined in cassandra.yaml
+                # Updated array will be used in 'seeds:' parameter defined in cassandra.yaml
                 if [[ $num < $num_node ]]
                     then
                         seed_ip_list+="127.0.0.$num, "
@@ -140,7 +140,7 @@ then
                 sed -i "s/\/var\/lib\/cassandra\//\/var\/lib\/cassandra\/node$num\//g" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
 
                 for param in num_tokens seeds listen_address native_transport_port native_transport_address
-		            do
+                    do
                         # For param: num_tokens update the value based on following conditions
                         if [[ "$param" == "num_tokens" ]] && [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
                             then
@@ -155,7 +155,7 @@ then
                                 # Modify seeds List per node in cassandra.yaml file per node
                                 sed -i "/$param:/ s/127.0.0.1/$seed_ip_list/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
                                 echo -e "\t\t\tParameter Updated Successfully :- $param"
-                        elif [[ "$param" == "listen_address" ]]	
+                        elif [[ "$param" == "listen_address" ]]
                             then
                                 # Modify Param: listen_address per node in cassandra.yaml file per node
                                 sed -i "/^$param:/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
