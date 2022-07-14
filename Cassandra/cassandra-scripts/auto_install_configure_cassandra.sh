@@ -62,7 +62,7 @@ then
                 echo -e "\t\tHome directory created in /opt/cassandra/node$num"
                 
                 # Create configuration directories for each node
-                # hints, data, commitlog, cdc_raw, saved_caches
+                # hints, data, commitlog, cdc_raw, saved_caches are the sub directories to be created
                 # echo back directory creation messages to stdout 
                 for sub_dir in hints data commitlog cdc_raw saved_caches
                 do
