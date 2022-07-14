@@ -141,37 +141,37 @@ then
 
 		        for param in num_tokens seeds listen_address native_transport_port native_transport_address
 		            do
-			            # For param: num_tokens update the value based on following conditions
-			            if [[ "$param" == "num_tokens" ]] && [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
-			                then
-				                # Find num_tokens:
-				                # Insert an empty line below the line where pattern was found
-				                # Add parameter with value
-				                # num_tokens: 1 in cassandra.yaml file per node
-				                sed -i "/$param: /{n;s/$/$param: 1/}" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
-				                echo -e "\t\t\tParameter Updated Successfully :- $param"
-			            elif [[ "$param" == "seeds" ]]
-			                then
-				                # Modify seeds List per node in cassandra.yaml file per node
-				                sed -i "/$param:/ s/127.0.0.1/$seed_ip_list/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
-				                echo -e "\t\t\tParameter Updated Successfully :- $param"
-			            elif [[ "$param" == "listen_address" ]]	
-			                then
-				                # Modify Param: listen_address per node in cassandra.yaml file per node
-				                sed -i "/^$param:/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
-				                echo -e "\t\t\tParameter Updated Successfully :- $param"
-			            elif [[ "$param" == "native_transport_port" ]]
-			                then	
-				                # Modify Param: native_transport_port per node in cassandra.yaml file per node
-				                sed -i "/^$param:/ s/9042/904$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
-				                echo -e "\t\t\tParameter Updated Successfully :- $param"
-			            elif [[ "$param" == "native_transport_address" ]]
-			                then	
-				                # Modify Param: native_transport_address (This has replaced rpc_address) per node
-				                sed -i "/^$param:/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
-				                echo -e "\t\t\tParameter Updated Successfully :- $param"
-			            fi
-		            done	
+                        # For param: num_tokens update the value based on following conditions
+                        if [[ "$param" == "num_tokens" ]] && [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
+                            then
+                                # Find num_tokens:
+                                # Insert an empty line below the line where pattern was found
+                                # Add parameter with value
+                                # num_tokens: 1 in cassandra.yaml file per node
+                                sed -i "/$param: /{n;s/$/$param: 1/}" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                                echo -e "\t\t\tParameter Updated Successfully :- $param"
+                        elif [[ "$param" == "seeds" ]]
+                            then
+                                # Modify seeds List per node in cassandra.yaml file per node
+                                sed -i "/$param:/ s/127.0.0.1/$seed_ip_list/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                                echo -e "\t\t\tParameter Updated Successfully :- $param"
+                        elif [[ "$param" == "listen_address" ]]	
+                            then
+                                # Modify Param: listen_address per node in cassandra.yaml file per node
+                                sed -i "/^$param:/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                                echo -e "\t\t\tParameter Updated Successfully :- $param"
+                        elif [[ "$param" == "native_transport_port" ]]
+                            then	
+                                # Modify Param: native_transport_port per node in cassandra.yaml file per node
+                                sed -i "/^$param:/ s/9042/904$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                                echo -e "\t\t\tParameter Updated Successfully :- $param"
+                        elif [[ "$param" == "native_transport_address" ]]
+                            then
+                                # Modify Param: native_transport_address (This has replaced rpc_address) per node
+                                sed -i "/^$param:/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                                echo -e "\t\t\tParameter Updated Successfully :- $param"
+                        fi
+                    done	
 
                 # Rename default cassandra.yaml to cassandra.yaml_orig
                 mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml_orig
