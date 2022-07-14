@@ -12,7 +12,8 @@
 # Identify the current logged in user
 trigger_owner=`whoami`
 
-# Get the tar ball name
+# Store the tar ball name in a variable
+# This will help control the version of cassandra you wish to install
 tar_ball="dse-6.0.tar.gz"
 
 # Proceed only if the the current user is root
