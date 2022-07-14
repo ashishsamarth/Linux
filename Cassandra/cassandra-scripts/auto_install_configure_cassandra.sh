@@ -64,21 +64,21 @@ then
 
         # Delete the tar-ball; since its no longer needed
         rm -rf $tar_ball && echo -e "\tTar-Ball: Deleted from `pwd`"
-	    echo "-------------------------------------------------------------------------------------------------------------------------"
+        echo "-------------------------------------------------------------------------------------------------------------------------"
         echo "stage#1 : Completed Successfully"
         echo "****************************************************"
         echo ""
         echo "stage#2 : Create Home & Configuration Directories for $num_node Nodes"
         echo "-------------------------------------------------------------------------------------------------------------------------"
 	
-	    # $(seq $num_node) : seq in bash is range in python
-	    for num in $(seq $num_node)
+        # $(seq $num_node) : seq in bash is range in python
+        for num in $(seq $num_node)
             do
                 # Create home directories for Nodes
                 mkdir -p /opt/cassandra/node$num
                 echo -e "\tProcessing Node Number :- node$num"
                 echo -e "\t\tHome directory created in /opt/cassandra/node$num"
-                
+
                 # Create configuration directories for each node
                 # hints, data, commitlog, cdc_raw, saved_caches are the sub directories to be created
                 # echo back directory creation messages to stdout 
