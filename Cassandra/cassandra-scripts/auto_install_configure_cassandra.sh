@@ -50,7 +50,7 @@ then
         echo "stage#1 : Completed Successfully"
         echo "****************************************************"
         echo ""
-        echo "stage#2 : Creating Home & Configuration Directories for $num_node Nodes"
+        echo "stage#2 : Create Home & Configuration Directories for $num_node Nodes"
         echo "-------------------------------------------------------------------------------------------------------------------------"
         # $(seq $num_node) : It behaves as a range
         # Run a for loop
