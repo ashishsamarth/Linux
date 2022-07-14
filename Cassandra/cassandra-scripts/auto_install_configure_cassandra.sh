@@ -51,7 +51,7 @@ then
         echo "-------------------------------------------------------------------------------------------------------------------------"
         echo "****************************************************"	
         echo "stage#1 : Download Datastax Cassandra"
-	    echo "-------------------------------------------------------------------------------------------------------------------------"
+        echo "-------------------------------------------------------------------------------------------------------------------------"
         # Navigate to /tmp and perform a silent download of DSE Cassandra version 6.0.0
         cd /tmp && echo -e "\tDownloading Datastax Cassandra version 6.0.0"
         # -q flag of wget performs a silent download from the url
@@ -197,7 +197,7 @@ then
                 # Rename default cassandra_mod_node-env.sh to cassandra-env.sh
                 mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh
                 # End update: cassandra-env.sh
-                
+
                 echo " "
                 # Start update: cqlsh.py
                 echo -e "\t\tUpdating Configuration for cqlsh.py"
