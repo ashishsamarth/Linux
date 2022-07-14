@@ -66,6 +66,7 @@ then
                 # echo back directory creation messages to stdout 
                 for sub_dir in hints data commitlog cdc_raw saved_caches
                 do
+                    mkdir -p /var/lib/cassandra/node$num/$sub_dir
                     echo -e "\t\tConfig Directory $sub_dir created in /var/lib/cassandra/node$num"
                 done
 
