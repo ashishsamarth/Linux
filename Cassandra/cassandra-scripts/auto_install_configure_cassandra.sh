@@ -197,6 +197,7 @@ then
                 # Rename default cassandra_mod_node-env.sh to cassandra-env.sh
                 mv /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num-env.sh /opt/cassandra/node$num/resources/cassandra/conf/cassandra-env.sh
                 # End update: cassandra-env.sh
+                
                 echo " "
                 # Start update: cqlsh.py
                 echo -e "\t\tUpdating Configuration for cqlsh.py"
