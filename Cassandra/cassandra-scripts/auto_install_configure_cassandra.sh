@@ -115,7 +115,7 @@ then
                     # In this case, I am defining num_tokens
                     echo -e "\t\tUpdating Configuration for cassandra.yaml"
                     # Add Parameter num_tokens with value of 1 only when 
-                    # $get_initial_token_val does not have any value and $get_num_tokens_val does not have any value
+                    # Validate $get_initial_token_val does not have any value and $get_num_tokens_val does not have any value
 
                     # Start update: cassandra.yaml
                     if [[ -z $get_initial_token_val ]] && [[ -z $get_num_tokens_val ]]
