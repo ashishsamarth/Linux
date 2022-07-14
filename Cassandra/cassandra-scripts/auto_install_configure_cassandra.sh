@@ -17,6 +17,7 @@ trigger_owner=`whoami`
 tar_ball="dse-6.0.tar.gz"
 
 # Proceed only if the the current user is root
+# Installation is done as root, since we need to create directories under /opt
 if [[ $trigger_owner == 'root' ]]
 then
     echo " "
