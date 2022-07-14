@@ -110,7 +110,7 @@ then
                     # Identify if parameter: num_tokens is defined
                     get_num_tokens_val=`grep -nF '^num_tokens:' /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml`
 
-                    # These parameters needs to be checked since only one of them should be defined
+                    # These parameters needs to be checked, since only one of them should be defined
                     # Defining both of them will interfere with Cassandra Start up
                     # In this case, I am defining num_tokens
                     echo -e "\t\tUpdating Configuration for cassandra.yaml"
