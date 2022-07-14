@@ -1,11 +1,11 @@
 #! /bin/bash
 
 # This script performs the following
-# Downloads DSE Cassandra version 6.0.0
-# Creates required directory structures based on the number of nodes to be created
-# Updates the configuration files per node
-# --> Creates a minimum of 1 and maximum of 9 nodes on same local host
-# Enables the configuration file for use
+    # Downloads DSE Cassandra version 6.0.0
+    # Creates required directory structures based on the number of nodes to be created
+    # Updates the configuration files per node
+    # --> Creates a minimum of 1 and maximum of 9 nodes on same local host
+    # Enables the configuration file for use
 
 # Verify the URL before use, jsut to be sure its working fine
 
