@@ -57,12 +57,6 @@ then
                 
                 # Create configuration directories for every node
                 # hints, data, commitlog, cdc_raw, saved_caches
-                mkdir -p /var/lib/cassandra/node$num/hints
-                mkdir -p /var/lib/cassandra/node$num/data
-                mkdir -p /var/lib/cassandra/node$num/commitlog
-                mkdir -p /var/lib/cassandra/node$num/cdc_raw
-                mkdir -p /var/lib/cassandra/node$num/saved_caches
-
                 # echo back directory creation messages to stdout 
                 for sub_dir in hints data commitlog cdc_raw saved_caches
                 do
