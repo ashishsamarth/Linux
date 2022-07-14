@@ -98,8 +98,6 @@ then
         
             for num in $(seq $num_node)
                 do
-
-
                     echo -e "\tProcessing Node Number :- node$num"
                     # Make a copy of cassandra.yaml
                     cp -p /opt/cassandra/node$num/resources/cassandra/conf/cassandra.yaml /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
