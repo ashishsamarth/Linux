@@ -75,6 +75,17 @@ then
                 # Since the script is executed as root
                 # Perform change ownership recursively to non-root user
                 chown -R $USER:$USER /opt/cassandra
+
+                # Create an empty variable to hold the seed ip values
+                seed_ip_list=''    
+                # Result will be an appended list of ip addresses separated by comma
+                if [[ $num < $num_node ]]
+                then
+                    seed_ip_list+="127.0.0.$num, "
+                else
+                    seed_ip_list+="127.0.0.$num"
+                fi
+                
                 echo "-------------------------------------------------------------------------------------------------------------------------"
             done
             echo "stage#2 : Completed Successfully"
@@ -84,17 +95,10 @@ then
             echo "-------------------------------------------------------------------------------------------------------------------------"
 
             # Run a For loop
-            # Create an empty variable to hold the seed ip values
-            seed_ip_list=''            
+        
             for num in $(seq $num_node)
                 do
-                    # Result will be an appended list of ip addresses separated by comma
-                    if [[ $num < $num_node ]]
-                    then
-                        seed_ip_list+="127.0.0.$num, "
-                    else
-                        seed_ip_list+="127.0.0.$num"
-                    fi
+
 
                     echo -e "\tProcessing Node Number :- node$num"
                     # Make a copy of cassandra.yaml
