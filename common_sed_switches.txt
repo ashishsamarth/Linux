@@ -56,6 +56,7 @@ To search a pattern and print the lines NOT containing the pattern				:- sed -n 
 To search a pattern and print 1 line after the pattern match 		:(inclusive)		:- sed -n '/pattern/{p;n;p;}' filename
 To search a pattern and print 2 lines after the pattern match 		:(inclusive)		:- sed -n '/pattern/{p;n;p;n;p;}' filename
 To search a pattern and print 3 lines after the pattern match 		:(inclusive)		:- sed -n '/pattern/{p;n;p;n;p;n;p;}' filename
+TO search a pattern and print matching line the pattern +N lines below it			:- sed -n '/pattern/,+2p' filename
 
 To search a pattern and print 1 line after the pattern match 		:(exclusive)		:- sed -n '/pattern/{n;p;}' filename
 To search a pattern and print 2 lines after the pattern match 		:(exclusive)		:- sed -n '/pattern/{n;p;n;p;}' filename
