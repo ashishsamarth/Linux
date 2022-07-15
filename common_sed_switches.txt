@@ -109,3 +109,4 @@ To perform substitution for all occurrences, except for one (3rd in this case)		
 To perform substitution with escape characters							:- sed -i 's/\/usr\/local\/bin/\/usr\/bin/g' filename
 To perform substitution for the first hundred lines						:- sed '1,100 s/a/A/' filename
 To perform substitution from 3rd line to end of file						:- sed '3,$ s/a/A/' filename
+Substitute patterns only for last occurrence of the pattern					:- sed 's/\(.*\)foo/\1bar/' filename
