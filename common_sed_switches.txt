@@ -96,3 +96,4 @@ To delete all blank lines from the file								:- sed '/^$/d' filename
 To delete only lines 1,3,5 from a text filename							:- sed -ie '1d' -e '3d' -e '5d' filename
 To delete first number from line which starts with '#'						:- sed '/^#/ s/[0-9][0-9]*//' filename
 To delete first 4 character word from  line which starts with '#'				:- sed '/^#/ s/\([a-z][a-z][a-z][a-z]*\)//' filename
+To delete first number from line 3 of a line							:- sed -i '3 s/[0-9][0-9]*//' filename
