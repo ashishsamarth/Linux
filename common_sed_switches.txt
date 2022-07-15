@@ -106,3 +106,4 @@ To perform multiple changes in one liner command						:- echo "The linux group w
 To perform substitution (default - Only first occurrence will be replaced)			:- echo "day by day"|sed 's/day/night/'
 To perform substitution (global - All Occurrences)						:- echo "day by day" | sed 's/day/night/g'
 To perform substitution for all occurrences, except for one (3rd in this case)			:- echo "day by day by day"|sed 's/day/night/g'|sed 's/night/day/3'
+To perform substitution with escape characters							:- sed -i 's/\/usr\/local\/bin/\/usr\/bin/g' filename
