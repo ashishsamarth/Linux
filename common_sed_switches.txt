@@ -89,6 +89,8 @@ To only print lines ending with uppercase letter						:- sed -n '/[[:upper:]]$/p
 												:  sed -n '/[A-Z]$/p' filename
 									
 To print the line numbers(s) where pattern appeared						:- sed -n '/pattern/=' filename
+To print lines matching the pattern till end of file						:- sed -n '/pattern/,$p' filename
+
 
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 SED: FILE MANIPULATION
