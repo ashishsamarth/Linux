@@ -105,3 +105,4 @@ To perform multiple changes in one liner command						:- echo "The linux group w
 												:  echo "The linux group will release code after 4:00 PM" | sed 's/linux/unix/; s/after/before/'
 To perform substitution (default - Only first occurrence will be replaced)			:- echo "day by day"|sed 's/day/night/'
 To perform substitution (global - All Occurrences)						:- echo "day by day" | sed 's/day/night/g'
+To perform substitution for all occurrences, except for one (3rd in this case)			:- echo "day by day by day"|sed 's/day/night/g'|sed 's/night/day/3'
