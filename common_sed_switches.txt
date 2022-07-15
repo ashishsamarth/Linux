@@ -103,3 +103,4 @@ SED: PATTERN SUBSTITUTION
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 To perform multiple changes in one liner command						:- echo "The linux group will release code after 4:00 PM" | sed -e  's/linux/unix/' -e 's/after/before/'
 												:  echo "The linux group will release code after 4:00 PM" | sed 's/linux/unix/; s/after/before/'
+To perform substitution (default - Only first occurrence will be replaced)			:- echo "day by day"|sed 's/day/night/'
