@@ -97,3 +97,9 @@ To delete only lines 1,3,5 from a text filename							:- sed -ie '1d' -e '3d' -e
 To delete first number from line which starts with '#'						:- sed '/^#/ s/[0-9][0-9]*//' filename
 To delete first 4 character word from  line which starts with '#'				:- sed '/^#/ s/\([a-z][a-z][a-z][a-z]*\)//' filename
 To delete first number from line 3 of a line							:- sed -i '3 s/[0-9][0-9]*//' filename
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+SED: PATTERN SUBSTITUTION
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+To perform multiple changes in one liner command						:- echo "The linux group will release code after 4:00 PM" | sed -e  's/linux/unix/' -e 's/after/before/'
+												:  echo "The linux group will release code after 4:00 PM" | sed 's/linux/unix/; s/after/before/'
