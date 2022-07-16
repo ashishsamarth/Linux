@@ -25,3 +25,4 @@ To list only running processes							:- ps -r
 HOSTNAME: Common Usages
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 Displays the machines host name							:- hostname
+Displays the domain name the machine belongs to					:- hostname -d
