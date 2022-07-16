@@ -44,3 +44,4 @@ To display only duplicated / repeated lines in the file				:- uniq -d filename
 To display only non duplicated / non repeated / unique lines in the file	:- uniq -u filename
 To check uniqueness with case ignored						:- uniq -i filename
 To skip fields for comparison while checking uniqueness				:- cat filename | uniq -f 1 {1 = first field, 2= up to 2nd field based on the file delimiter}
+To skip characters for comparison while checking uniqueness			:- cat filename | uniq -s 1 {1 = first character, 2 = including first and second character}
