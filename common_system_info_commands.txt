@@ -27,3 +27,4 @@ HOSTNAME: Common Usages
 Displays the machines host name							:- hostname
 Displays the domain name the machine belongs to					:- hostname -d
 displays the fully qualified host and domain name				:- hostname -f
+displays the IP address for the current machine					:- hostname -i
