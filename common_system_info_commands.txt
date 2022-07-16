@@ -2,3 +2,5 @@
 UNAME: Common Usages
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 Print the system's hardware platform						:- uname -i
+Print the name of the hardware that the system is running on			:- uname -m ; arch
+Print the machine's hostname							:- uname -n
