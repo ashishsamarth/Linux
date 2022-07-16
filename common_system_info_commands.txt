@@ -35,3 +35,7 @@ WATCH: Common Usages
 Shows space on the machine every two seconds					:- watch df –k .
 Shows space on the machine every second						:- watch –n 1 df –k .
 Shows space on the machine every 10th part of the second			:- watch –n 0.1 df –k .
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+UNIQ: Common Usages
+---------------------------------------------------------------------------------------------------------------------------------------------------------
