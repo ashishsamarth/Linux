@@ -8,3 +8,6 @@ Print the operating system name							:- uname -o
 Print the type of processor							:- uname -p
 Print the release number of the kernel						:- uname -r
 Print the name of the kernel							:- uname -s
+Print build information about the kernel					:- uname -v
+Print version information and then exit						:- uname -version
+Combine all the system information from the other options			:- uname -a ; uname --all
