@@ -16,3 +16,5 @@ Combine all the system information from the other options			:- uname -a ; uname 
 PS: Common Usages
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 To list all processes								:- ps -e ; ps -A
+To negate the selection								:- ps -N
+To list processes associate with the current terminal				:- ps -T
