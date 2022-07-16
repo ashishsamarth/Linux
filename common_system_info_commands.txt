@@ -33,3 +33,4 @@ displays the IP address for the current machine					:- hostname -i
 WATCH: Common Usages
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 Shows space on the machine every two seconds					:- watch df –k .
+Shows space on the machine every second						:- watch –n 1 df –k .
