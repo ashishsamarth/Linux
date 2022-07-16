@@ -19,3 +19,4 @@ To list all processes								:- ps -e ; ps -A
 To negate the selection								:- ps -N
 To list processes associate with the current terminal				:- ps -T
 To list all processes, except for session leaders				:- ps -a ; ps -d
+To list only running processes							:- ps -r
