@@ -41,3 +41,4 @@ UNIQ: Common Usages
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 To display / count occurrences of the same line in the file			:- uniq -c filename
 To display only duplicated / repeated lines in the file				:- uniq -d filename
+To display only non duplicated / non repeated / unique lines in the file	:- uniq -u filename
