@@ -6,3 +6,5 @@ Print the name of the hardware that the system is running on			:- uname -m ; arc
 Print the machine's hostname							:- uname -n
 Print the operating system name							:- uname -o
 Print the type of processor							:- uname -p
+Print the release number of the kernel						:- uname -r
+Print the name of the kernel							:- uname -s
