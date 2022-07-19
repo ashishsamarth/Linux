@@ -239,6 +239,7 @@ then
         firewall-cmd --complete-reload 1> /dev/null
         echo -e "stage#4 : Completed Successfully"
         echo "****************************************************"
+        echo "-------------------------------------------------------------------------------------------------------------------------"
     else
     echo "User did not provide Number of Nodes in Valid Format"
     fi
