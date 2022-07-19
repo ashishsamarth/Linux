@@ -6,11 +6,13 @@
     # Updates the configuration files per node
     # --> Creates a minimum of 1 and maximum of 9 nodes on same local host
     # Enables the configuration file for use
+    # Allow traffic from specific ports 9041, 9042....904n on firewall
 
 #----------------Pre-validation-Start------------------------
 # Verify the URL before use, just to be sure its working fine
 # Verify you have jdk 8 with 151 or above installed on the target machine
 # Verify you have java_home parameter set up, since its required for Cassandra startup
+# The OS is utilizing firewalld package as its firewall
 #----------------Pre-validation-End--------------------------
 
 #----------------Configuration-Start-------------------------
@@ -168,7 +170,12 @@ then
                         elif [[ "$param" == "native_transport_address" ]]
                             then
                                 # Modify Param: native_transport_address (This has replaced rpc_address) per node
-                                sed -i "/^$param:/ s/localhost/127.0.0.$num/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                                sed -i "/^$param:/ s/localhost/0.0.0.0/" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
+                                echo -e "\t\t\tParameter Updated Successfully :- $param"
+                        elif [[ "$param" == "native_transport_broadcast_address" ]]
+                            then
+                                # Modify Param: native_transport_broadcast_address (This has replaced broadcast_rpc_address) per node
+                                sed -i "/$param: /{n;s/$/$param: 127.0.0.$num/}" /opt/cassandra/node$num/resources/cassandra/conf/cassandra_mod_node$num.yaml
                                 echo -e "\t\t\tParameter Updated Successfully :- $param"
                         fi
                     done	
@@ -217,6 +224,20 @@ then
                 echo "-------------------------------------------------------------------------------------------------------------------------"
             done
         echo -e "stage#3 : Completed Successfully"
+        echo "****************************************************"
+        echo " "
+        echo "stage#4 : Update Firewall Configuration"
+        echo "-------------------------------------------------------------------------------------------------------------------------"
+        # For loop to open firewall
+	    # This for loop is responsible for making updates to : firewall rules
+        for num in $(seq $num_node)
+            do
+                # Ports 9041, 9042 ... 904n will be opened for tcp protocol
+                firewall-cmd --permanent --add-port=904$num/tcp 1> /dev/null
+            done
+        # Once the updates are done to firewall, reload the firewall to commit changes
+        firewall-cmd --complete-reload 1> /dev/null
+        echo -e "stage#4 : Completed Successfully"
         echo "****************************************************"
     else
     echo "User did not provide Number of Nodes in Valid Format"
