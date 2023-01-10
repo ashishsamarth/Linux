@@ -192,3 +192,14 @@
         ==> centos: Configuring and enabling network interfaces...
         ==> centos: Rsyncing folder: /home/devops/vagrant/ => /vagrant
         [devops@sandbox vagrant]$
+
+7.  The above mentioned command, will spin up all 3 vms, to validate if its running,
+    execute the following command on the terminal
+        vmboxmanage list runningvms
+
+        Output:
+        [devops@sandbox vagrant]$ vboxmanage list runningvms
+        "vagrant_ubuntu_1673376759506_28531" {788e9260-3adf-4b67-bb26-ade5bd590461}
+        "vagrant_fedora_1673376838770_43229" {7f38406c-3eb5-483a-8ebb-5508efad0926}
+        "vagrant_centos_1673376895411_80960" {17cf3d78-8e93-4894-902a-939c35731131}
+        [devops@sandbox vagrant]$
