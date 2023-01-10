@@ -5,4 +5,45 @@
 
 3.  Above mentioned commnand, will create a 'Vagrantfile' in the current directory
     This file holds a sample of how to configure the vagrant file to spin up a vm, and is written in ruby
+
+4.  Open the 'VagrantFile' in vi or an editor of your choice, the default file will look like the following
+
+	# -*- mode: ruby -*-
+	# vi: set ft=ruby :
+	
+	# All Vagrant configuration is done below. The "2" in Vagrant.configure
+	# configures the configuration version (we support older styles for
+	# backwards compatibility). Please don't change it unless you know what
+	# you're doing.
+	Vagrant.configure("2") do |config|
+			config.(base)
+            # A lot of information in the comments
+            # A lot of information in the comments
+            # A lot of information in the comments
+            # A lot of information in the comments
+	end
+
+5.  To spin an Ubuntu vm, we need to modify the VagrantFile to look like the following.
+    Note: The configurations are nested similar to python code (tabbed)
+	# -*- mode: ruby -*-
+	# vi: set ft=ruby :
+	
+	# All Vagrant configuration is done below. The "2" in Vagrant.configure
+	# configures the configuration version (we support older styles for
+	# backwards compatibility). Please don't change it unless you know what
+	# you're doing.
+	Vagrant.configure("2") do |config|
+            # The following line indicates the 'name' of the vm to be created
+			config.vm.define "acs" do |acs|
+                    # The following line defines the 'operating system' on the vm
+					acs.vm.box="ubuntu/trusty64"
+                    # The following line defines the 'hostname' of the vm
+					acs.vm.hostname="acs"
+                    # The following line defines the 'network type' and 'ip address' of the vm
+					acs.vm.network "private_network", ip:"192.168.33.10"
+			end
+	end
+
+    
+    
     
