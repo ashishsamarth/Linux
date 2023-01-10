@@ -1,0 +1,59 @@
+Assumption:- The Vagrant vm(s) are currently in running state
+
+1.  Login to the machine, and execute the following command to see list of running vms
+    vboxmanage list runningvms
+
+    [devops@sandbox vagrant]$ vboxmanage list runningvms
+    "vagrant_ubuntu_1673376759506_28531" {788e9260-3adf-4b67-bb26-ade5bd590461}
+    "vagrant_fedora_1673376838770_43229" {7f38406c-3eb5-483a-8ebb-5508efad0926}
+    "vagrant_centos_1673376895411_80960" {17cf3d78-8e93-4894-902a-939c35731131}
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$
+
+2.  To poweroff a particular vm, execute the following command
+    vboxmanage controlvm vagrant_centos_1673376895411_80960 poweroff
+
+    This command will poweroff the centos vm
+
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$ vboxmanage controlvm vagrant_centos_1673376895411_80960 poweroff
+    0%...10%...20%...30%...40%...50%...60%...70%...80%...90%...100%
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$ vboxmanage list runningvms
+    "vagrant_ubuntu_1673376759506_28531" {788e9260-3adf-4b67-bb26-ade5bd590461}
+    "vagrant_fedora_1673376838770_43229" {7f38406c-3eb5-483a-8ebb-5508efad0926}
+    [devops@sandbox vagrant]$
+
+3.  To pause a particular vm, execute the following command
+    vboxmanage controlvm vagrant_fedora_1673376838770_43229 pause
+
+    To Verify if it was indeed paused, execute the following command
+
+    [devops@sandbox vagrant]$ vboxmanage list vms --long | grep -e "Name:" -e "State:"
+    Name:                        vagrant_ubuntu_1673376759506_28531
+    State:                       running (since 2023-01-10T18:52:41.371000000)
+    Name: 'vagrant', Host path: '/home/devops/vagrant' (machine mapping), writable
+
+    Name:                        vagrant_fedora_1673376838770_43229
+    State:                       paused (since 2023-01-10T19:14:20.924000000)
+
+    Name:                        vagrant_centos_1673376895411_80960
+    State:                       powered off (since 2023-01-10T19:13:23.507000000)
+    [devops@sandbox vagrant]$
+
+4.  To resume a particular pused vm, execute the following command
+    vboxmanage controlvm vagrant_fedora_1673376838770_43229 resume
+
+    To veify if it was indeed resumed, execute the following command
+
+    [devops@sandbox vagrant]$ vboxmanage list vms --long | grep -e "Name:" -e "State:"
+    Name:                        vagrant_ubuntu_1673376759506_28531
+    State:                       running (since 2023-01-10T18:52:41.371000000)
+    Name: 'vagrant', Host path: '/home/devops/vagrant' (machine mapping), writable
+    Name:                        vagrant_fedora_1673376838770_43229
+    State:                       running (since 2023-01-10T19:17:12.947000000)
+    Name:                        vagrant_centos_1673376895411_80960
+    State:                       powered off (since 2023-01-10T19:13:23.507000000)
+    [devops@sandbox vagrant]$
+
