@@ -23,7 +23,7 @@
         	# A lot of information in the comments
 	end
 
-5.  To spin an Ubuntu vm, we need to modify the VagrantFile to look like the following.
+5.  To spin up an Ubuntu vm, we need to modify the VagrantFile to look like the following.
     Note: The configurations are nested similar to python code (tabbed)
 	# -*- mode: ruby -*-
 	# vi: set ft=ruby :
