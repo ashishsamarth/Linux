@@ -203,3 +203,59 @@
         "vagrant_fedora_1673376838770_43229" {7f38406c-3eb5-483a-8ebb-5508efad0926}
         "vagrant_centos_1673376895411_80960" {17cf3d78-8e93-4894-902a-939c35731131}
         [devops@sandbox vagrant]$
+
+8.  Now, that the vagrant vms are up and running, lets get into the vm (via ssh)
+    Execute the following command on the terminal
+
+    [devops@sandbox vagrant]$ vagrant ssh ubuntu
+    Welcome to Ubuntu 14.04.6 LTS (GNU/Linux 3.13.0-170-generic x86_64)
+
+    * Documentation:  https://help.ubuntu.com/
+
+    System information as of Tue Jan 10 18:53:00 UTC 2023
+
+    System load:  0.2               Processes:           83
+    Usage of /:   3.6% of 39.34GB   Users logged in:     0
+    Memory usage: 25%               IP address for eth0: 10.0.2.15
+    Swap usage:   0%
+
+    Graph this data and manage this system at:
+        https://landscape.canonical.com/
+
+    UA Infrastructure Extended Security Maintenance (ESM) is not enabled.
+
+    0 updates can be installed immediately.
+    0 of these updates are security updates.
+
+    Enable UA Infrastructure ESM to receive 64 additional security updates.
+    See https://ubuntu.com/advantage or run: sudo ua status
+
+    New release '16.04.7 LTS' available.
+    Run 'do-release-upgrade' to upgrade to it.
+
+
+    vagrant@ubuntu:~$
+    vagrant@ubuntu:~$ exit
+    logout
+    Connection to 127.0.0.1 closed.
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$ vagrant ssh fedora
+    [vagrant@fedora ~]$ pwd
+    /home/vagrant
+    [vagrant@fedora ~]$
+    [vagrant@fedora ~]$
+    [vagrant@fedora ~]$ exit
+    logout
+    Connection to 127.0.0.1 closed.
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$ vagrant ssh centos
+    [vagrant@centos ~]$ pwd
+    /home/vagrant
+    [vagrant@centos ~]$
+    [vagrant@centos ~]$ exit
+    logout
+    Connection to 127.0.0.1 closed.
+    [devops@sandbox vagrant]$
+    [devops@sandbox vagrant]$
