@@ -40,10 +40,12 @@
             		# The following line defines the 'hostname' of the vm
 			acs.vm.hostname="acs"
             		# The following line defines the 'network type' and 'ip address' of the vm
-			acs.vm.network "private_network", ip:"192.168.33.10"
+			acs.vm.network "private_network", ip:"192.168.56.1"
 		end
 	end
 
+6.  Now, that the vagrant file has been configured to spin up a 'Ubuntu' vm with ip address 192.168.33.10.
+    save and exit the file, and execute the following on terminal
+        vagrant up
 
-    
-    
+
