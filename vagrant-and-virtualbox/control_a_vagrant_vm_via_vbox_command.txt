@@ -57,3 +57,5 @@ Assumption:- The Vagrant vm(s) are currently in running state
     State:                       powered off (since 2023-01-10T19:13:23.507000000)
     [devops@sandbox vagrant]$
 
+Note: Additional Control options via vboxmanage are listed here
+    https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-controlvm.html
