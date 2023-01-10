@@ -132,3 +132,9 @@
         New release '16.04.7 LTS' available.
         Run 'do-release-upgrade' to upgrade to it.
         vagrant@acs:~$
+
+    To get out of the vm, simply type 'exit'
+        vagrant@acs:~$ exit
+        logout
+        Connection to 127.0.0.1 closed.
+        [devops@sandbox vagrant]$
