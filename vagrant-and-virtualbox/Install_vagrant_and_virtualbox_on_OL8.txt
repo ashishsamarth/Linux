@@ -1,0 +1,98 @@
+1.  Login to your machine with a username having sudo permissions
+
+2.  Download the vagrant binary for your distibution and execute the following
+        sudo yum localinstall -y vagrant
+
+3.  Download the oracle virtual box binary for your distribution and execute the following
+        sudo yum localinstall -y /tmp/VirtualBox-7.0-7.0.4_154605_el8-1.x86_64.rpm
+
+4.  Once vagrant and virtualbox are installed successfully, validate the installation via following commands
+    If you see the outputs on terminal similar to the following, then both items are installed successfully.
+        
+        
+        vagrant
+
+        Output:
+        [devops@sandbox tmp]$ vagrant
+	Usage: vagrant [options] <command> [<args>]
+	
+		-h, --help                       Print this help.
+	
+	Common commands:
+		autocomplete    manages autocomplete installation on host
+		box             manages boxes: installation, removal, etc.
+		cloud           manages everything related to Vagrant Cloud
+		destroy         stops and deletes all traces of the vagrant machine
+		global-status   outputs status Vagrant environments for this user
+		halt            stops the vagrant machine
+		help            shows the help for a subcommand
+		init            initializes a new Vagrant environment by creating a Vagrantfile
+		login
+		package         packages a running vagrant environment into a box
+		plugin          manages plugins: install, uninstall, update, etc.
+		port            displays information about guest port mappings
+		powershell      connects to machine via powershell remoting
+		provision       provisions the vagrant machine
+		push            deploys code in this environment to a configured destination
+		rdp             connects to machine via RDP
+		reload          restarts vagrant machine, loads new Vagrantfile configuration
+		resume          resume a suspended vagrant machine
+		serve           start Vagrant server
+		snapshot        manages snapshots: saving, restoring, etc.
+		ssh             connects to machine via SSH
+		ssh-config      outputs OpenSSH valid configuration to connect to the machine
+		status          outputs status of the vagrant machine
+		suspend         suspends the machine
+		up              starts and provisions the vagrant environment
+		upload          upload to machine via communicator
+		validate        validates the Vagrantfile
+		version         prints current and latest Vagrant version
+		winrm           executes commands on a machine via WinRM
+		winrm-config    outputs WinRM configuration to connect to the machine
+	
+	For help on any individual command run `vagrant COMMAND -h`
+	
+	Additional subcommands are available, but are either more advanced
+	or not commonly used. To see all subcommands, run the command
+	`vagrant list-commands`.
+			--[no-]color                 Enable or disable color output
+			--machine-readable           Enable machine readable output
+		-v, --version                    Display Vagrant version
+			--debug                      Enable debug output
+			--timestamp                  Enable timestamps on log output
+			--debug-timestamp            Enable debug output with timestamps
+			--no-tty                     Enable non-interactive output        
+
+
+        [devops@sandbox tmp]$ 
+        [devops@sandbox tmp]$ vboxmanage
+
+        Output:
+	Oracle VM VirtualBox Command Line Management Interface Version 7.0.4
+	Copyright (C) 2005-2022 Oracle and/or its affiliates
+	
+	Usage - Oracle VM VirtualBox command-line interface:
+	
+	VBoxManage [-V | --version] [--dump-build-type] [-q | --nologo] [--settingspw=password] [--settingspwfile=pw-file] [@response-file] [[help]
+		subcommand]
+	
+	
+	VBoxManage list [--long] [--sorted] [bridgedifs | cloudnets | cloudprofiles | cloudproviders | cpu-profiles | dhcpservers | dvds | extpacks |
+		floppies | groups | hddbackends | hdds | hostcpuids | hostdrives | hostdvds | hostfloppies | hostinfo | hostonlyifs | hostonlynets | intnets |
+		natnets | ostypes | runningvms | screenshotformats | systemproperties | usbfilters | usbhost | vms | webcams]
+	
+	
+	VBoxManage showvminfo <uuid | vmname> [--details] [--machinereadable] [--password-id] [--password]
+	
+	VBoxManage showvminfo <uuid | vmname> <--log=index> [--password-idid] [--passwordfile|-]
+	
+	
+	VBoxManage registervm <filename> --passwordfile
+	
+	
+	VBoxManage unregistervm <uuid | vmname> [--delete]
+	
+	
+	VBoxManage createvm <--name=name> [--basefolder=basefolder] [--default] [--group=group-ID,...] [--ostype=ostype] [--register] [--uuid=uuid]
+		[--ciphercipher] [--password-idpassword-id] [--passwordfile]
+
