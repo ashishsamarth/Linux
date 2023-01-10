@@ -54,4 +54,8 @@
             end
     end
 
-6.  
+6.  Now, that the vagrant file has been configured to spin up 3 vms, save and exit the file, and execute the following on terminal
+    vagrant up
+
+    Output:
+    
