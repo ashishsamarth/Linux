@@ -91,7 +91,7 @@
             acs: /vagrant => /home/devops/vagrant
         [devops@sandbox vagrant]$
 
-7.  The above mentioned command, will sping up the ubuntu vm, to validate if its running,
+7.  The above mentioned command, will spin up the ubuntu vm, to validate if its running,
     execute the following command on the terminal
         vmboxmanage list runningvms
 
