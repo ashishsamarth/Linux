@@ -1,0 +1,8 @@
+1.  Login to the machine, create a dedicated folder and navigate to it, or use the $HOME directory
+
+2.  Execute the following to create (initialize) a Vagrant file
+        vagrant init
+
+3.  Above mentioned commnand, will create a 'Vagrantfile' in the current directory
+    This file holds a sample of how to configure the vagrant file to spin up a vm, and is written in ruby
+    
