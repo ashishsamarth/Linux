@@ -1,0 +1,29 @@
+1.  Login to the machine (Assumption - This user has permissions to execute sudo)
+
+2.  To check which kernel is already configured as the current default kernel to use at boot, execute the following
+    sudo grubby --default-kernel
+
+    Output:
+    /boot/vmlinuz-5.4.17-2136.300.7.el8uek.x86_64
+
+3.  To check, all available kernels at boot, execute the following
+    sudo ls -l /boot/vmlinuz*
+
+    Output:
+    (base) [devops@develop Linux]$ sudo ls -l /boot/vmlinuz*
+    -rwxr-xr-x. 1 root root 10348096 Jan 10 18:33 /boot/vmlinuz-0-rescue-33e301ed68324e5e9dab7b26a709945e
+    -rwxr-xr-x. 1 root root 10212912 Nov 10  2021 /boot/vmlinuz-4.18.0-348.el8.x86_64
+    -rwxr-xr-x. 1 root root 10348096 Oct  8  2021 /boot/vmlinuz-5.4.17-2136.300.7.el8uek.x86_64
+
+4.  To check, which kernel is currently running on the system, execute the following
+    sudo uname -r
+
+    Output:
+    (base) [devops@develop Linux]$ sudo uname -r
+    4.18.0-348.el8.x86_64
+
+5.  To set the current kernel, as the default kernel from next Login, execute the following
+    sudo grubby --set-default /boot/vmlinuz-4.18.0-348.el8.x86_64
+
+6.  The next time, the machine reboots and provides the users to select the kernel, '4.18.0-348.el8.x86_64' will be selected by default, and after 3 seconds, it will 
+    present the login screen to the user
