@@ -233,7 +233,7 @@ then
         for num in $(seq $num_node)
             do
                 # Ports 9041, 9042 ... 904n will be opened for tcp protocol
-                firewall-cmd --permanent --add-port=904$num/tcp 1> /dev/null
+                firewall-cmd --permanent --add-port=904$num/tcp --zone=public 1> /dev/null
             done
         # Once the updates are done to firewall, reload the firewall to commit changes
         firewall-cmd --complete-reload 1> /dev/null
