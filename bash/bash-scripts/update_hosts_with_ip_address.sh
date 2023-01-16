@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #get the server hostname
-ova_hostname=$hostname
+ova_hostname=$HOSTNAME
 
 #search and remove current line with hostname at end of line in /etc/hosts
 sed -i '/'$ova_hostname'$/ d' /etc/hosts 
