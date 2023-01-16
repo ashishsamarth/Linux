@@ -108,9 +108,11 @@ then
                 echo "-------------------------------------------------------------------------------------------------------------------------"
             done
         
-        chown -R $USER:$USER /var/lib/cassandra
+        # Create the logging directory for Cassandra
         mkdir -p /var/log/cassandra
-        chown -R $USER:$USER 
+        # Update the ownership of the directories, so that cassandra can write the files
+        chown -R $USER:$USER /var/lib/cassandra
+        chown -R $USER:$USER /var/log/cassandra
 
 
         echo "stage#2 : Completed Successfully"
