@@ -1,4 +1,5 @@
 #! /bin/bash
+# Assumption: You are using firewalld and its running and enabled
 
 # This script performs the following
     # Downloads DSE Cassandra version 6.0.0
