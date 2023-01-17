@@ -22,7 +22,8 @@ get_cassandra_ps_id_by_node_num()
 # 1> /dev/null :- Suppresses the output from std_out
 
 # Total Number of Nodes in Cluster
-num_node=5
+num_node=$(find /opt/cassandra/ -type d -name 'node*' -print|wc -l)
+
 # $(seq $num_node) : seq in bash is range in python
 for num in $(seq $num_node)
 
