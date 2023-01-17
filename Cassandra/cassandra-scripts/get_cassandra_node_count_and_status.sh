@@ -10,7 +10,7 @@ cd $CASSANDRA_HOME_NODE1
 get_total_node_count()
 {
         # Execute the nodetool status script and get the total count of nodes in the cluster
-        total_node_count=read ./nodetool status | awk '{print $1}'|egrep -c 'UN|DN'
+        total_node_count=read bash /opt/cassandra/node1/bin/nodetool status | awk '{print $1}'|egrep -c 'UN|DN'
         # Return value of the function is total number of nodes in the cluster
         return $total_node_count
 }
@@ -19,7 +19,7 @@ get_total_node_count()
 get_online_node_count()
 {
         # Execute the nodetool status script and get the count of online nodes in the cluster
-        online_node_count=read ./nodetool status | awk '{print $1}'|egrep -c 'UN'
+        online_node_count=read bash /opt/cassandra/node1/bin/nodetool status | awk '{print $1}'|egrep -c 'UN'
         # Return value of the function is count of online nodes in the cluster
         return $online_node_count
 }
@@ -28,7 +28,7 @@ get_online_node_count()
 get_offline_node_count()
 {
         # Execute the nodetool status script and get the count of offline nodes in the cluster
-        offline_node_count=read ./nodetool status | awk '{print $1}'|egrep -c 'DN'
+        offline_node_count=read bash /opt/cassandra/node1/bin/nodetool status | awk '{print $1}'|egrep -c 'DN'
         # Return value of the function is count of offline nodes in the cluster
         return $offline_node_count
 }
