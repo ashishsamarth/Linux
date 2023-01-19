@@ -1,0 +1,14 @@
+Scenario: You have a VM (Oracle Linux 7) created using oracle virtual box (.ova format), but its not able to connect to ethernet, after you move it to QNAP-Virtualization station.
+
+Solution:
+1. Open the QNAP VM (The VM created using the .ova file)
+2. Login as root
+3. Navigate to /etc/sysconfig/network-scripts
+4. copy the ifcfg-enp0s3 (old ethernet configuration file from the device, where the VM was initially created) to ifcfg-ens3(Here, ens3 is the ethernet interface name from one of the network adaptor on QNAP NAS)
+5. change the values for following variables to "ens3"
+    NAME=
+    DEVICE=
+6. reboot the machine
+7. Login as root
+8. Execute ifconfig and get the inet address from ens3 interface, this is the IP address of the machine
+9. Now, you should be able to login to this machine, directly from any ssh client.
