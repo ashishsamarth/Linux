@@ -26,6 +26,8 @@ To print total number of lines in a file                                        
 (Go to the end of the file and print the last line number)
 
 To print number of fields in line number 1 		:(special variable NF)  :- awk 'NR==1 {print NF}' filename
+(Go to line number 1 and print the number of fields in the line)
+
 To only print the 4th column from ls                                            :- ls -l | awk '{print $5}'|sort -nr
 To only print lines 8 to 12 from the file                                 	:- awk 'NR==8,NR==12' filename
 To only print line # 52 from the file                                           :- awk 'NR==52 { print; exit }' filename
