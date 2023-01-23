@@ -37,7 +37,7 @@ To only print odd numbered lines from the file                                  
 To only print 1st line of the file			:(emulate head -1)      :- awk 'NR > 1 { exit }; 1' filename
 To only print last 2 lines of the file 			:(emulate tail -2)      :- awk '{ y=x "\n" $0; x=$0 }; END { print y }' filename
 ($0 means the entire record, including all fields in the record)
-                                                                            :- awk '{array[NR]=$0} END {for (i=NR-2; i<= NR; i++)print array[i]}' filename
+                                                                                :- awk '{array[NR]=$0} END {for (i=NR-2; i<= NR; i++)print array[i]}' filename
 (Assign the total # lines to array[NR], run a for loop with starting range as array length-2 and equal to array length
 	
 To only print top 10 lines				:(emulate head -10)     :- awk 'NR < 11' filename
