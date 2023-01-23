@@ -20,6 +20,7 @@ To only print non-blank lines of the file                                       
 (If the line is not empty it will have atlease 1 field in the current record, hence used NF)
 
 To print the current user (special variable ENVIRON & USER)                    	:- awk 'BEGIN {print ENVIRON["USER"]}'
+                                                                                :- awk 'BEGIN {print ENVIRON["USER"]; exit}'
 To print tabbed output of specific columns                                      :- awk '{print $3 "\t" $4}' filename
 To print total number of lines in a file                                        :- awk 'END { print NR }' filename
 To print number of fields in line number 1 		:(special variable NF)  :- awk 'NR==1 {print NF}' filename
