@@ -17,6 +17,8 @@ AWK: PRINTING
 To check awk version                                                            :- awk --version
 To print contents of the file                                                   :- awk '{print}' filename
 To only print non-blank lines of the file                                       :- awk 'NF>0' filename
+(If the line is not empty it will have atlease 1 field in the current record, hence used NF)
+
 To print the current user (special variable ENVIRON & USER)                    	:- awk 'BEGIN {print ENVIRON["USER"]}'
 To print tabbed output of specific columns                                      :- awk '{print $3 "\t" $4}' filename
 To print total number of lines in a file                                        :- awk 'END { print NR }' filename
