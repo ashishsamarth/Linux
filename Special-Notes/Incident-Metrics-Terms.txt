@@ -15,3 +15,7 @@ MTTR: Mean time to repair
 How to calculate mean time to repair
 You can calculate MTTR by adding up the total time spent on repairs during any given period and then dividing that time by the number of repairs.
 So, let’s say we’re looking at repairs over the course of a week. In that time, there were 10 outages and systems were actively being repaired for four hours. Four hours is 240 minutes. 240 divided by 10 is 24. Which means the mean time to repair in this case would be 24 minutes.
+
+The limitations of mean time to repair
+Mean time to repair is not always the same amount of time as the system outage itself. In some cases, repairs start within minutes of a product failure or system outage. In other cases, there’s a lag time between the issue, when the issue is detected, and when the repairs begin.
+This metric is most useful when tracking how quickly maintenance staff is able to repair an issue. It’s not meant to identify problems with your system alerts or pre-repair delays—both of which are also important factors when assessing the successes and failures of your incident management programs
