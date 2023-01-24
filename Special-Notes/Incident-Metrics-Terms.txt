@@ -1,0 +1,11 @@
+MTBF: Mean time between failures
+: What is mean time between failures?
+: MTBF (mean time between failures) is the average time between repairable failures of a technology product. The metric is used to track both the availability and reliability of a product. The higher the time between failure, the more reliable the system
+The goal for most companies to keep MTBF as high as possible—putting hundreds of thousands of hours (or even millions) between issues.
+
+How to calculate mean time between failures
+MTBF is calculated using an arithmetic mean. Basically, this means taking the data from the period you want to calculate (perhaps six months, perhaps a year, perhaps five years) and dividing that period’s total operational time by the number of failures.
+So, let’s say we’re assessing a 24-hour period and there were two hours of downtime in two separate incidents. Our total uptime is 22 hours. Divided by two, that’s 11 hours. So our MTBF is 11 hours.
+Because the metric is used to track reliability, MTBF does not factor in expected down time during scheduled maintenance. Instead, it focuses on unexpected outages and issues.
+
+MTTR: Mean time to repair
