@@ -8,6 +8,7 @@ MTBF is calculated using an arithmetic mean. Basically, this means taking the da
 So, let’s say we’re assessing a 24-hour period and there were two hours of downtime in two separate incidents. Our total uptime is 22 hours. Divided by two, that’s 11 hours. So our MTBF is 11 hours.
 Because the metric is used to track reliability, MTBF does not factor in expected down time during scheduled maintenance. Instead, it focuses on unexpected outages and issues.
 
+---------------------------------------------------------------------------------------------------
 MTTR: Mean time to repair
 : What is mean time to repair?
 : MTTR (mean time to repair) is the average time it takes to repair a system (usually technical or mechanical). It includes both the repair time and any testing time. The clock doesn’t stop on this metric until the system is fully functional again.
@@ -19,3 +20,41 @@ So, let’s say we’re looking at repairs over the course of a week. In that ti
 The limitations of mean time to repair
 Mean time to repair is not always the same amount of time as the system outage itself. In some cases, repairs start within minutes of a product failure or system outage. In other cases, there’s a lag time between the issue, when the issue is detected, and when the repairs begin.
 This metric is most useful when tracking how quickly maintenance staff is able to repair an issue. It’s not meant to identify problems with your system alerts or pre-repair delays—both of which are also important factors when assessing the successes and failures of your incident management programs
+
+---------------------------------------------------------------------------------------------------
+MTTR: Mean time to recovery
+: What is mean time to recovery?
+: MTTR (mean time to recovery or mean time to restore) is the average time it takes to recover from a product or system failure. This includes the full time of the outage—from the time the system or product fails to the time that it becomes fully operational again.
+
+How to calculate mean time to recovery
+Mean time to recovery is calculated by adding up all the downtime in a specific period and dividing it by the number of incidents. So, let’s say our systems were down for 30 minutes in two separate incidents in a 24-hour period. 30 divided by two is 15, so our MTTR is 15 minutes.
+
+Limitations of Mean Time to Recovery may be
+1. Is there a delay between a failure and an alert? Are alerts taking longer than they should to get to the right person?
+2. Are you able to figure out what the problem is quickly? Are there processes that could be improved?
+3. Are your maintenance teams as effective as they could be? If they’re taking the bulk of the time, what’s tripping them up?
+
+---------------------------------------------------------------------------------------------------
+MTTR: Mean time to resolve
+: What is mean time to resolve?
+: MTTR (mean time to resolve) is the average time it takes to fully resolve a failure. This includes not only the time spent detecting the failure, diagnosing the problem, and repairing the issue, but also the time spent ensuring that the failure won’t happen again.
+
+This metric extends the responsibility of the team handling the fix to improving performance long-term. It’s the difference between putting out a fire and putting out a fire and then fireproofing your house
+
+How to calculate mean time to resolve
+To calculate this MTTR, add up the full resolution time during the period you want to track and divide by the number of incidents.
+So, if your systems were down for a total of two hours in a 24-hour period in a single incident and teams spent an additional two hours putting fixes in place to ensure the system outage doesn’t happen again, that’s four hours total spent resolving the issue. Which means your MTTR is four hours.
+
+A note about tracking mean time to resolve
+Keep in mind that MTTR is most frequently calculated using business hours (so, if you recover from an issue at closing time one day and spend time fixing the underlying issue first thing the next morning, your MTTR wouldn’t include the 16 hours you spent away from the office). If you have teams in multiple locations working around the clock or if you have on-call employees working after hours, it’s important to define how you will track time for this metric.
+
+---------------------------------------------------------------------------------------------------
+MTTR: Mean time to respond
+: What is mean time to respond?
+: MTTR (mean time to respond) is the average time it takes to recover from a product or system failure from the time when you are first alerted to that failure. This does not include any lag time in your alert system.
+
+How to calculate mean time to respond
+To calculate this MTTR, add up the full response time from alert to when the product or service is fully functional again. Then divide by the number of incidents.
+For example: If you had four incidents in a 40-hour workweek and spent one total hour on them (from alert to fix), your MTTR for that week would be 15 minutes. 
+
+---------------------------------------------------------------------------------------------------
