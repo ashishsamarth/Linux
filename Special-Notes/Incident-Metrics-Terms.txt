@@ -58,3 +58,11 @@ To calculate this MTTR, add up the full response time from alert to when the pro
 For example: If you had four incidents in a 40-hour workweek and spent one total hour on them (from alert to fix), your MTTR for that week would be 15 minutes. 
 
 ---------------------------------------------------------------------------------------------------
+MTTA: Mean time to acknowledge
+: What is mean time between to acknowledge?
+: MTTA (mean time to acknowledge) is the average time it takes from when an alert is triggered to when work begins on the issue. This metric is useful for tracking your team’s responsiveness and your alert system’s effectiveness.
+
+How to calculate mean time to acknowledge
+To calculate your MTTA, add up the time between alert and acknowledgement, then divide by the number of incidents. 
+For example: If you had 10 incidents and there was a total of 40 minutes of time between alert and acknowledgement for all 10, you divide 40 by 10 and come up with an average of four minutes.
+ 
