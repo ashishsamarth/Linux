@@ -5,6 +5,7 @@ To replace / translate ',' to vertical tabbed line                              
 To replace / translate ',' with backspace (to make the delimited text continuous)   :-  cat filename|tr ',' '\b'
 To replace / translate ',' with back slash                                          :-  cat filename|tr ',' '\\'
 To replace / translate ',' with form feed (^L - Character)                          :-  cat filename|tr ',' '\f'
+(Convert multiple rows and columns to single column)
 To get the last entry of the delimited text                                         :-  cat filename|tr ',' '\r'
 To remove spaces between the lines                                                  :-  cat filename|tr -d " "
 To handle uneven space between the words or numbers in a file                       :-  cat filename|tr -s " "
