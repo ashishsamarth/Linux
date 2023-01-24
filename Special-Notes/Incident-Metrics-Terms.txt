@@ -9,3 +9,9 @@ So, let’s say we’re assessing a 24-hour period and there were two hours of d
 Because the metric is used to track reliability, MTBF does not factor in expected down time during scheduled maintenance. Instead, it focuses on unexpected outages and issues.
 
 MTTR: Mean time to repair
+: What is mean time to repair?
+: MTTR (mean time to repair) is the average time it takes to repair a system (usually technical or mechanical). It includes both the repair time and any testing time. The clock doesn’t stop on this metric until the system is fully functional again.
+
+How to calculate mean time to repair
+You can calculate MTTR by adding up the total time spent on repairs during any given period and then dividing that time by the number of repairs.
+So, let’s say we’re looking at repairs over the course of a week. In that time, there were 10 outages and systems were actively being repaired for four hours. Four hours is 240 minutes. 240 divided by 10 is 24. Which means the mean time to repair in this case would be 24 minutes.
