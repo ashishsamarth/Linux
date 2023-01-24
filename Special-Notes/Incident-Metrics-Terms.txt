@@ -65,4 +65,10 @@ MTTA: Mean time to acknowledge
 How to calculate mean time to acknowledge
 To calculate your MTTA, add up the time between alert and acknowledgement, then divide by the number of incidents. 
 For example: If you had 10 incidents and there was a total of 40 minutes of time between alert and acknowledgement for all 10, you divide 40 by 10 and come up with an average of four minutes.
- 
+
+---------------------------------------------------------------------------------------------------
+MTTF: Mean time to failure
+: What is mean time to failure?
+: MTTF (mean time to failure) is the average time between non-repairable failures of a technology product. For example, if Brand X’s car engines average 500,000 hours before they fail completely and have to be replaced, 500,000 would be the engines’ MTTF.
+
+The calculation is used to understand how long a system will typically last, determine whether a new version of a system is outperforming the old, and give customers information about expected lifetimes and when to schedule check-ups on their system.
