@@ -25,25 +25,28 @@ b. Modify /etc/hosts with domain information
 	4. Append the file with the IP address of the LAN connection, the hostname with FQDN and hostname.
 	5. Again Append the file with the IP address of the Wifi connection, the hostname with FQDN and hostname.
 
-c. Add Variables in .bashrc as oracle user
-	# Oracle Settings
-	export PATH=$PATH:/usr/sbin:/usr/local/bin
-	export PATH=$PATH:$ORACLE_HOME/bin
+c. Add Variables in .bash_profile as oracle user
 
-	export TMP=/tmp
-	export TMPDIR=$TMP
-
-	export ORACLE_HOSTNAME=OL7.lan
-	export ORACLE_UNQNAME=orcloltp
-	export ORACLE_BASE=/u01/app/oracle
-	export ORACLE_HOME=$ORACLE_BASE/product/21.0.0/dbhome_1
-	export ORA_INVENTORY=/u01/app/oraInventory
-	export ORACLE_SID=orcloltp
-	export PDB_NAME=orclpdb
-	export DATA_DIR=/u02/oradata
-	export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib
-	export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
-	export TNS_ADMIN=$ORACLE_HOME/network/admin
+    # Temp Directory Settings
+    export TMP=/tmp
+    export TMPDIR=$TMP
+    # Oracle Settings
+    export ORACLE_HOSTNAME=$HOSTNAME
+    export ORACLE_UNQNAME=orclcdb21c
+    export ORACLE_BASE=/u01/app/oracle
+    export ORACLE_HOME=$ORACLE_BASE/product/db/21.0.0/dbhome
+    export ORA_INVENTORY=/u01/app/oraInventory
+    export ORACLE_SID=orclcdb21c
+    export PDB_NAME=orclpdb21c
+    export DATA_DIR=/u02/oradata
+    export TNS_ADMIN=$ORACLE_HOME/network/admin
+    # Path Settings
+    export PATH=/usr/sbin:/usr/local/bin:$PATH
+    export PATH=$ORACLE_HOME/bin:$PATH
+    # Additional Settings
+    export LD_LIBRARY_PATH=$ORACLE_HOME/lib:/lib:/usr/lib
+    export CLASSPATH=$ORACLE_HOME/jlib:$ORACLE_HOME/rdbms/jlib
+	
 
 d. Make updates to tnsnames.ora and listener.ora under $TNS_ADMIN as oracle user
 	for tnsnames.ora
