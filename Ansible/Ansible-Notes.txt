@@ -1,0 +1,223 @@
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q01: What is Ansible?
+A01: Ansible is a configuration management platform that automates storage, servers, and networking. When you use Ansible to configure these components, 
+    difficult manual tasks become repeatable and less vulnerable to error. Ansible is made up of several components. The systems that are managed can 
+    include servers, storage, networking, and software. The goal is to maintain these systems in known, determined states. Another aspect of a configuration 
+    management system is the description of the desired state for the system. The third major aspect of a configuration management system is automation 
+    software, which is responsible for making sure that the target systems and software are maintained in the desired state.
+
+    Benefits of Ansible:
+    a.  Simplified Automation: Ansible is a simple-to-use platform, easy to install and configure, with a very fast learning rate. In less than 30 minutes, 
+                                it’s possible to install and configure the system and execute ad hoc commands for servers to solve a specific problem: 
+                                daylight saving time adjustments, time synchronization, root password change, updating servers, restarting services, 
+                                and so on
+    b.  Low Learning Curve: Ansible is easy to deploy because it uses no agents or additional custom security infrastructure. It also leverages YAML, a 
+                            simple language to describe your automation job via playbooks. Playbooks push the desired settings on the hosts defined in the 
+                            inventory and can even be run ad hoc (via the command line, not requiring definitions in files).
+    c.  Automate Now: From the moment you can ping the hosts through Ansible, you can start automating your environment. Begin with small tasks, 
+                      following best practices, prioritizing tasks that add value to the business, solve major problems, and gain time and improving 
+                      productivity
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q02: How does Ansible work?
+A02: Ansible simplifies IT automation by capturing an array of IT resources and supporting multitier deployments from day 1. Ansible consolidates resources
+    across multiple systems to manage them from a single platform rather than requiring management from one system at a time. Code, lifecycle, and changes 
+    can be managed through inventory, playbooks, and roles.
+
+            --------------------------
+            | ANSIBLE CONTROL SERVER |      [1.    Evaluates the playbook, Identifies the modules to grab, bundle it in a Python Package]
+            --------------------------
+                        |
+                        |
+                        |
+                        |   [SSH Session to copy the python package]
+                        |
+                        V
+            --------------------------
+            |   REMOTE SERVER        |      [2. A temp dir is created, and the python package is deployed here] 
+            --------------------------      [3. Python Framework executes the package and returns the RESULT (in JSON) to Control Server]
+                                            [4. Once the results are sent back, the python package that was copied is deletedn and SSH is terminated]
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q03: What are four basics tasks that can be performed using Ansible?
+A03: Following are the details
+    a.  Change Management
+    b.  Provisioning
+    c.  Automation
+    d.  Orchestration
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q04: What is Change Management?
+A04: Change management—also known as change enablement—is an IT practice designed to minimize disruptions to IT services while making changes to critical 
+systems and services. A change is adding, modifying, or removing anything that could have a direct or indirect effect on services.
+Change management practices are designed to reduce incidents and meet regulatory standards. The practices ensure efficient and prompt handling of changes 
+to IT infrastructure and code. Whether you’re rolling out new services, managing existing ones, or resolving problems in code, modern change management 
+approaches break down silos, provide context and transparency, avoid bottlenecks, and minimize risk. 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q05: What is Provisioning?
+A05: At a high level, Provisioning can be seen as 'Transition from one system state to a different system state that is expected'. In terms of Ansible, 
+provisioning is seen as 'installation and configuration' of software on a server each time, instead of cloning a VM. This method is believed to much 
+cleaner, since it removes the possibility of having 'a system identifier' or a variable and its value being copied over as a part of cloning
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q06: What is Automation in Ansible?
+A06: Automation is basically define tasks to be executed automatically in an ordered tasks.
+    For e.g.: You have to update install a specific patch or a python package across all servers in the secondary datacenter, you can write an anisble 
+    playbook and let the installation run on all servers of the secondary datacenter all at the same time.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q07: What is Orchestration in Ansible?
+A07: Orchestration is the process of processing tasks across multiple systems usually because one system may be dependent on another system to accomplish 
+    its tasks.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q08: What is the difference between Orchestration and Automation?
+A08: Orchestration is co-ordination of automation between systems, whereas Automation is execution of tasks with in a system or same type of systems
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q09: What makes Ansible different?
+A09: Following are the details:
+    1.  Ansible has no Agents or Daemons that are needed to run
+    2.  Ansible does not need any database to run
+    3.  Once the Ansible playbook is finished, it does not have any residual software (any modules or softwares that may be part of runbook)
+    4.  Easy upgrades due to lack of any database.
+    5.  No programming required, due to use of YAML
+    6.  Its extensible: Can call URLs and RESTFull api ; Shell Commands and Scripts (return JSON values as well)
+    7.  Has Ansible Community called Ansible-Galaxy which is repository for a lot of people to share their playbooks
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q10: What is YAML?
+A10: YAML aint a Mark up language. Its easy to read and write, but you have to be careful of whitespaces.
+    Sample:
+
+---
+ doe: "a deer, a female deer"
+ ray: "a drop of golden sun"
+ pi: 3.14159
+ xmas: true
+ french-hens: 3
+ calling-birds:
+   - huey
+   - dewey
+   - louie
+   - fred
+ xmas-fifth-day:
+   calling-birds: four
+   french-hens: 3
+   golden-rings: 5
+   partridges:
+     count: 1
+     location: "a pear tree"
+   turtle-doves: two
+
+Note:
+    1.  The file starts with three dashes. These dashes indicate the start of a new YAML document
+    2.  YAML Construct: It basically a key-value pair ; doe: "a deer, a female deer"
+    3.  YAML supports multiple data-types (string, boolean, integer, float)
+    4.  Strings can be single or double-quotes or no quotes at all. YAML identifies un-quoted strings as as integers or float.
+    5.  The seventh item is an array. Calling-birds has four elements, each denoted by an opening dash, the array values are indented by two spaces. 
+        (TABS are NOT ALLOWED)
+        YAML understands nesting based on the indentation
+    6.  xmas-fifth-day is a dictionary of values.
+    7.  Whitespace is part of YAML's formatting. Unless otherwise indicated, newlines indicate the end of a field. You structure a YAML document with 
+        indentation. The indentation level can be one or more spaces. The specification forbids tabs because tools treat them differently.
+
+Special Note: JSON and YAML have similar capabilities, and you can convert most documents between the formats
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q11: Explain Built-In Security in Ansible?
+A11: Ansible uses SSH as its primary means of communication for security. Ansible also understands that some commands or plays need to be executed as 
+    'root / sudo' and has support for it as well. One additional feature that enhances security in Ansible is, the 'Encrypted Vault', which allows you to 
+    encrypted your sensitive varibles such as passwords and still allowing SSH to use these passwords their by avoiding the PKI (private key infrastructure)
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q12: Explain Ansible Architecture?
+A12: Basic topology of Ansible Architecture
+
+            --------------------------
+            | ANSIBLE CONTROL SERVER |
+            --------------------------
+                        |
+                        |
+                        |
+                        |
+                        |
+                        V
+            --------------------------
+            |   REMOTE SERVER        |
+            --------------------------
+
+Ansible Control Server: This is where you develop all of the Ansible Playbooks
+Remote Server:  Is the server, which you plan to manage using Ansible
+
+Following are few Must Have requirements
+a.  Ansible Control Server
+    1.  Must have Python 2.6+ but not Python 3
+    2.  The plafform where you install Ansible must be LINUX/ UNIX/ MAC, or Windows 10 or above, since Ansible is supported with powershell 2.0
+b.  Remote Server
+    1.  Must have SSH installed and enabled.
+    2.  Python 2.5+ installed
+
+Following are the 5 major components of Ansible:
+
+            -----------------
+            |   INVENTORY   |
+            -----------------
+                    |
+                    |
+                    V                                                               
+            ----------------- 
+            |   PLAYBOOK    |                                           --------------             |---------SERVER-1    
+            |               |           ---------------------           |            |-------------|---------SERVER-2
+            | PLAY1 ; PLAY2 |---------->|   ANSIBLE CONFIG  |---------->|   PYTHON   |  SSH        |---------SERVER-3
+            -----------------           ---------------------           |            |-------------|---------SERVER-4
+                    ^                                                   --------------             |---------SERVER-5
+                    |
+                    |
+                    |
+            -----------------
+            |   MODULES     |
+            -----------------
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q13: What is Invetory or Ansible Hosts file?
+A13: This is a text file, where you define your hostnames / systems, host level variables, groups, roles and user accounts. This file can also be an 
+    executable script to get the data, and avoids needing a database to manage the hostnames/ variables/ groups / user accounts etc.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q14: What are modules in Ansible?
+A14: Modules are the command center of the system, you cannot perform any kind of work without the modules. Each module has a certain set of actions that 
+    you can perform. Some modules are built into the core of the product, and are called CORE-MODULES, meaning Ansible Developers will fully support such 
+    modules. Other modules are called EXTRA(s) meaning, they are a part of Ansible, but were developed by third parties to support certain tasks. At a high 
+    level, you can saym 'A Module is a programmed unit of work to be done'. for e.g. YUM in RedHat vs APT in Debian are installation modules
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q15: What are playbooks in Ansible?
+A15: Playbook brings the inventory and the modules together. Playbook consists of individual plays to executed in a perdefined order.
+    A PLAY can be a SINGLE or a SET OF TASKS to be executed on a defined set of hosts 
+    A PLAYBOOK is a set of plays built in specific order sequence to produce an expected outcome or outcomes across many different sets of hosts.
+    e.g. such as installing a software or copying files or renaming variables
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q16: What is Ansible Config file?
+A16: The ansible-config utility allows users to see all the configuration settings available, their defaults, how to set them and where their current value 
+    comes from. Ansible utilizes Inventory; modules; Playbook and Ansible config file to build a package using the python framework to be delivered to the 
+    remote system for execution.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q17: What are different types of variables in Ansible?
+A17: Their are three types of variables in Ansible
+    a.  Host Variables      :   These are user variables defined in the INVENTORY Fiel per host or group 
+    b.  Facts               :   These are data gathered from the remote managed host, like IP Address ; Hostname; etc
+    c.  Dynamic Variables   :   These are data gathered by tasks or created at runtime (based on one system or another, reuse it for another task and then 
+                                discard it), and are destroyed once playbook execution is completed.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+Q18: How many Execution types are their in Ansible?
+A18: Their are two types of Execution in Ansible
+    a.  REMOTE  :   This is the default execution type, where the bundled python package is deployed to the remote systemd and executed.
+    b.  LOCAL   :   This means the local ansible server is executed the package.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
