@@ -1,0 +1,63 @@
+samarth@optiplex:~/hands-on-ansible/exercise-0001$ ansible odb21c -i e001-inventory -u oracle -m ping -k -vvv
+ansible 2.10.8
+  config file = None
+  configured module search path = ['/home/samarth/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0]
+No config file found; using defaults
+SSH password: 
+host_list declined parsing /home/samarth/hands-on-ansible/exercise-0001/e001-inventory as it did not pass its verify_file() method
+script declined parsing /home/samarth/hands-on-ansible/exercise-0001/e001-inventory as it did not pass its verify_file() method
+auto declined parsing /home/samarth/hands-on-ansible/exercise-0001/e001-inventory as it did not pass its verify_file() method
+Parsed /home/samarth/hands-on-ansible/exercise-0001/e001-inventory inventory source with ini plugin
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+META: ran handlers
+<odb21c> ESTABLISH SSH CONNECTION FOR USER: oracle
+<odb21c> SSH: EXEC sshpass -d10 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a odb21c '/bin/sh -c '"'"'echo ~oracle && sleep 0'"'"''
+<odb21c> (0, b'/home/oracle\n', b'')
+<odb21c> ESTABLISH SSH CONNECTION FOR USER: oracle
+<odb21c> SSH: EXEC sshpass -d10 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a odb21c '/bin/sh -c '"'"'( umask 77 && mkdir -p "` echo /home/oracle/.ansible/tmp `"&& mkdir "` echo /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762 `" && echo ansible-tmp-1676172170.048839-107889-74237259097762="` echo /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762 `" ) && sleep 0'"'"''
+<odb21c> (0, b'ansible-tmp-1676172170.048839-107889-74237259097762=/home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762\n', b'')
+<odb21c> Attempting python interpreter discovery
+<odb21c> ESTABLISH SSH CONNECTION FOR USER: oracle
+<odb21c> SSH: EXEC sshpass -d10 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a odb21c '/bin/sh -c '"'"'echo PLATFORM; uname; echo FOUND; command -v '"'"'"'"'"'"'"'"'/usr/bin/python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.9'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.8'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python3.5'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.7'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python2.6'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/libexec/platform-python'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'/usr/bin/python3'"'"'"'"'"'"'"'"'; command -v '"'"'"'"'"'"'"'"'python'"'"'"'"'"'"'"'"'; echo ENDFOUND && sleep 0'"'"''
+<odb21c> (0, b'PLATFORM\nLinux\nFOUND\n/usr/bin/python\n/usr/bin/python2.7\n/usr/libexec/platform-python\n/usr/bin/python\nENDFOUND\n', b'')
+<odb21c> ESTABLISH SSH CONNECTION FOR USER: oracle
+<odb21c> SSH: EXEC sshpass -d10 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a odb21c '/bin/sh -c '"'"'/usr/bin/python && sleep 0'"'"''
+<odb21c> (0, b'{"osrelease_content": "NAME=\\"Oracle Linux Server\\"\\nVERSION=\\"7.9\\"\\nID=\\"ol\\"\\nID_LIKE=\\"fedora\\"\\nVARIANT=\\"Server\\"\\nVARIANT_ID=\\"server\\"\\nVERSION_ID=\\"7.9\\"\\nPRETTY_NAME=\\"Oracle Linux Server 7.9\\"\\nANSI_COLOR=\\"0;31\\"\\nCPE_NAME=\\"cpe:/o:oracle:linux:7:9:server\\"\\nHOME_URL=\\"https://linux.oracle.com/\\"\\nBUG_REPORT_URL=\\"https://bugzilla.oracle.com/\\"\\n\\nORACLE_BUGZILLA_PRODUCT=\\"Oracle Linux 7\\"\\nORACLE_BUGZILLA_PRODUCT_VERSION=7.9\\nORACLE_SUPPORT_PRODUCT=\\"Oracle Linux\\"\\nORACLE_SUPPORT_PRODUCT_VERSION=7.9\\n", "platform_dist_result": ["oracle", "7.9", ""]}\n', b'')
+<odb21c> Python interpreter discovery fallback (unsupported Linux distribution: oracle)
+Using module file /usr/lib/python3/dist-packages/ansible/modules/ping.py
+<odb21c> PUT /home/samarth/.ansible/tmp/ansible-local-107679qssxa8ys/tmpcst6mzj5 TO /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762/AnsiballZ_ping.py
+<odb21c> SSH: EXEC sshpass -d10 sftp -o BatchMode=no -b - -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a '[odb21c]'
+<odb21c> (0, b'sftp> put /home/samarth/.ansible/tmp/ansible-local-107679qssxa8ys/tmpcst6mzj5 /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762/AnsiballZ_ping.py\n', b'')
+<odb21c> ESTABLISH SSH CONNECTION FOR USER: oracle
+<odb21c> SSH: EXEC sshpass -d10 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a odb21c '/bin/sh -c '"'"'chmod u+x /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762/ /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762/AnsiballZ_ping.py && sleep 0'"'"''
+<odb21c> (0, b'', b'')
+<odb21c> ESTABLISH SSH CONNECTION FOR USER: oracle
+<odb21c> SSH: EXEC sshpass -d10 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a -tt odb21c '/bin/sh -c '"'"'/usr/bin/python /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762/AnsiballZ_ping.py && sleep 0'"'"''
+<odb21c> (0, b'\r\n{"invocation": {"module_args": {"data": "pong"}}, "ping": "pong"}\r\n', b'Shared connection to odb21c closed.\r\n')
+<odb21c> ESTABLISH SSH CONNECTION FOR USER: oracle
+<odb21c> SSH: EXEC sshpass -d10 ssh -C -o ControlMaster=auto -o ControlPersist=60s -o 'User="oracle"' -o ConnectTimeout=10 -o ControlPath=/home/samarth/.ansible/cp/0ff67b890a odb21c '/bin/sh -c '"'"'rm -f -r /home/oracle/.ansible/tmp/ansible-tmp-1676172170.048839-107889-74237259097762/ > /dev/null 2>&1 && sleep 0'"'"''
+<odb21c> (0, b'', b'')
+[WARNING]: Platform linux on host odb21c is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change the meaning of that path.
+See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+odb21c | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "invocation": {
+        "module_args": {
+            "data": "pong"
+        }
+    },
+    "ping": "pong"
+}
+META: ran handlers
+META: ran handlers
+samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
+
+Level 3 debug (-vvv) provides the highest level of detail when running ansible commands.
