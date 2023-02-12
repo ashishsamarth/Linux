@@ -31,3 +31,12 @@
     g.  -m              :   Is the switch to indicate the command you want to run
     h.  ping            :   Command that will run on the remote host
     i.  -k              :   Switch for ansible to ask for host password
+
+    Ansible provides a JSON output in the result:
+        odb21c | SUCCESS => {
+        "ansible_facts": {
+            "discovered_interpreter_python": "/usr/bin/python"
+        },
+        "changed": false,
+        "ping": "pong"
+        }
