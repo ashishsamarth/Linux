@@ -7,3 +7,18 @@
     samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
 
 2.  If you want to run the ansible command on a specific host in the inventory file, it will look like the following
+
+    samarth@optiplex:~/hands-on-ansible/exercise-0001$ ansible odb21c -i e001-inventory -u oracle -m ping -k
+    SSH password: 
+    [WARNING]: Platform linux on host odb21c is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change the meaning of that path.
+    See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+    odb21c | SUCCESS => {
+        "ansible_facts": {
+            "discovered_interpreter_python": "/usr/bin/python"
+        },
+        "changed": false,
+        "ping": "pong"
+    }
+    samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
+
+    Special Notes:
