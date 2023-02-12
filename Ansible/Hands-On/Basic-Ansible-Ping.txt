@@ -29,3 +29,5 @@
     e.  -u              :   Is the switch to provide the username
     f.  oracle          :   Is the username for the remote machine
     g.  -m              :   Is the switch to indicate the command you want to run
+    h.  ping            :   Command that will run on the remote host
+    i.  -k              :   Switch for ansible to ask for host password
