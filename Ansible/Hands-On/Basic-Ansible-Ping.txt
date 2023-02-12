@@ -22,6 +22,7 @@
     samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
 
     Special Notes:
-    a.  ansible :   Keyword that you must use
-    b.  odb21c  :   Hostname of the host you want to manage remotely using ansible control server
-    c.  
+    a.  ansible         :   Keyword that you must use
+    b.  odb21c          :   Hostname of the host you want to manage remotely using ansible control server
+    c.  -i              :   Is the switch in ansible to indicate the use of inventory file
+    d.  e001-inventory  :   
