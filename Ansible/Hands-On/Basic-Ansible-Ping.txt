@@ -22,3 +22,6 @@
     samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
 
     Special Notes:
+    a.  ansible :   Keyword that you must use
+    b.  odb21c  :   Hostname of the host you want to manage remotely using ansible control server
+    c.  
