@@ -26,3 +26,6 @@
     b.  odb21c          :   Hostname of the host you want to manage remotely using ansible control server
     c.  -i              :   Is the switch in ansible to indicate the use of inventory file
     d.  e001-inventory  :   Name of the inventory file to be used, running in the current directory
+    e.  -u              :   Is the switch to provide the username
+    f.  oracle          :   Is the username for the remote machine
+    g.  -m              :   Is the switch to indicate the command you want to run
