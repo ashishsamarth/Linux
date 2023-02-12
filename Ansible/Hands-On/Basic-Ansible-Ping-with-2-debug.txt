@@ -1,0 +1,28 @@
+samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
+samarth@optiplex:~/hands-on-ansible/exercise-0001$ ansible odb21c -i e001-inventory -u oracle -m ping -k -vv
+ansible 2.10.8
+  config file = None
+  configured module search path = ['/home/samarth/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python3/dist-packages/ansible
+  executable location = /usr/bin/ansible
+  python version = 3.10.6 (main, Nov 14 2022, 16:10:14) [GCC 11.3.0]
+No config file found; using defaults
+SSH password: 
+Skipping callback 'default', as we already have a stdout callback.
+Skipping callback 'minimal', as we already have a stdout callback.
+Skipping callback 'oneline', as we already have a stdout callback.
+META: ran handlers
+[WARNING]: Platform linux on host odb21c is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change the meaning of that path.
+See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+odb21c | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+META: ran handlers
+META: ran handlers
+samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
+
+With level-2 debug, you will see additional info about the activities that happen in the background, while ansible control server tries to run the command on remote host
