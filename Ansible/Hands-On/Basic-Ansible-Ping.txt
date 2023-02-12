@@ -5,3 +5,5 @@
     vboxol79
     odb21c
     samarth@optiplex:~/hands-on-ansible/exercise-0001$ 
+
+2.  If you want to run the ansible command on a specific host in the inventory file, it will look like the following
