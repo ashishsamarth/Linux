@@ -1,1 +1,2 @@
 1.  Create a directory to hold the inventory file, so that its easy to run the ansible command from the current directory
+    A basic inventory file will have the hostnames, following is a sample
