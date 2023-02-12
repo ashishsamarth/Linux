@@ -25,4 +25,4 @@
     a.  ansible         :   Keyword that you must use
     b.  odb21c          :   Hostname of the host you want to manage remotely using ansible control server
     c.  -i              :   Is the switch in ansible to indicate the use of inventory file
-    d.  e001-inventory  :   
+    d.  e001-inventory  :   Name of the inventory file to be used, running in the current directory
