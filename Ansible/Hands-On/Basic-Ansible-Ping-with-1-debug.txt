@@ -1,0 +1,15 @@
+samarth@optiplex:~/hands-on-ansible/exercise-0001$ ansible odb21c -i e001-inventory -u oracle -m ping -k -v
+No config file found; using defaults
+SSH password:
+ 
+[WARNING]: Platform linux on host odb21c is using the discovered Python interpreter at /usr/bin/python, but future installation of another Python interpreter could change the meaning of that path.
+See https://docs.ansible.com/ansible/2.10/reference_appendices/interpreter_discovery.html for more information.
+odb21c | SUCCESS => {
+    "ansible_facts": {
+        "discovered_interpreter_python": "/usr/bin/python"
+    },
+    "changed": false,
+    "ping": "pong"
+}
+
+Basic Ping with first debug level does not provide a lot of data, but for different commands it will provide some data
