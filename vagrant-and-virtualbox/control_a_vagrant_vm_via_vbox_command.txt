@@ -42,7 +42,7 @@ Assumption:- The Vagrant vm(s) are currently in running state
     State:                       powered off (since 2023-01-10T19:13:23.507000000)
     [devops@sandbox vagrant]$
 
-4.  To resume a particular pused vm, execute the following command
+4.  To resume a particular paused vm, execute the following command
     vboxmanage controlvm vagrant_fedora_1673376838770_43229 resume
 
     To veify if it was indeed resumed, execute the following command
@@ -59,3 +59,6 @@ Assumption:- The Vagrant vm(s) are currently in running state
 
 Note: Additional Control options via vboxmanage are listed here
     https://docs.oracle.com/en/virtualization/virtualbox/6.0/user/vboxmanage-controlvm.html
+
+5.  To start a particular vm, execute the following command
+    vboxmanage startvm <vmname>
