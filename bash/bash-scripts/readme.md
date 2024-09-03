@@ -1,0 +1,1 @@
+This location has all the regular bash scripts
