@@ -1,0 +1,26 @@
+Login as root
+
+edit grub configuration:
+vi /etc/default/grub
+
+Modify the GRUB_TIMEOUT Parameter from 5 to 0
+  
+--Old config
+GRUB_TIMEOUT=5
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="nomodeset crashkernel=auto rhgb quiet"
+GRUB_DISABLE_RECOVERY="true"
+
+--New config
+GRUB_TIMEOUT=0
+GRUB_DISTRIBUTOR="$(sed 's, release .*$,,g' /etc/system-release)"
+GRUB_DEFAULT=saved
+GRUB_DISABLE_SUBMENU=true
+GRUB_TERMINAL_OUTPUT="console"
+GRUB_CMDLINE_LINUX="nomodeset crashkernel=auto rhgb quiet"
+GRUB_DISABLE_RECOVERY="true"
+
+Save the file.
