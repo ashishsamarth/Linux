@@ -24,3 +24,17 @@ GRUB_CMDLINE_LINUX="nomodeset crashkernel=auto rhgb quiet"
 GRUB_DISABLE_RECOVERY="true"
 
 Save the file.
+
+Regenerate the Grub configuration by executing the following command:
+grub2-mkconfig -o /boot/grub2/grub.cfg
+
+--Output:
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-5.4.17-2102.201.3.el7uek.x86_64
+Found initrd image: /boot/initramfs-5.4.17-2102.201.3.el7uek.x86_64.img
+Found linux image: /boot/vmlinuz-3.10.0-1160.el7.x86_64
+Found initrd image: /boot/initramfs-3.10.0-1160.el7.x86_64.img
+Found linux image: /boot/vmlinuz-0-rescue-e22514163b991743bb222a783d74827c
+Found initrd image: /boot/initramfs-0-rescue-e22514163b991743bb222a783d74827c.img
+done
+[root@mdbvm ashish]#
